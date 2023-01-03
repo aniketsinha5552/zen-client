@@ -38,7 +38,7 @@ export default function Home({user,setLoginUser,setThemes}) {
 
   function saveList(){
     const { username,email,password}= user  
-    axios.post("http://localhost:5000/update", {
+    axios.post("https://zen-server-production.up.railway.app/update", {
            username,
            email ,
            password,

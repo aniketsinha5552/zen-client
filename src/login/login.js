@@ -20,7 +20,7 @@ export default function Login({setLoginUser}) {
     }
 
     function login(){
-      axios.post("http://localhost:5000/login", user)
+      axios.post("https://zen-server-production.up.railway.app/login", user)
       .then(res=>{
         // alert(res.data.message)
         setLoginUser(res.data.user)

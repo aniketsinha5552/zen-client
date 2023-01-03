@@ -36,7 +36,7 @@ function register(){
     const { username,email,password, confirmPassword}= user
     if(username && email && password && password=== confirmPassword){
         
-        axios.post("http://localhost:5000/register", {
+        axios.post("https://zen-server-production.up.railway.app/register", {
             username,
             email ,
             password
