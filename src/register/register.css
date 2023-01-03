@@ -1,0 +1,13 @@
+.register{
+    display: grid;
+    place-content: center;
+    margin-top: 30px;
+}
+
+#loginHead{
+  text-align: center;
+}
+
+#registerRedirect{
+    text-align: center;
+}

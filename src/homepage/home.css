@@ -1,0 +1,77 @@
+.heading>span>button{
+    background-color: transparent;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family: 'VT323', monospace;
+    background-color: transparent;
+    border: none;
+}
+.heading{
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+}
+
+.heading>span>button:hover{
+    
+    cursor: pointer;
+}
+
+.todoList{
+    /* border: 1px solid rgb(132, 121, 121); */
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* box-shadow: 3px 3px 2px rgb(108, 104, 104); */
+    flex: 0.3;
+    align-self: start;
+}
+
+.todoList>input{
+    border: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 2px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 2px;
+}
+
+.todoList>button{
+    background-color: transparent;
+    border: none;
+    margin-top: 2px;
+}
+.todoList>button:hover{
+    cursor: pointer;
+}
+
+#addTodo{
+    border: none;
+    background-color: transparent;
+}
+#addTodo:hover{
+    cursor: pointer;
+}
+
+.body{
+    display: flex;
+    flex-direction: row;
+}
+
+@media all and (max-width:500px){
+    .body{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}

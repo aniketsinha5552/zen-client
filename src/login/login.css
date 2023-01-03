@@ -1,0 +1,31 @@
+.login{
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+    padding: 10px 10px;
+}
+#loginForm{
+    display: grid;
+    place-items: center;
+    font-family: 'VT323', monospace;
+    
+}
+#loginForm>input{
+    font-family: 'VT323', monospace;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+#loginBtn{
+    width: fit-content;
+    place-self: center;
+    font-family: 'VT323', monospace;
+    background-color: transparent;
+    border: 3px solid black;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#loginBtn:hover{
+    cursor: pointer;
+}

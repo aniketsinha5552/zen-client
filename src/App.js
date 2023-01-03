@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Home from "./homepage/home";
+import Login from "./login/login";
+import Register from "./register/register";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [user,setLoginUser]= useState({
+    "username":"",
+    "email":"",
+    "password":"",
+    "todo": []
+  })
+
+  const [themes, setThemes] = useState("#d1e8e2")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app" style={{backgroundColor:`${themes}`}}>
+      <Router>
+        <Routes>
+          <Route exact path="/" 
+             element={user && user._id? <Home user={user} setLoginUser={setLoginUser} setThemes={setThemes}/>: <Login setLoginUser={setLoginUser}/>}>
+
+          </Route>
+          <Route exact path="/register" element={<Register />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,26 @@
+.themeOut{
+    flex: 0.1;
+    align-self: start;
+}
+.themes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.themes>button{
+    height: 25px;
+    width: 25px;
+    border-radius: 12.5px;
+    border: none;
+    box-shadow: 2px 2px 2px black;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.themes>button:hover{
+    cursor: pointer;
+}

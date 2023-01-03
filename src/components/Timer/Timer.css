@@ -1,0 +1,23 @@
+.timer>button{
+    background-color: transparent;
+    border: none;
+}
+
+.timer{
+   box-shadow: 3px 3px 2px black;
+   border-radius: 5px;
+   border: 1px solid black;
+   padding: 5px 5px;
+   font-size: large;
+   /* margin-right: 20px; */
+   /* margin-left: 20px; */
+   /* margin-top: 20px; */
+   flex: 0.4;
+   width: fit-content;
+}
+
+#timerTime{
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

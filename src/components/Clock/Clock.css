@@ -1,0 +1,8 @@
+.clock{
+    font-size: 30px;
+    margin-left: 30px;
+    box-shadow: 2px 2px 2px black;
+    width: fit-content;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
