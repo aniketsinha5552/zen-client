@@ -18,9 +18,11 @@ export default function Login({setLoginUser}) {
           }
          
     }
-
+  
+    // local= http://localhost:5000/
+    // deploy= https://zen-server-production.up.railway.app/
     function login(){
-      axios.post("https://zen-server-production.up.railway.app/login", user)
+      axios.post("http://localhost:5000/login", user)
       .then(res=>{
         // alert(res.data.message)
         setLoginUser(res.data.user)

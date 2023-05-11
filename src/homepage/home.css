@@ -27,6 +27,7 @@
     /* box-shadow: 3px 3px 2px rgb(108, 104, 104); */
     flex: 0.3;
     align-self: start;
+    vertical-align: middle;
 }
 
 .todoList>input{
