@@ -1,8 +1,13 @@
 .clock{
     font-size: 30px;
-    margin-left: 30px;
-    box-shadow: 2px 2px 2px black;
-    width: fit-content;
+    margin-left: 0px;
+    box-shadow: 2px 2px 2px rgb(52, 51, 51);
+    width: 300px;
     padding: 5px 5px;
-    border-radius: 5px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    height: 40px;
+    display: grid;
+    place-items: center;
 }
