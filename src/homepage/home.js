@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useId, useState,useContext,createContext } from "react";
 import "./home.css";
 import axios from "axios";
 import Timer from "../components/Timer/Timer";
@@ -13,9 +13,28 @@ import Weather from "../components/Weather";
 import { weatherCardStyle } from "../components/Weather";
 import { IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
+import { useNavigate } from "react-router-dom";
+import { newShade } from "../App";
 
-export default function Home({ user, setLoginUser, setThemes }) {
+const triviaStyle = {
+  fontSize: "30px",
+  marginBottom: "20px",
+  boxShadow: "2px 2px 2px rgb(52, 51, 51)",
+  width: "300px",
+  padding: "5px 5px",
+  borderRadius: "50px",
+  marginTop: "10px",
+  textAlign: "center",
+  height:"40px",
+
+}
+
+export const themeContext = createContext()
+
+export default function Home({ user, setLoginUser, setThemes, themes }) {
+  const navigate = useNavigate();
   const [todo, setTodo] = useState(user.todo);
+  
   const todoList = todo.map((item, index) => {
     return (
       <ul key={index}>
@@ -76,22 +95,35 @@ export default function Home({ user, setLoginUser, setThemes }) {
   }, []);
 
   return (
+    <themeContext.Provider value={{user,themes,setThemes}}>
     <div className="home">
-      <h1 style={{ textAlign: "center", marginTop: "-10px" }}>Zen ☯️</h1>
-
       <div className="heading">
-        <span>welcome back, {user.username}</span>
-        <span>
-          <button title="logout" onClick={() => setLoginUser({})}>
-            <ExitToAppIcon />
-          </button>
-        </span>
+        <h1
+          style={{ textAlign: "left", marginTop: "-10px", marginLeft: "30px" }}
+        >
+          Zen ☯️{" "}
+          <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
+            your virtual study environment
+          </small>
+        </h1>
+        <div>
+          <span>welcome back, {user.username}</span>
+          <span>
+            <IconButton
+              title="logout"
+              style={{ backgroundColor: { themes } }}
+              onClick={() => setLoginUser({})}
+            >
+              <ExitToAppIcon />
+            </IconButton>
+          </span>
+        </div>
       </div>
 
-      <Weather weatherData={weatherData} />
-      <Clock />
       <div className="body">
         <div className="todoList">
+          <Weather weatherData={weatherData} />
+          <Clock />
           <Timer />
 
           <h3 style={{ marginTop: "35px" }}>To-do List</h3>
@@ -111,10 +143,10 @@ export default function Home({ user, setLoginUser, setThemes }) {
           {todoList}
         </div>
         <MediaPlayer />
-        <div style={{flex:0.3}}>
-          <div style={weatherCardStyle}>
+        <div style={{ flex: 0.3 }}>
+          <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
             💡Trivia Game
-            <IconButton>
+            <IconButton onClick={() => navigate("/trivia")}>
               <Icon icon="material-symbols:play-arrow" />
             </IconButton>
           </div>
@@ -128,5 +160,6 @@ export default function Home({ user, setLoginUser, setThemes }) {
         </span>
       </footer>
     </div>
+    </themeContext.Provider>
   );
 }

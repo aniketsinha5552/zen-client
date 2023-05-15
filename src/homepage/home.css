@@ -1,3 +1,6 @@
+.home{
+    padding: 30px 30px;
+}
 .heading>span>button{
     background-color: transparent;
     margin-left: 10px;
@@ -9,7 +12,8 @@
 .heading{
    display: flex;
    flex-direction: row;
-   justify-content: flex-end;
+   justify-content: space-between;
+   margin-bottom: 20px;
 }
 
 .heading>span>button:hover{

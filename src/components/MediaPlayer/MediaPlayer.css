@@ -1,5 +1,5 @@
 audio{
-    width: 100%;
+    width: 70%;
 }
 audio::-webkit-media-controls-panel {
     background-color: #90afb9;
@@ -44,6 +44,12 @@ audio::-webkit-media-controls-panel {
     padding-left: 8px;
     padding-right: 8px;
   }
+  audio::-webkit-media-controls-seek-forward-button{
+    background-color: #B1D4E0;
+    border-radius: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 
   .music>span{
     text-align: center;
@@ -65,8 +71,9 @@ audio::-webkit-media-controls-panel {
 
   .music>img{
     place-self: center;
-    border: 5px solid black;
-    height: 300px;
+    border: 0px solid gray;
+    height: 400px;
+    border-radius: 5px;
   }
 
   .music>audio{
@@ -76,12 +83,13 @@ audio::-webkit-media-controls-panel {
   #refreshGif{
     background-color: transparent;
     width: 40px;
+    height: 40px;
     place-self: center;
-    border-radius: 5px;
+    border-radius: 20px;
     border: 1px solid transparent;
     margin-top:5px;
   }
   #refreshGif:hover{
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid transparent;
   }
