@@ -1,4 +1,4 @@
-import React, { useState ,createContext} from "react";
+import React, { useState ,createContext,useEffect} from "react";
 import Home from "./homepage/home";
 import Login from "./login/login";
 import Register from "./register/register";
@@ -28,12 +28,8 @@ export const newShade = (hexColor, magnitude) => {
 
 
 function App() {
-  const [user,setLoginUser]= useState({
-    "username":"",
-    "email":"",
-    "password":"",
-    "todo": []
-  })
+  const [user,setLoginUser]= useState(localStorage.getItem("user"))
+  
 
   const [themes, setThemes] = useState("#d1e8e2")
   return (
@@ -41,11 +37,12 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" 
-             element={user && user._id? <Home user={user} setLoginUser={setLoginUser} setThemes={setThemes} themes={themes}/>: <Login setLoginUser={setLoginUser}/>}>
+             element={user ? <Home user={user} setLoginUser={setLoginUser} setThemes={setThemes} themes={themes}/>: <Login setLoginUser={setLoginUser}/>}>
 
           </Route>
           <Route exact path="/register" element={<Register />}></Route>
-          <Route exact path="/trivia" element={<Trivia />}></Route>
+          {/* <Route exact path="/login" element={<Login />}></Route> */}
+          <Route exact path="/trivia" element={user? <Trivia />: <Login setLoginUser={setLoginUser}/>}></Route>
         </Routes>
       </Router>
     </div>

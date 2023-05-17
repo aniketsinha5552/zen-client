@@ -23,7 +23,7 @@ const triviaStyle = {
   width: "300px",
   padding: "5px 5px",
   borderRadius: "50px",
-  marginTop: "10px",
+  marginTop: "20px",
   textAlign: "center",
   height:"40px",
 
@@ -32,10 +32,11 @@ const triviaStyle = {
 export const themeContext = createContext()
 
 export default function Home({ user, setLoginUser, setThemes, themes }) {
+  const currUser = JSON.parse(user);
   const navigate = useNavigate();
-  const [todo, setTodo] = useState(user.todo);
-  
-  const todoList = todo.map((item, index) => {
+  const [todo, setTodo] = useState(currUser.todo);
+
+  const todoList = todo?.map((item, index) => {
     return (
       <ul key={index}>
         <li>
@@ -69,7 +70,7 @@ export default function Home({ user, setLoginUser, setThemes, themes }) {
   }
 
   function saveList() {
-    const { username, email, password } = user;
+    const { username, email, password } = currUser;
 
     axios
       .post("http://localhost:5000/update", {
@@ -107,12 +108,12 @@ export default function Home({ user, setLoginUser, setThemes, themes }) {
           </small>
         </h1>
         <div>
-          <span>welcome back, {user.username}</span>
+          <span>welcome back, {currUser.username}</span>
           <span>
             <IconButton
               title="logout"
               style={{ backgroundColor: { themes } }}
-              onClick={() => setLoginUser({})}
+              onClick={() => {localStorage.removeItem("user");window.location.reload()}}
             >
               <ExitToAppIcon />
             </IconButton>
@@ -143,7 +144,7 @@ export default function Home({ user, setLoginUser, setThemes, themes }) {
           {todoList}
         </div>
         <MediaPlayer />
-        <div style={{ flex: 0.3 }}>
+        <div style={{ flex: 0.3,marginTop:"20px" }}>
           <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
             💡Trivia Game
             <IconButton onClick={() => navigate("/trivia")}>

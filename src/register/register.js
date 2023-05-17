@@ -55,9 +55,12 @@ function register(){
 
   return (
     <div className='register'>
-         <h1 style={{textAlign:"center",marginTop:"-20px"}}>Zen ☯️</h1>
+         <h1 style={{textAlign:"center"}} >Zen ☯️ <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
+            your virtual study environment
+          </small></h1>
+    <form >
+    <div id='loginForm'>
     <h1 id='loginHead'>Register</h1>
-    <form id='loginForm'>
         <input id='username' placeholder='Email' value={user.email} onChange={HandleChange}></input>
         <br/>
         <input id='username' placeholder='Username' value={user.username} onChange={HandleChange}></input>
@@ -67,8 +70,9 @@ function register(){
         <input id='username' placeholder='Confirm Password' value={user.confirmPassword} onChange={HandleChange}></input>
         <br/>
         <button id="loginBtn" type="button" title="Register"onClick={register}>Register</button>
-    </form>
     <span id="registerRedirect">Already a user? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/">Login</a></span>
+        </div>
+    </form>
 </div>
   )
 }
