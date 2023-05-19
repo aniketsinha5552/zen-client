@@ -1,46 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState,useNavigate } from 'react'
 import './login.css'
 import axios from 'axios'
+import {auth} from '../firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useForm } from 'react-hook-form'
 
-export default function Login({setLoginUser}) {
-  
-    const [user, setUser]= useState({
-        email:"",
-        password:""
-    })
-    
-    function HandleUser(e){
-          if(e.target.placeholder==='Email'){
-            setUser({...user,email:e.target.value})
-          }
-          else if(e.target.placeholder==='Password'){
-            setUser({...user,password:e.target.value})
-          }
-         
-    }
-  
-    // local= http://localhost:5000/
-    // deploy= https://zen-server-production.up.railway.app/
-    function login(){
-      axios.post("http://localhost:5000/login", user)
-      .then(res=>{
-        // alert(res.data.message)
-        setLoginUser(res.data.user)
-      })
-    }
+export default function Login({setUser}) {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset
+      } = useForm();
+
+      const loginUser = (data) => {
+        signInWithEmailAndPassword(auth,data.email, data.pass).then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          setUser({
+            email:user.email,
+            username:user.displayName,
+            id:user.uid
+          })
+          
+        }).catch((error) => {
+          alert(error.message)
+        })
+      }
+   
 
   return (
     <div className='login'>
-       <h1 style={{textAlign:"center",marginTop:"-20px"}}>Zen ☯️</h1>
+       <h1  >Zen ☯️ <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
+            your virtual study environment
+          </small></h1>
+        <form onSubmit={handleSubmit(loginUser)} >
+        <div id='loginForm'>
         <h1 id='loginHead'>Login</h1>
-        <form id='loginForm'>
-            <input id='username' placeholder='Email' onChange={HandleUser}></input>
-            <br/>
-            <input id='password' type="password" placeholder='Password' onChange={HandleUser}></input>
-            <br/>
-            <button id="loginBtn" type='button' title="Login" onClick={login}>Login</button>
+            <input id='username' placeholder='Email' {...register("email",{required:true})}></input>
+            <input id='password' type="password" placeholder='Password' {...register("pass",{required:true})} ></input>
+            <button id="loginBtn" title="Login" >Login</button>
+            <span id="registerRedirect">Not a User? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/register">Register</a></span>
+        </div>
         </form>
-        <span id="registerRedirect">Not a User? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/register">Register</a></span>
+      
     </div>
   )
 }

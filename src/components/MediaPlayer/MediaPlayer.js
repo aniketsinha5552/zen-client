@@ -1,24 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import zen_music from "./zen_music.mp3";
 import "./MediaPlayer.css";
-import one from "./gifs/cat.gif";
+import seven from "./gifs/cat.gif";
 import two from "./gifs/clouds.gif";
 import three from "./gifs/coffee.gif";
 import four from "./gifs/fish.gif";
 import five from "./gifs/leaf-cafe.gif";
 import six from "./gifs/lofi.gif";
-import seven from "./gifs/rain.gif";
+import one from "./gifs/rain.gif";
 import eight from "./gifs/room.gif";
 import nine from "./gifs/table.gif";
 import ten from "./gifs/vending.gif";
 import trippy from "./gifs/trippy.gif";
 import monke from "./gifs/monke.gif";
-import RefreshIcon from "@mui/icons-material/Refresh";
 import { Icon } from "@iconify/react";
 import { IconButton } from "@mui/material";
 import { themeContext } from "../../homepage/home";
 import { newShade } from "../../App";
-import ReactAudioPlayer from "react-audio-player";
 import { useRef } from "react";
 
 export default function MediaPlayer() {
@@ -72,7 +70,7 @@ export default function MediaPlayer() {
 
   return (
     <div className="music">
-      <span style={{fontSize:"20px",color:newShade(theme,-60)}}>Lo-Fi Music</span>
+      <span style={{fontSize:"20px",color:newShade(theme,-80)}}>Lo-Fi Music</span>
       <div
         style={{
           display: "flex",
@@ -98,7 +96,7 @@ export default function MediaPlayer() {
         </IconButton>
       </div>
       <img
-        style={{ boxShadow: `4px 4px 3px ${newShade(theme, -50)}` }}
+        style={{ boxShadow: `0px 0px 10px 0px #5A5A5A` }}
         src={gif}
       ></img>
       <div style={{display:"grid",placeItems:"center"}}>
@@ -109,7 +107,7 @@ export default function MediaPlayer() {
         style={{ backgroundColor: newShade(theme, 10), marginTop: "10px" ,width:"40px",height:"40px"}}
       >
         <Icon
-          style={{ fontSize: "30px", color: newShade(theme, -90) }}
+          style={{ fontSize: "30px", color: "#5A5A5A" }}
           icon="ic:baseline-navigate-next"
         />
       </IconButton>

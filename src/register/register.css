@@ -1,7 +1,8 @@
 .register{
     display: grid;
     place-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    padding: 10px 10px;
 }
 
 #loginHead{
