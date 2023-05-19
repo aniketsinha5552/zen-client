@@ -12,4 +12,3 @@ email: `test@123.com`
 pass: `test@123`
 
 
-![zen-demo](https://user-images.githubusercontent.com/104712880/210377158-3d35dc1b-b92a-4511-ba45-fc31c587a4eb.gif)
