@@ -63,7 +63,7 @@ audio::-webkit-media-controls-panel {
     margin-top: 0px;
     margin-left: 20px;
     margin-right: 20px;
-    padding: 10px 10px;
+    padding: 5px 5px;
     flex: 0.4;
     display: grid;
     align-self: start;

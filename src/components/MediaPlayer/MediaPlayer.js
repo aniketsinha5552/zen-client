@@ -13,12 +13,10 @@ import nine from "./gifs/table.gif";
 import ten from "./gifs/vending.gif";
 import trippy from "./gifs/trippy.gif";
 import monke from "./gifs/monke.gif";
-import RefreshIcon from "@mui/icons-material/Refresh";
 import { Icon } from "@iconify/react";
 import { IconButton } from "@mui/material";
 import { themeContext } from "../../homepage/home";
 import { newShade } from "../../App";
-import ReactAudioPlayer from "react-audio-player";
 import { useRef } from "react";
 
 export default function MediaPlayer() {

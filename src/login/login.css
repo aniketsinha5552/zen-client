@@ -25,6 +25,9 @@
     width: 250px;
     padding: 10px 10px;
 }
+#loginForm>input{
+    margin-bottom: 10px;
+}
 #loginForm>span{
     margin-bottom: 10px;
 }
