@@ -7,6 +7,5 @@ Built using  MERN stack.
 
 Check out the app at: https://zen-lofi.netlify.app/
 
-Backend API: https://zen-server-production.up.railway.app/
 
 ![zen-demo](https://user-images.githubusercontent.com/104712880/210377158-3d35dc1b-b92a-4511-ba45-fc31c587a4eb.gif)
