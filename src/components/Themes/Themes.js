@@ -1,10 +1,11 @@
 import React from "react";
 import "./Themes.css";
+import { Icon } from '@iconify/react';
 
 export default function Themes({ setThemes }) {
   return (
     <div className="themeOut">
-      <h3 style={{textAlign:"left"}}>Themes</h3>
+      <h3 style={{textAlign:"left"}}>Themes <Icon icon="fluent:paint-brush-16-regular" /></h3>
       <div className="themes">
         <button
           id="1"

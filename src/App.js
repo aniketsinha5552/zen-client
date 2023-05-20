@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import Footer from "./Footer";
+import Dino from "./components/Dino";
+
 
 export const newShade = (hexColor, magnitude) => {
   hexColor = hexColor.replace(`#`, ``);
@@ -75,6 +77,11 @@ function App() {
             exact
             path="/trivia"
             element={user ? <Trivia /> : <Login setUser={setUser} />}
+          ></Route>
+          <Route
+            exact
+            path="/dino"
+            element={user ? <Dino/> : <Login setUser={setUser} />}
           ></Route>
         </Routes>
       </Router>

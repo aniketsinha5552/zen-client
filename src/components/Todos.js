@@ -6,7 +6,8 @@ import {
   addDoc,
   deleteDoc,
   doc,
-  getDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { IconButton, List, ListItem } from "@mui/material";
 import { Icon } from "@iconify/react";
@@ -19,10 +20,11 @@ function Todos() {
 
   const [todo, setTodo] = useState([]);
   const todoRef = collection(db, "todos");
+  const q = query(todoRef, where("user", "==", user?.username));
 
   const getTodos = async () => {
     try {
-      const data = await getDocs(todoRef);
+      const data = await getDocs(q);
       const filteredData = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
       });
@@ -54,7 +56,6 @@ function Todos() {
   };
 
   const todoList = todo.map((item) => {
-     if(item.user===user?.username){
     return (
       <ListItem key={item.id}>
         &#x2022; {item.task}
@@ -63,7 +64,7 @@ function Todos() {
         </IconButton>
       </ListItem>
   )}
-  })
+  )
 
   return (
     <div style={{ marginLeft: "5px" }}>
