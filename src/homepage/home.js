@@ -16,8 +16,8 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { newShade } from "../App";
 import Todos from "../components/Todos";
-import { set } from "react-hook-form";
 import { auth } from "../firebase";
+
 
 const triviaStyle = {
   fontSize: "30px",
@@ -67,7 +67,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
             your virtual study environment
           </small>
         </h1>
-        <div>
+        <div style={{fontSize:"20px"}}>
           <span>welcome back, {user.username}</span>
           <span>
             <IconButton
@@ -93,6 +93,12 @@ export default function Home({ user, setUser, setThemes, themes }) {
           <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
             💡Trivia Game
             <IconButton onClick={() => navigate("/trivia")}>
+              <Icon icon="material-symbols:play-arrow" />
+            </IconButton>
+          </div>
+          <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
+             🦖Chrome Dino
+            <IconButton onClick={() => navigate("/dino")}>
               <Icon icon="material-symbols:play-arrow" />
             </IconButton>
           </div>
