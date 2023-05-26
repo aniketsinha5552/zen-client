@@ -21,17 +21,15 @@
     cursor: pointer;
 }
 
-.todoList{
-    /* border: 1px solid rgb(132, 121, 121); */
-    border-radius: 5px;
-    /* padding: 10px 10px; */
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
-    /* box-shadow: 3px 3px 2px rgb(108, 104, 104); */
+.center-column{
+   flex: 0.4;
+}
+.side-column{
     flex: 0.3;
-    align-self: start;
-    vertical-align: middle;
+    /* justify-content: center; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #todoInput{
