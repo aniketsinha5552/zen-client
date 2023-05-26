@@ -44,16 +44,6 @@ export default function Home({ user, setUser, setThemes, themes }) {
     navigate("/");
   }
 
-  const [weatherData, setWeatherData] = useState({});
-  const getWeather = async () => {
-    let res = await axios.get(
-      "http://api.weatherstack.com/current?access_key=ccdfa5213d4545b027a0e8345b8d5f90&query=New%20Delhi"
-    );
-    setWeatherData(res.data);
-  };
-  useEffect(() => {
-    getWeather();
-  }, []);
 
   return (
     <themeContext.Provider value={{user,themes,setThemes}}>
@@ -82,14 +72,16 @@ export default function Home({ user, setUser, setThemes, themes }) {
       </div>
 
       <div className="body">
-        <div className="todoList">
-          <Weather weatherData={weatherData} />
+        <div className="side-column">
           <Clock />
           <Timer />
           <Todos/>
         </div>
+        <div className="center-column">
         <MediaPlayer />
-        <div style={{ flex: 0.3,marginTop:"0px" }}>
+        </div>
+        <div className="side-column">
+        <Weather />
           <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
             💡Trivia Game
             <IconButton onClick={() => navigate("/trivia")}>
