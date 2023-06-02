@@ -7,7 +7,7 @@
   box-shadow: 2px 2px 2px rgb(52, 51, 51);
   border-radius: 5px;
   border: 1px solid transparent;
-  padding: 2px 2px;
+  padding: 10px 10px;
   font-size: large;
   flex: 0.4;
   width: 300px;
@@ -18,4 +18,6 @@
 
 #timerTime {
   font-size: 20px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }

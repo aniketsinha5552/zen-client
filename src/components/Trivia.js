@@ -250,25 +250,23 @@ function Trivia({theme}) {
         )}
         {!gameOver && (
           <>
+          <div style={{textAlign:"right"}}>
             <div
               style={{
-                position: "absolute",
-                bottom: 100,
-                left: 100,
                 fontSize: "20px",
               }}
             >
               <p> Score : {score} </p>
               <p>No of questions : {questions} </p>
             </div>
-
-            <div style={{ position: "absolute", bottom: 100, right: 100 }}>
+            <div>
               <IconButton onClick={restartGame} title="restart game">
                 <Icon icon="codicon:debug-restart" />
               </IconButton>
               <IconButton onClick={changeSettings} title="change game settings">
                 <Icon icon="material-symbols:settings" />
               </IconButton>
+            </div>
             </div>
           </>
         )}
@@ -290,10 +288,11 @@ function Trivia({theme}) {
           textAlign: "center",
           fontWeight: "lighter",
           marginBottom: "10px",
+          marginTop: "-50px",
           padding: "5px",
         }}
       >
-        Test out your knowledge !
+        Test out your knowledge!
       </h2>
       <div
         style={{
