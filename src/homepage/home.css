@@ -42,13 +42,18 @@
     border-radius: 2px;
 }
 
-.todoList>button{
-    background-color: transparent;
-    border: none;
-    margin-top: 2px;
+.todo-list{
+    max-height:300px;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
-.todoList>button:hover{
-    cursor: pointer;
+
+.todo-list::-webkit-scrollbar{
+    width: 5px;
+}
+
+html::-webkit-scrollbar{
+    width: 5px;
 }
 
 #addTodo{

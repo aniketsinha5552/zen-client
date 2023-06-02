@@ -57,8 +57,8 @@ function Todos() {
 
   const todoList = todo.map((item) => {
     return (
-      <ListItem key={item.id}>
-        &#x2022; {item.task}
+      <ListItem sx={{display:"flex", flexDirection:"row", flexWrap:"wrap"}} key={item.id}>
+        <p style={{flex:0.8,marginTop:"2px",flexWrap:"wrap"}}>&#x2022; {item.task} </p>
         <IconButton title="Delete Item" onClick={() => deleteItem(item.id)}>
           <Icon icon="material-symbols:check" />
         </IconButton>
@@ -67,7 +67,7 @@ function Todos() {
   )
 
   return (
-    <div style={{ marginLeft: "5px" }}>
+    <div style={{ marginLeft: "5px" , }}>
       <h2 style={{ marginTop: "35px",fontWeight:"500",marginBottom:"5px",}}>My tasks</h2>
       <input
         placeholder="Add an item"
@@ -79,22 +79,11 @@ function Todos() {
       <IconButton title="Add Item" onClick={addItem}>
         <Icon icon="material-symbols:add" />
       </IconButton>
-      <List>
+      <div className="todo-list" >
+      <List >
         {todoList}
-        {/* {todo.map((item, idx) => {
-          return (
-            <ListItem sx={{ fontSize: "20px" }} key={idx}>
-              {item.task} by {item.user}
-              <IconButton
-                title="Delete Item"
-                onClick={() => deleteItem(item.id)}
-              >
-                <Icon icon="material-symbols:check" />
-              </IconButton>
-            </ListItem>
-          );
-        })} */}
       </List>
+      </div>
     </div>
   );
 }
