@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from "react";
 import Home from "./homepage/home";
 import Login from "./login/login";
 import SignUp from "./register/SignUp";
-import Trivia from "./Trivia";
+import Trivia from "./components/Trivia";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
@@ -10,6 +10,17 @@ import { auth } from "./firebase";
 import Footer from "./Footer";
 import Dino from "./components/Dino";
 
+export const themeColors =[
+  "#afd275",
+  "#edf5e1",
+  "#e98078",
+  "#ffcb9a",
+  "#d1e8e2",
+  "#9d8d8f",
+  "#659dbd",
+  "#379683",
+  "#83677b"
+]
 
 export const newShade = (hexColor, magnitude) => {
   hexColor = hexColor.replace(`#`, ``);
@@ -46,7 +57,7 @@ function App() {
     });
   }, []);
 
-  const [themes, setThemes] = useState("#d1e8e2");
+  const [themes, setThemes] = useState(themeColors[Math.floor(Math.random() * themeColors.length)]);
   return (
     <div className="app" style={{ backgroundColor: `${themes}` }}>
       <Router>
@@ -76,12 +87,12 @@ function App() {
           <Route
             exact
             path="/trivia"
-            element={user ? <Trivia /> : <Login setUser={setUser} />}
+            element={user ? <Trivia theme={themes}/> : <Login setUser={setUser} />}
           ></Route>
           <Route
             exact
             path="/dino"
-            element={user ? <Dino/> : <Login setUser={setUser} />}
+            element={user ? <Dino theme={themes}/> : <Login setUser={setUser} />}
           ></Route>
         </Routes>
       </Router>

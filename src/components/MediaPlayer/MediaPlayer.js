@@ -1,16 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
 import zen_music from "./zen_music.mp3";
 import "./MediaPlayer.css";
-import seven from "./gifs/cat.gif";
-import two from "./gifs/clouds.gif";
-import three from "./gifs/coffee.gif";
-import four from "./gifs/fish.gif";
-import five from "./gifs/leaf-cafe.gif";
-import six from "./gifs/lofi.gif";
-import one from "./gifs/rain.gif";
-import eight from "./gifs/room.gif";
-import nine from "./gifs/table.gif";
-import ten from "./gifs/vending.gif";
+import cat from "./gifs/cat.gif";
+import clouds from "./gifs/clouds.gif";
+import coffee from "./gifs/coffee.gif";
+import fish from "./gifs/fish.gif";
+import leafCafe from "./gifs/leaf-cafe.gif";
+import lofi from "./gifs/lofi.gif";
+import rain from "./gifs/rain.gif";
+import room from "./gifs/room.gif";
+import table from "./gifs/table.gif";
+import vending from "./gifs/vending.gif";
 import trippy from "./gifs/trippy.gif";
 import monke from "./gifs/monke.gif";
 import { Icon } from "@iconify/react";
@@ -21,31 +21,32 @@ import { useRef } from "react";
 
 export default function MediaPlayer() {
   const gifs = [
-    one,
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
+    rain,
+    clouds,
+    coffee,
+    fish,
+    leafCafe,
+    lofi,
+    cat,
+    room,
+    table,
+    vending,
     trippy,
     monke,
   ];
-  const [currentGif, setCurrentGif] = useState(0);
-  const [gif, setGif] = useState(gifs[currentGif]);
+  // const [currentGif, setCurrentGif] = useState(0);
+  const [gif, setGif] = useState(gifs[Math.floor(Math.random() * gifs.length)]);
   const contextData = useContext(themeContext);
   const theme = contextData.themes;
 
   const navNextGif = () => {
+    const currentGif = gifs.indexOf(gif);   
     if (currentGif === gifs.length - 1) {
-      setCurrentGif(0);
+      setGif(gifs[0]);
     } else {
-      setCurrentGif(currentGif + 1);
+      setGif(gifs[currentGif+1]);
     }
-    setGif(gifs[currentGif]);
+   
   };
 
   const [play, setPlay] = useState(false);
@@ -62,10 +63,10 @@ export default function MediaPlayer() {
   };
 
   const goForward = () => {
-    musicRef.current.currentTime += 60;
+    musicRef.current.currentTime += 120;
   };
   const goBackward = () => {
-    musicRef.current.currentTime -= 60;
+    musicRef.current.currentTime -= 120;
   };
 
   return (
@@ -79,6 +80,7 @@ export default function MediaPlayer() {
           marginBottom: "20px",
         }}
       >
+        {/* Music Player */}
         <IconButton onClick={goBackward}>
           <Icon icon="material-symbols:skip-previous-rounded" />
         </IconButton>
@@ -95,6 +97,7 @@ export default function MediaPlayer() {
           <Icon icon="material-symbols:skip-next-rounded" />
         </IconButton>
       </div>
+      {/* Gif */}
       <img
         style={{ boxShadow: `0px 0px 10px 0px #5A5A5A` }}
         src={gif}
@@ -102,7 +105,7 @@ export default function MediaPlayer() {
       <div style={{display:"grid",placeItems:"center"}}>
       <IconButton
         // id="refreshGif"
-        title="Change Image"
+        title="Next Image"
         onClick={navNextGif}
         style={{ backgroundColor: newShade(theme, 10), marginTop: "10px" ,width:"40px",height:"40px"}}
       >
