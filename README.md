@@ -12,6 +12,8 @@ email: `test@123.com`
 pass: `test@123`
 
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/062ef005-be55-49b9-9a35-417c6261976e)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/f2038fea-5aa3-486d-874d-03425b1be904)
+
 
 
 
