@@ -70,6 +70,12 @@ function Todos() {
     getAllTodos()
   }, []);
 
+  useEffect(() => {
+    if(tabSelected === 1) setTodo(allTodo);
+    else if(tabSelected === 2) setTodo(getCompleted());
+    else setTodo(getIncomplete());
+  }, [allTodo]);
+
 
 
   const [todoItem, setTodoItem] = useState("");
