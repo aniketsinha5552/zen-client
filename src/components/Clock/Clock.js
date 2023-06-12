@@ -7,6 +7,8 @@ export default function Clock() {
    const contextData= useContext(themeContext)
    const theme = contextData.themes
     const [time, setTime]= useState()
+    const date = new Date()
+    const day= date.toLocaleString('default',{weekday:'long',month:'long',day:'numeric'})
     useEffect(()=>{
        setInterval(()=>{
             const date = new Date()
@@ -15,6 +17,8 @@ export default function Clock() {
     },[])
   return (
     <div className='clock' style={{backgroundColor:newShade(theme,-30)}}>
+        {day}
+        <br/>
         {time}
     </div>
   )

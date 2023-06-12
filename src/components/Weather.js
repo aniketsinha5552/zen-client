@@ -52,8 +52,9 @@ export default function Weather() {
                 textAlign: "left",
                 margin: "5px",
                 backgroundColor: newShade(theme, -50),
-                width: "100px",
+                width: "fit-content",
                 padding: "3px",
+                paddingRight:"10px",
                 borderRadius: "20px",
               }}
             >

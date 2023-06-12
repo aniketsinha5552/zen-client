@@ -1,12 +1,14 @@
 import React from 'react'
+import Themes from './components/Themes/Themes'
+import { TextField } from '@mui/material'
+import { newShade } from './App'
 
-export default function Footer() {
+export default function Footer({setThemes,theme}) {
   return (
-    <footer className="footer" style={{textAlign:"center",position:"fixed",bottom:0,left:0,right:0,marginBottom:0,zIndex:0}}>
-    <span>
-      This app was created by{" "}
-      <span style={{ color: "#05386b" }}>Aniket Sinha</span>
-    </span>
+    <footer className="footer" style={{position:"fixed",bottom:10,right:0}}>
+    <div>
+      <Themes setThemes={setThemes} theme={theme}/>
+    </div>
   </footer>
   )
 }

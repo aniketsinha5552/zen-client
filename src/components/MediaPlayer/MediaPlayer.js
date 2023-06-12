@@ -18,6 +18,7 @@ import { IconButton } from "@mui/material";
 import { themeContext } from "../../homepage/home";
 import { newShade } from "../../App";
 import { useRef } from "react";
+import { set } from "react-hook-form";
 
 export default function MediaPlayer() {
   const gifs = [
@@ -107,10 +108,10 @@ export default function MediaPlayer() {
         // id="refreshGif"
         title="Next Image"
         onClick={navNextGif}
-        style={{ backgroundColor: newShade(theme, 10), marginTop: "10px" ,width:"40px",height:"40px"}}
+        style={{ marginTop: "10px" ,width:"40px",height:"40px"}}
       >
         <Icon
-          style={{ fontSize: "30px", color: "#5A5A5A" }}
+          style={{ fontSize: "30px" }}
           icon="ic:baseline-navigate-next"
         />
       </IconButton>
