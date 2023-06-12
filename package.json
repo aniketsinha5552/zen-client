@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-geolocated": "^4.1.0",
     "react-hook-form": "^7.43.9",
+    "react-lazy-load-image-component": "^1.6.0",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

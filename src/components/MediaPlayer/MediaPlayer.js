@@ -18,7 +18,7 @@ import { IconButton } from "@mui/material";
 import { themeContext } from "../../homepage/home";
 import { newShade } from "../../App";
 import { useRef } from "react";
-import { set } from "react-hook-form";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function MediaPlayer() {
   const gifs = [
@@ -99,10 +99,11 @@ export default function MediaPlayer() {
         </IconButton>
       </div>
       {/* Gif */}
-      <img
+      <LazyLoadImage
         style={{ boxShadow: `0px 0px 10px 0px #5A5A5A` }}
         src={gif}
-      ></img>
+        effect="blur"
+      ></LazyLoadImage>
       <div style={{display:"grid",placeItems:"center"}}>
       <IconButton
         // id="refreshGif"
