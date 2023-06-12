@@ -13,7 +13,8 @@
   width: 300px;
   display: grid;
   place-items: center;
-  height:120px
+  height:100px;
+  min-height: 100px;
 }
 
 #timerTime {

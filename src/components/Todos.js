@@ -8,67 +8,133 @@ import {
   doc,
   query,
   where,
+  updateDoc,
 } from "firebase/firestore";
 import { IconButton, List, ListItem } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { themeContext } from "../homepage/home";
+import { newShade } from "../App";
+import { all } from "axios";
+
 
 function Todos() {
   const contextData = useContext(themeContext);
   const theme = contextData.themes;
   const user = contextData.user;
 
-  const [todo, setTodo] = useState([]);
+  const tabButtonStyle = {
+    backgroundColor: "transparent",
+    flex:0.5,
+    fontWeight:"500",
+    fontSize:"15px",
+    marginTop:"2px",
+    borderRadius:"5px",
+    border:"1px solid #000000",
+    marginLeft:"px",
+    marginRight:"3px",
+  }
+  
+  
+  
+  const [allTodo, setAllTodo] = useState([]);
   const todoRef = collection(db, "todos");
   const q = query(todoRef, where("user", "==", user?.username));
 
-  const getTodos = async () => {
+  const getCompleted = () => {
+    const completed = allTodo.filter((item) => item.completed === true);
+    return completed;
+  }
+  const getIncomplete = () => {
+    const incomplete = allTodo.filter((item) => item.completed === false);
+    return incomplete;
+  }
+  const [todo, setTodo] = useState([]);
+  // 1: all, 2: completed, 3: incomplete
+  const [tabSelected, setTabSelected] = useState(3);
+
+  const getAllTodos = async () => {
     try {
       const data = await getDocs(q);
       const filteredData = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
       });
       console.log(filteredData);
-      setTodo(filteredData);
+      if(allTodo.length === 0) setTodo(filteredData.filter((item) => item.completed === false));
+      setAllTodo(filteredData);
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    getTodos();
+    getAllTodos()
   }, []);
+
+
 
   const [todoItem, setTodoItem] = useState("");
   const addItem = async (e) => {
     await addDoc(todoRef, {
       task: todoItem,
       user: user?.username,
+      completed: false,
     });
-    getTodos();
+    getAllTodos();
     setTodoItem("");
   };
 
   const deleteItem = async (id) => {
     const itemDoc = doc(db, "todos", id);
     await deleteDoc(itemDoc);
-    getTodos();
+    getAllTodos();
   };
+
+  const changeStatus = async (id) => {
+    const itemDoc = doc(db, "todos", id);
+    await updateDoc(itemDoc, {
+      completed: true,
+    });
+    getAllTodos();
+  }
 
   const todoList = todo.map((item) => {
     return (
-      <ListItem sx={{display:"flex", flexDirection:"row", flexWrap:"wrap"}} key={item.id}>
-        <p style={{flex:0.8,marginTop:"2px",flexWrap:"wrap"}}>&#x2022; {item.task} </p>
-        <IconButton title="Delete Item" onClick={() => deleteItem(item.id)}>
+      <ListItem sx={{display:"flex",justifyContent:"space-between", flexDirection:"row", flexWrap:"wrap",width:"100%"}} key={item.id} >
+        <p style={{flex:0.8,marginTop:"1px",flexWrap:"wrap"}}>&#x2022; {item.task} </p>
+        <div>
+        {!item.completed &&<IconButton title="Task Completed" onClick={() => changeStatus(item.id)}>
           <Icon icon="material-symbols:check" />
+        </IconButton>  }
+        <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
+        <Icon icon="iconoir:cancel" />
         </IconButton>
+        </div>
       </ListItem>
   )}
   )
 
+ const changeTab = (e) => {
+    setTabSelected(e.target.id);
+    if(e.target.id==1){
+      setTodo(allTodo);
+    }
+    else if(e.target.id==2){
+      setTodo(getCompleted());
+    }
+    else if(e.target.id==3){
+      setTodo(getIncomplete());
+    }
+ }
+
   return (
-    <div style={{ marginLeft: "5px" , }}>
+    <div style={{ marginLeft: "5px" , width:"300px" }}>
       <h2 style={{ marginTop: "35px",fontWeight:"500",marginBottom:"5px",}}>My tasks</h2>
+       {/* Complete and incomplete tabs */}
+       <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap",marginTop:"10px"}}>
+      <button id="3" onClick={changeTab} style={{...tabButtonStyle,backgroundColor:tabSelected==3 ? newShade(theme,-30): "transparent"}}>Incomplete</button>
+      <button id="2" onClick={changeTab} style={{...tabButtonStyle,backgroundColor:tabSelected==2 ? newShade(theme,-30): "transparent"}}>Completed</button>
+      <button id="1" onClick={changeTab} style={{...tabButtonStyle,backgroundColor:tabSelected==1 ? newShade(theme,-30):"transparent"}}>All Tasks</button>
+      </div>
       <input
         placeholder="Add an item"
         id="todoInput"
