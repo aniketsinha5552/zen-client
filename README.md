@@ -11,7 +11,8 @@ Guest login
 email: `test@123.com`
 pass: `test@123`
 
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/507e229a-0ecf-49e4-8462-baea7e9bfb6d)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/062ef005-be55-49b9-9a35-417c6261976e)
+
 
 
 
