@@ -18,7 +18,7 @@ export const themeColors =[
   "#d1e8e2",
   "#9d8d8f",
   "#659dbd",
-  "#379683",
+  "#DBA9A9",
   "#83677b"
 ]
 
