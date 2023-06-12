@@ -69,7 +69,7 @@ audio::-webkit-media-controls-panel {
     align-self: start;
   }
 
-  .music>img{
+  #gif{
     place-self: center;
     border: 0px solid gray;
     height: 400px;

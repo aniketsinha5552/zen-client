@@ -100,6 +100,7 @@ export default function MediaPlayer() {
       </div>
       {/* Gif */}
       <LazyLoadImage
+        id="gif"
         style={{ boxShadow: `0px 0px 10px 0px #5A5A5A` }}
         src={gif}
         effect="blur"
