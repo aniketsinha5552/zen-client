@@ -22,6 +22,18 @@ export const themeColors =[
   "#83677b"
 ]
 
+export const themeNames = [
+  "gecko",
+  "chalk",
+  "cherry",
+  "peach",
+  "mint",
+  "hazelnut",
+  "ocean",
+  "forrest",
+  "grape"
+]
+
 export const newShade = (hexColor, magnitude) => {
   hexColor = hexColor.replace(`#`, ``);
   if (hexColor.length === 6) {
@@ -96,7 +108,7 @@ function App() {
           ></Route>
         </Routes>
       </Router>
-      {/* <Footer/> */}
+      <Footer setThemes={setThemes} theme={themes}/>
     </div>
   );
 }

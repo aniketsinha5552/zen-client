@@ -94,7 +94,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
               <Icon icon="material-symbols:play-arrow" />
             </IconButton>
           </div>
-          <Themes setThemes={setThemes} />
+          {/* <Themes setThemes={setThemes} /> */}
         </div>
       </div> 
     </div>
