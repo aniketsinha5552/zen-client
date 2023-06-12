@@ -7,7 +7,7 @@ Teach stack: React, Firebase, Material UI
 
 Check out the app at: https://zen-lofi.netlify.app/
 
-Guest login
+Test login
 email: `test@123.com`
 pass: `test@123`
 
