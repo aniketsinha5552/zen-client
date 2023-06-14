@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { db } from "../firebase";
 import {
   getDocs,
@@ -16,7 +16,6 @@ import { themeContext } from "../homepage/home";
 import { newShade } from "../App";
 import { all } from "axios";
 
-
 function Todos() {
   const contextData = useContext(themeContext);
   const theme = contextData.themes;
@@ -24,18 +23,16 @@ function Todos() {
 
   const tabButtonStyle = {
     backgroundColor: "transparent",
-    flex:0.5,
-    fontWeight:"500",
-    fontSize:"15px",
-    marginTop:"2px",
-    borderRadius:"5px",
-    border:"1px solid #000000",
-    marginLeft:"px",
-    marginRight:"3px",
-  }
-  
-  
-  
+    flex: 0.5,
+    fontWeight: "500",
+    fontSize: "15px",
+    marginTop: "2px",
+    borderRadius: "5px",
+    border: "1px solid #000000",
+    marginLeft: "px",
+    marginRight: "3px",
+  };
+
   const [allTodo, setAllTodo] = useState([]);
   const todoRef = collection(db, "todos");
   const q = query(todoRef, where("user", "==", user?.username));
@@ -43,11 +40,11 @@ function Todos() {
   const getCompleted = () => {
     const completed = allTodo.filter((item) => item.completed === true);
     return completed;
-  }
+  };
   const getIncomplete = () => {
     const incomplete = allTodo.filter((item) => item.completed === false);
     return incomplete;
-  }
+  };
   const [todo, setTodo] = useState([]);
   // 1: all, 2: completed, 3: incomplete
   const [tabSelected, setTabSelected] = useState(3);
@@ -59,7 +56,8 @@ function Todos() {
         return { ...doc.data(), id: doc.id };
       });
       console.log(filteredData);
-      if(allTodo.length === 0) setTodo(filteredData.filter((item) => item.completed === false));
+      if (allTodo.length === 0)
+        setTodo(filteredData.filter((item) => item.completed === false));
       setAllTodo(filteredData);
     } catch (err) {
       console.log(err);
@@ -67,16 +65,14 @@ function Todos() {
   };
 
   useEffect(() => {
-    getAllTodos()
+    getAllTodos();
   }, []);
 
   useEffect(() => {
-    if(tabSelected === 1) setTodo(allTodo);
-    else if(tabSelected === 2) setTodo(getCompleted());
+    if (tabSelected === 1) setTodo(allTodo);
+    else if (tabSelected === 2) setTodo(getCompleted());
     else setTodo(getIncomplete());
   }, [allTodo]);
-
-
 
   const [todoItem, setTodoItem] = useState("");
   const addItem = async (e) => {
@@ -101,45 +97,109 @@ function Todos() {
       completed: true,
     });
     getAllTodos();
-  }
+  };
 
   const todoList = todo.map((item) => {
     return (
-      <ListItem sx={{display:"flex",justifyContent:"space-between", flexDirection:"row", flexWrap:"wrap",width:"100%"}} key={item.id} >
-        <p style={{flex:0.8,marginTop:"1px",flexWrap:"wrap"}}>&#x2022; {item.task} </p>
-        <div>
-        {!item.completed &&<IconButton title="Task Completed" onClick={() => changeStatus(item.id)}>
-          <Icon icon="material-symbols:check" />
-        </IconButton>  }
-        <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
-        <Icon icon="iconoir:cancel" />
-        </IconButton>
+      <ListItem
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          width: "100%",
+          marginLeft: "5px",
+          borderRadius: "10px",
+          padding: 0,
+          paddingLeft: "15px",
+          paddingRight: "15px",
+          // alignItems: "center",
+          height: "50px",
+          "&:hover": {
+            backgroundColor: newShade(theme, -30),
+            scale: "1.1",
+          }
+        }}
+        key={item.id}
+      >
+        <p >
+          &#x2022; {item.task}{" "}
+        </p>
+        <div >
+          {!item.completed && (
+            <IconButton
+              title="Task Completed"
+              onClick={() => changeStatus(item.id)}
+            >
+              <Icon icon="material-symbols:check" />
+            </IconButton>
+          )}
+          <IconButton title="Delete Task" onClick={() => deleteItem(item.id)} >
+            <Icon icon="iconoir:cancel" />
+          </IconButton>
         </div>
       </ListItem>
-  )}
-  )
+    );
+  });
 
- const changeTab = (e) => {
+  const changeTab = (e) => {
     setTabSelected(e.target.id);
-    if(e.target.id==1){
+    if (e.target.id == 1) {
       setTodo(allTodo);
-    }
-    else if(e.target.id==2){
+    } else if (e.target.id == 2) {
       setTodo(getCompleted());
-    }
-    else if(e.target.id==3){
+    } else if (e.target.id == 3) {
       setTodo(getIncomplete());
     }
- }
+  };
 
   return (
-    <div style={{ marginLeft: "5px" , width:"300px" }}>
-      <h2 style={{ marginTop: "35px",fontWeight:"500",marginBottom:"5px",}}>My tasks</h2>
-       {/* Complete and incomplete tabs */}
-       <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap",marginTop:"10px"}}>
-      <button id="3" onClick={changeTab} style={{...tabButtonStyle,backgroundColor:tabSelected==3 ? newShade(theme,-30): "transparent"}}>Incomplete</button>
-      <button id="2" onClick={changeTab} style={{...tabButtonStyle,backgroundColor:tabSelected==2 ? newShade(theme,-30): "transparent"}}>Completed</button>
-      <button id="1" onClick={changeTab} style={{...tabButtonStyle,backgroundColor:tabSelected==1 ? newShade(theme,-30):"transparent"}}>All Tasks</button>
+    <div style={{ marginLeft: "5px", width: "300px" }}>
+      <h2 style={{ marginTop: "35px", fontWeight: "500", marginBottom: "5px" }}>
+        My tasks
+      </h2>
+      {/* Complete and incomplete tabs */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          marginTop: "10px",
+        }}
+      >
+        <button
+          id="3"
+          onClick={changeTab}
+          style={{
+            ...tabButtonStyle,
+            backgroundColor:
+              tabSelected == 3 ? newShade(theme, -30) : "transparent",
+          }}
+        >
+          Incomplete
+        </button>
+        <button
+          id="2"
+          onClick={changeTab}
+          style={{
+            ...tabButtonStyle,
+            backgroundColor:
+              tabSelected == 2 ? newShade(theme, -30) : "transparent",
+          }}
+        >
+          Completed
+        </button>
+        <button
+          id="1"
+          onClick={changeTab}
+          style={{
+            ...tabButtonStyle,
+            backgroundColor:
+              tabSelected == 1 ? newShade(theme, -30) : "transparent",
+          }}
+        >
+          All Tasks
+        </button>
       </div>
       <input
         placeholder="Add an item"
@@ -151,10 +211,8 @@ function Todos() {
       <IconButton title="Add Item" onClick={addItem}>
         <Icon icon="material-symbols:add" />
       </IconButton>
-      <div className="todo-list" >
-      <List >
-        {todoList}
-      </List>
+      <div className="todo-list">
+        <List>{todoList}</List>
       </div>
     </div>
   );

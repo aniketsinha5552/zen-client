@@ -103,7 +103,7 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/dino"
+            path="/sort"
             element={user ? <Dino theme={themes}/> : <Login setUser={setUser} />}
           ></Route>
         </Routes>
