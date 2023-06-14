@@ -89,8 +89,8 @@ export default function Home({ user, setUser, setThemes, themes }) {
             </IconButton>
           </div>
           <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
-             🦖Chrome Dino
-            <IconButton onClick={() => navigate("/dino")}>
+             Sorting Visualizer
+            <IconButton onClick={() => navigate("/sort")}>
               <Icon icon="material-symbols:play-arrow" />
             </IconButton>
           </div>
