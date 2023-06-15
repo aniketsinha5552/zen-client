@@ -224,6 +224,7 @@ function Trivia({theme}) {
         <Button
           sx={{ marginTop: "20px" }}
           variant="contained"
+          color="success"
           onClick={startGame}
         >
           Start Game

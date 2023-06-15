@@ -69,7 +69,7 @@ function App() {
     });
   }, []);
 
-  const [themes, setThemes] = useState(themeColors[Math.floor(Math.random() * themeColors.length)]);
+  const [themes, setThemes] = useState(themeColors[3]);
   return (
     <div className="app" style={{ backgroundColor: `${themes}` }}>
       <Router>
