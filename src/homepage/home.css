@@ -1,5 +1,5 @@
 .home{
-    padding: 30px 30px;
+    padding: 10px 10px;
 }
 .heading>span>button{
     background-color: transparent;
@@ -75,7 +75,7 @@
 }
 
 html::-webkit-scrollbar{
-    width: 5px;
+    display: none;
 }
 
 #addTodo{
