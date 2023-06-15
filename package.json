@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
+    "dotenv": "^16.1.4",
     "firebase": "^9.22.0",
     "openai": "^3.3.0",
     "react": "^18.2.0",

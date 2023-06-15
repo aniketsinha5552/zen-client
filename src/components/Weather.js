@@ -27,7 +27,7 @@ export default function Weather() {
   const [weatherData, setWeatherData] = useState();
   const getWeather = async (lon, lan) => {
     const res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lan}&lon=${lon}&appid=ab2b6979519f319ec9fbf465af790cb0&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lan}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
     );
     setWeatherData(res.data);
     console.log(res.data);
