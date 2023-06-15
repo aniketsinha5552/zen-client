@@ -109,7 +109,6 @@ function Todos() {
           flexWrap: "wrap",
           width: "100%",
           marginLeft: "5px",
-          borderRadius: "10px",
           padding: 0,
           paddingLeft: "15px",
           paddingRight: "15px",
@@ -117,7 +116,6 @@ function Todos() {
           height: "50px",
           "&:hover": {
             backgroundColor: newShade(theme, -30),
-            scale: "1.1",
           }
         }}
         key={item.id}

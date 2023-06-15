@@ -13,6 +13,7 @@
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
     "firebase": "^9.22.0",
+    "openai": "^3.3.0",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-bootstrap": "^2.7.0",

@@ -2,21 +2,17 @@ import React, { useEffect, useId, useState,useContext,createContext } from "reac
 import "./home.css";
 import axios from "axios";
 import Timer from "../components/Timer/Timer";
-import Themes from "../components/Themes/Themes";
 import MediaPlayer from "../components/MediaPlayer/MediaPlayer";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import AddIcon from "@mui/icons-material/Add";
-import DoneIcon from "@mui/icons-material/Done";
 import Clock from "../components/Clock/Clock";
-import SaveIcon from "@mui/icons-material/Save";
 import Weather from "../components/Weather";
-import { weatherCardStyle } from "../components/Weather";
-import { IconButton } from "@mui/material";
+import { Dialog, DialogTitle, IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { newShade } from "../App";
 import Todos from "../components/Todos";
 import { auth } from "../firebase";
+import Chatbot from "../components/Chatbot";
 
 
 const triviaStyle = {
@@ -26,7 +22,7 @@ const triviaStyle = {
   width: "300px",
   padding: "5px 5px",
   borderRadius: "50px",
-  marginTop: "20px",
+  marginTop: "10px",
   textAlign: "center",
   height:"40px",
 
@@ -44,6 +40,13 @@ export default function Home({ user, setUser, setThemes, themes }) {
     navigate("/");
   }
 
+  const [chatDialogOpen, setChatDialogOpen] = useState(false);
+  const onClose = () => setChatDialogOpen(false);
+  const onOpen = () => setChatDialogOpen(true);
+  const [chat, setChat] = useState([{
+    message:"Hello, I am ZenBot. How can I help you?",
+    sender:"bot"
+  }]);
 
   return (
     <themeContext.Provider value={{user,themes,setThemes}}>
@@ -93,6 +96,17 @@ export default function Home({ user, setUser, setThemes, themes }) {
             <IconButton onClick={() => navigate("/sort")}>
               <Icon icon="material-symbols:play-arrow" />
             </IconButton>
+          </div>
+          <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
+             💬ZenBot
+            <IconButton onClick={onOpen}>
+              <Icon icon="material-symbols:play-arrow" />
+            </IconButton>
+            <Dialog open={chatDialogOpen}>
+              <div style={{ width: "500px", height: "500px",backgroundColor:newShade(themes,-30) }}>
+                <Chatbot close={onClose} chat={chat} setChat={setChat}/>
+              </div>
+            </Dialog>
           </div>
           {/* <Themes setThemes={setThemes} /> */}
         </div>
