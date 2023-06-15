@@ -6,7 +6,8 @@ import { Icon } from "@iconify/react";
 import { set, useForm } from "react-hook-form";
 import axios from "axios";
 
-const API_KEY= "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"
+
+const API_KEY= `${process.env.REACT_APP_CHAT_API_KEY}`;
 
 function Chatbot({close,chat,setChat}) {
   const contextData = useContext(themeContext);
@@ -73,7 +74,7 @@ function Chatbot({close,chat,setChat}) {
          method:"post",
          headers:{
                 "Content-Type":"application/json",
-                "Authorization":`Bearer ${API_KEY}`
+                "Authorization":`Bearer ${process.env.REACT_APP_CHAT_API_KEY}`
          },
          body:JSON.stringify({
             model:"gpt-3.5-turbo",
