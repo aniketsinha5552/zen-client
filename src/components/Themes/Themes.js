@@ -7,20 +7,7 @@ import { TextField, MenuItem } from "@mui/material";
 export default function Themes({ setThemes ,theme}) {
   return (
     <div className="themeOut">
-      {/* <h3 style={{textAlign:"left"}}>Themes <Icon icon="fluent:paint-brush-16-regular" /></h3> */}
       <div className="themes">
-        {/* {
-          themeColors.map((color,index)=>{
-            return(
-              <button
-               key={index}
-              id={index+1}
-              onClick={() => setThemes(color)}
-              style={{ backgroundColor: color}}
-            ></button>
-            )
-          })
-} */}
        <TextField defaultValue={theme} select placeholder="themes" size="small" label={<Icon style={{fontSize:"20px"}} icon="fa-solid:brush" />} sx={{width:"100px",mb:1,backgroundColor:"transparent"}}>
        {
           themeColors.map((color,index)=>{

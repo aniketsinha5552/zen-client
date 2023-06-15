@@ -51,6 +51,28 @@
 .todo-list::-webkit-scrollbar{
     width: 5px;
 }
+.todo-list::-webkit-scrollbar-track{
+    background-color: transparent;
+    width: 5px;
+}
+.todo-list::-webkit-scrollbar-thumb{
+    background-color: #858383;
+    width: 5px;
+    border-radius: 10px;
+}
+
+#messageBody::-webkit-scrollbar{
+    width: 8px;
+}
+#messageBody::-webkit-scrollbar-track{
+    background-color: transparent;
+    width: 8px;
+}
+#messageBody::-webkit-scrollbar-thumb{
+    background-color: #858383;
+    width: 10px;
+    border-radius: 10px;
+}
 
 html::-webkit-scrollbar{
     width: 5px;
