@@ -1,4 +1,4 @@
-# Zen☯️\
+# Zen☯️
 ## https://zen-lofi.netlify.app/
 
 ## About the project
