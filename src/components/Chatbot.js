@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 import { set, useForm } from "react-hook-form";
 import axios from "axios";
 
-const API_KEY= "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"
+const API_KEY= "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"
 
 function Chatbot({close,chat,setChat}) {
   const contextData = useContext(themeContext);
