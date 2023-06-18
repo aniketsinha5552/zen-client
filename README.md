@@ -6,6 +6,15 @@ Lo-fi and pixel-art themed virtual study environment, equipped with a lofi music
 
 ### Teach: React, Firebase, Material UI, OpenAI API
 
+### Feature
+* ZenBot : An AI ChatBot to answer all your questions
+* Minimalistic todo list to keep track of all your tasks
+* Beautiful themes
+* Lofi-Music player
+* Clock, Stopwatch, Real time weather card
+* Exciting games like : Trivia game, sorting visualizer
+
+
 
 Test login
 email: `test@123.com`
