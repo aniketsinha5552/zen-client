@@ -1,7 +1,7 @@
 # Zen☯️
 ## https://zen-lofi.netlify.app/
 
-## About the project
+## About the app
 Lo-fi and pixel-art themed virtual study environment, equipped with a lofi music player, timer, to-do list, ZenBot(AI chatbot), exciting games and beautiful looking themes. This project was essentially born out of my desire for an all-in-one space for all my study needs throughout university 🎓
 
 ### Teach: React, Firebase, Material UI, OpenAI API
