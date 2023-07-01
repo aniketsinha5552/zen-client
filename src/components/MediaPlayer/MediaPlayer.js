@@ -49,6 +49,22 @@ export default function MediaPlayer() {
     }
    
   };
+  const navPrevGif = () => {
+    const currentGif = gifs.indexOf(gif);   
+    if (currentGif === 0) {
+      setGif(gifs[gifs.length - 1]);
+    } else {
+      setGif(gifs[currentGif-1]);
+    }
+   
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      navNextGif();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [gif]);
 
   const [play, setPlay] = useState(false);
   const musicRef = useRef(null);
@@ -66,9 +82,15 @@ export default function MediaPlayer() {
   const goForward = () => {
     musicRef.current.currentTime += 120;
   };
+  const goAlotForward = () => {
+    musicRef.current.currentTime += 300;
+  }
   const goBackward = () => {
     musicRef.current.currentTime -= 120;
   };
+  const goAlotBackward = () => {
+    musicRef.current.currentTime -= 300;
+  }
 
   return (
     <div className="music">
@@ -82,6 +104,9 @@ export default function MediaPlayer() {
         }}
       >
         {/* Music Player */}
+        <IconButton onClick={goAlotBackward}>
+        <Icon icon="ic:round-fast-rewind" />
+        </IconButton>
         <IconButton onClick={goBackward}>
           <Icon icon="material-symbols:skip-previous-rounded" />
         </IconButton>
@@ -97,6 +122,9 @@ export default function MediaPlayer() {
         <IconButton onClick={goForward}>
           <Icon icon="material-symbols:skip-next-rounded" />
         </IconButton>
+        <IconButton onClick={goAlotForward}>
+        <Icon icon="ic:round-fast-forward" />
+        </IconButton>
       </div>
       {/* Gif */}
       <LazyLoadImage
@@ -105,7 +133,10 @@ export default function MediaPlayer() {
         src={gif}
         effect="blur"
       ></LazyLoadImage>
-      <div style={{display:"grid",placeItems:"center"}}>
+      <div style={{display:"flex" ,justifyContent:"center"}}>
+      <IconButton onClick={navPrevGif}  style={{ marginTop: "10px" ,width:"40px",height:"40px"}}>
+        <Icon icon="ic:baseline-navigate-before"  style={{ fontSize: "30px" }}/>
+      </IconButton>
       <IconButton
         // id="refreshGif"
         title="Next Image"
