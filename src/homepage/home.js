@@ -85,29 +85,32 @@ export default function Home({ user, setUser, setThemes, themes }) {
         </div>
         <div className="side-column">
         <Weather />
-          <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
-            💡Trivia Game
-            <IconButton onClick={() => navigate("/trivia")}>
+        <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30),position:"relative"}} onClick={onOpen} >
+             💬ZenBot
+            {/* <IconButton onClick={onOpen} style={{position:"absolute",right:1}}>
               <Icon icon="material-symbols:play-arrow" />
-            </IconButton>
+            </IconButton> */}
           </div>
-          <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
+          <Dialog open={chatDialogOpen}>
+              <div style={{ width: "500px", height: "500px",backgroundColor:newShade(themes,-30) }}>
+                <Chatbot close={onClose} chat={chat} setChat={setChat}/>
+              </div>
+          </Dialog>
+
+            {/* Trivia Game */}
+          <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30)}} onClick={() => navigate("/trivia")}>
+            💡Trivia Game
+            {/* <IconButton >
+              <Icon icon="material-symbols:play-arrow" />
+            </IconButton> */}
+          </div>
+          {/* <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
              Sorting Visualizer
             <IconButton onClick={() => navigate("/sort")}>
               <Icon icon="material-symbols:play-arrow" />
             </IconButton>
-          </div>
-          <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
-             💬ZenBot
-            <IconButton onClick={onOpen}>
-              <Icon icon="material-symbols:play-arrow" />
-            </IconButton>
-            <Dialog open={chatDialogOpen}>
-              <div style={{ width: "500px", height: "500px",backgroundColor:newShade(themes,-30) }}>
-                <Chatbot close={onClose} chat={chat} setChat={setChat}/>
-              </div>
-            </Dialog>
-          </div>
+          </div> */}
+         
           {/* <Themes setThemes={setThemes} /> */}
         </div>
       </div> 

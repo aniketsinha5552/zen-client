@@ -61,6 +61,11 @@
     border-radius: 10px;
 }
 
+#gamesButton:hover{
+    cursor: pointer;
+}
+
+
 #messageBody::-webkit-scrollbar{
     width: 8px;
 }

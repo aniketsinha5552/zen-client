@@ -174,7 +174,7 @@ function Todos() {
               tabSelected == 3 ? newShade(theme, -30) : "transparent",
           }}
         >
-          Incomplete
+          Active
         </button>
         <button
           id="2"
