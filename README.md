@@ -24,7 +24,6 @@ pass: `test@123`
 
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/abb0c3e7-6b81-4e6b-8656-4c560872be1a)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/2672664e-46d3-4451-a35d-6acbbe43f7e8)
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/8119862b-71b4-4fd4-a6ee-721b12adfaab)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/03da7ac6-97c0-4e4a-afab-aa8c210dc8b2)
 
 
