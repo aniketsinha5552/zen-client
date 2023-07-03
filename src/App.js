@@ -4,7 +4,7 @@ import Login from "./login/login";
 import SignUp from "./register/SignUp";
 import Trivia from "./components/Trivia";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import Footer from "./Footer";
@@ -95,16 +95,16 @@ function App() {
             path="/register"
             element={<SignUp setUser={setUser} />}
           ></Route>
-          {/* <Route exact path="/login" element={<Login />}></Route> */}
+          {/* <Route exact path="/login" element={<Login setUser={setUser} />}></Route> */}
           <Route
             exact
             path="/trivia"
-            element={user ? <Trivia theme={themes}/> : <Login setUser={setUser} />}
+            element={user ? <Trivia theme={themes}/> : <Navigate to="/" />}
           ></Route>
           <Route
             exact
             path="/sort"
-            element={user ? <Dino theme={themes}/> : <Login setUser={setUser} />}
+            element={user ? <Dino theme={themes}/> : <Navigate to="/" />}
           ></Route>
         </Routes>
       </Router>

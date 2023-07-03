@@ -13,6 +13,8 @@ import { newShade } from "../App";
 import Todos from "../components/Todos";
 import { auth } from "../firebase";
 import Chatbot from "../components/Chatbot";
+import context from "react-bootstrap/esm/AccordionContext";
+import { Quote } from "../components/Quote";
 
 
 const triviaStyle = {
@@ -40,6 +42,9 @@ export default function Home({ user, setUser, setThemes, themes }) {
     navigate("/");
   }
 
+
+
+
   const [chatDialogOpen, setChatDialogOpen] = useState(false);
   const onClose = () => setChatDialogOpen(false);
   const onOpen = () => setChatDialogOpen(true);
@@ -53,7 +58,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
     <div className="home">
       <div className="heading">
         <h1
-          style={{ textAlign: "left", marginTop: "-10px", marginLeft: "30px" }}
+          style={{ textAlign: "left", marginTop: "-6px", marginLeft: "30px" }}
         >
           Zen ☯️{" "}
           <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
@@ -84,12 +89,10 @@ export default function Home({ user, setUser, setThemes, themes }) {
         <MediaPlayer />
         </div>
         <div className="side-column">
+        
         <Weather />
         <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30),position:"relative"}} onClick={onOpen} >
              💬ZenBot
-            {/* <IconButton onClick={onOpen} style={{position:"absolute",right:1}}>
-              <Icon icon="material-symbols:play-arrow" />
-            </IconButton> */}
           </div>
           <Dialog open={chatDialogOpen}>
               <div style={{ width: "500px", height: "500px",backgroundColor:newShade(themes,-30) }}>
@@ -97,21 +100,10 @@ export default function Home({ user, setUser, setThemes, themes }) {
               </div>
           </Dialog>
 
-            {/* Trivia Game */}
           <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30)}} onClick={() => navigate("/trivia")}>
             💡Trivia Game
-            {/* <IconButton >
-              <Icon icon="material-symbols:play-arrow" />
-            </IconButton> */}
           </div>
-          {/* <div style={{...triviaStyle,backgroundColor:newShade(themes,-30)}}>
-             Sorting Visualizer
-            <IconButton onClick={() => navigate("/sort")}>
-              <Icon icon="material-symbols:play-arrow" />
-            </IconButton>
-          </div> */}
-         
-          {/* <Themes setThemes={setThemes} /> */}
+          <Quote/>
         </div>
       </div> 
     </div>
