@@ -24,7 +24,7 @@ export default function Login({setUser}) {
           })
           
         }).catch((error) => {
-          alert(error.message)
+          alert("Some error occured, please try again")
         })
       }
    

@@ -65,6 +65,26 @@
     cursor: pointer;
 }
 
+#quotes{
+    max-height: 100px;
+    width: 300px; 
+    border-radius: 10px;
+    padding: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow: 2px 2px 2px rgb(52, 51, 51),;
+    font-size: 25;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#quotes::-webkit-scrollbar{
+    width: 5px;
+}
+
+#startGame:hover{
+    cursor: pointer;
+}
+
 
 #messageBody::-webkit-scrollbar{
     width: 8px;

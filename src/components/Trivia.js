@@ -74,27 +74,18 @@ function Trivia({theme}) {
       nextQuestion();
     };
 
-    // const renderSymbol = (str) => {
-    //   let updatedStr = str;
-    //   for (let i = 0; i < str.length; i++) {
-    //     if (str[i] == "&") {
-    //       updatedStr = str.slice(0, i) + " " + str.slice(i, str.length);
-    //       i++;
-    //     }
-    //     if (str[i] == ";") {
-    //       updatedStr = str.slice(0, i + 1) + " " + str.slice(i + 1, str.length);
-    //       i++;
-    //     }
-    //   }
-    //   return updatedStr;
-    //   // return str.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
-    // };
+    const renderSymbol = (str) => {
+      return (
+        `<span>${str}</span>`
+      );
+    };
     return (
       <>
         <div style={{ fontSize: "25px" }}>
           {triviaData && (
             <>
-              Q {curQues + 1}. {triviaData[curQues]?.question}
+              Q {curQues + 1}.{" "}
+               <span dangerouslySetInnerHTML={{__html: renderSymbol(triviaData[curQues]?.question)}} />  
             </>
           )}
         </div>
@@ -221,14 +212,13 @@ function Trivia({theme}) {
             </TextField>
           </Stack>
         </div>
-        <Button
-          sx={{ marginTop: "20px" }}
-          variant="contained"
-          color="success"
+        <button
+          style={{ marginTop: "20px",backgroundColor:newShade(theme,-50),height:"40px",borderRadius:"10px",fontSize:"15px",fontWeight:"lighter",border:"none",color:"white" }}
           onClick={startGame}
+          id="startGame"
         >
           Start Game
-        </Button>
+        </button>
       </div>
     );
   };
@@ -241,16 +231,16 @@ function Trivia({theme}) {
 
   const RenderGame = () => {
     return (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px" ,position:'relative',height: "400px"}}>
         {isLoading ? (
-          <p>........Loading</p>
+          <p style={{height:"200px"}}>........Loading</p>
         ) : gameOver ? (
           <RenderScore />
         ) : (
           <RenderQuestion />
         )}
         {!gameOver && (
-          <>
+          <div style={{position:"absolute",right:10,bottom:10}}>
           <div style={{textAlign:"right"}}>
             <div
               style={{
@@ -269,7 +259,7 @@ function Trivia({theme}) {
               </IconButton>
             </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     );
@@ -301,7 +291,7 @@ function Trivia({theme}) {
           margin: "20px",
           backgroundColor: newShade(theme,-30),
           borderRadius: "20px",
-          height: "500px",
+          height: "400px",
         }}
       >
         {!gameStarted ? <StartPage /> : <RenderGame />}
