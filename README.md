@@ -23,7 +23,7 @@ pass: `test@123`
 
 #### 💫 Do give it a star if you liked it!
 
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/abb0c3e7-6b81-4e6b-8656-4c560872be1a)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/c62efcd5-5565-447e-b856-996df76b7f06)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/2672664e-46d3-4451-a35d-6acbbe43f7e8)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/b9d64e5a-ecb8-411f-8ee2-3f8cfaa132b8)
 
