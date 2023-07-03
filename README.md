@@ -27,6 +27,17 @@ pass: `test@123`
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/2672664e-46d3-4451-a35d-6acbbe43f7e8)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/03da7ac6-97c0-4e4a-afab-aa8c210dc8b2)
 
+### Local Setup
+* run `npm install` in the root folder of the project to install the node modules
+* create a .env file in root folder
+* sample .env
+```
+REACT_APP_CHAT_API_KEY = [OpenAI api key]
+REACT_APP_FIREBASE_API_KEY = [firebase app config api key]
+REACT_APP_WEATHER_API_KEY = [open weather api key]
+```
+
+
 
 
 
