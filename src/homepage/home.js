@@ -15,7 +15,11 @@ import { auth } from "../firebase";
 import Chatbot from "../components/Chatbot";
 import context from "react-bootstrap/esm/AccordionContext";
 import { Quote } from "../components/Quote";
+import SoundPlayers from "../components/ambientSounds/ambientSounds";
+import click from "../assets/sounds/click.mp3";
 
+const butonClick = new Audio(click);
+butonClick.volume = 0.1;
 
 const triviaStyle = {
   fontSize: "30px",
@@ -37,6 +41,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
 
 
   const logout = () => {
+    butonClick.play();
     setUser(null);
     auth.signOut();
     navigate("/");
@@ -87,6 +92,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
         </div>
         <div className="center-column">
         <MediaPlayer />
+        <SoundPlayers/>
         </div>
         <div className="side-column">
         

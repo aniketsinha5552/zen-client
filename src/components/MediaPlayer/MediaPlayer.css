@@ -60,7 +60,7 @@ audio::-webkit-media-controls-panel {
     border-radius: 5px;
     /* box-shadow: 3px 3px 2px rgb(108, 104, 104);
     border: 1px solid rgb(132, 121, 121); */
-    margin-top: 0px;
+    margin-top: -20px;
     margin-left: 20px;
     margin-right: 20px;
     padding: 5px 5px;

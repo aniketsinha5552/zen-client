@@ -1,0 +1,14 @@
+.ambientSounds{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.ambientButton{
+    margin: 0 10px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
