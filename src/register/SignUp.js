@@ -4,10 +4,9 @@ import { useForm } from 'react-hook-form'
 import {auth} from '../firebase'
 import { createUserWithEmailAndPassword,updateProfile } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import click from "../assets/sounds/click.mp3";
+import { buttonClick } from '../assets/functions/clickSound'
 
-const butonClick = new Audio(click);
-butonClick.volume = 0.1;
+
 
 export default function SignUp({setUser}) {
     const navigate= useNavigate()
@@ -19,7 +18,7 @@ export default function SignUp({setUser}) {
       } = useForm();
 
     const registerUser = (data) => {
-        butonClick.play();
+        buttonClick.play();
         const {email,username,pass,cpass}=data
         if(pass!==cpass){
           alert("Invalid Credentials!")

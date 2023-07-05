@@ -16,10 +16,7 @@ import Chatbot from "../components/Chatbot";
 import context from "react-bootstrap/esm/AccordionContext";
 import { Quote } from "../components/Quote";
 import SoundPlayers from "../components/ambientSounds/ambientSounds";
-import click from "../assets/sounds/click.mp3";
-
-const butonClick = new Audio(click);
-butonClick.volume = 0.1;
+import { buttonClick } from "../assets/functions/clickSound";
 
 const triviaStyle = {
   fontSize: "30px",
@@ -41,7 +38,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
 
 
   const logout = () => {
-    butonClick.play();
+    buttonClick.play();
     setUser(null);
     auth.signOut();
     navigate("/");
@@ -51,8 +48,15 @@ export default function Home({ user, setUser, setThemes, themes }) {
 
 
   const [chatDialogOpen, setChatDialogOpen] = useState(false);
-  const onClose = () => setChatDialogOpen(false);
-  const onOpen = () => setChatDialogOpen(true);
+  const onClose = () => {
+    buttonClick.play();
+    setChatDialogOpen(false);
+  }
+    
+  const onOpen = () => {
+    buttonClick.play();
+    setChatDialogOpen(true);
+  }
   const [chat, setChat] = useState([{
     message:"Hello, I am ZenBot. How can I help you?",
     sender:"bot"
@@ -87,16 +91,15 @@ export default function Home({ user, setUser, setThemes, themes }) {
       <div className="body">
         <div className="side-column">
           <Clock />
-          <Timer />
+          <Weather />
           <Todos/>
         </div>
         <div className="center-column">
         <MediaPlayer />
-        <SoundPlayers/>
         </div>
         <div className="side-column">
-        
-        <Weather />
+        {/* <Timer /> */}
+       
         <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30),position:"relative"}} onClick={onOpen} >
              💬ZenBot
           </div>
@@ -106,10 +109,12 @@ export default function Home({ user, setUser, setThemes, themes }) {
               </div>
           </Dialog>
 
-          <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30)}} onClick={() => navigate("/trivia")}>
+          <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30)}} onClick={() => {navigate("/trivia");buttonClick.play()}}>
             💡Trivia Game
-          </div>
-          <Quote/>
+          </div>   
+        <SoundPlayers/>
+        <Quote/>
+
         </div>
       </div> 
     </div>

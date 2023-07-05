@@ -14,9 +14,9 @@ import { IconButton, List, ListItem } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { themeContext } from "../homepage/home";
 import { newShade } from "../App";
-import click from "../assets/sounds/click.mp3";
+import soft_click from "../assets/sounds/soft_click.wav";
 
-const butonClick = new Audio(click);
+const butonClick = new Audio(soft_click);
 butonClick.volume = 0.1;
 
 

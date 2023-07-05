@@ -3,6 +3,7 @@ import { themeContext } from "../homepage/home";
 import { newShade } from "../App";
 import axios from "axios";
 import { Icon } from "@iconify/react";
+import { Dialog } from "@mui/material";
 
 // ab2b6979519f319ec9fbf465af790cb0  --------api_key
 // http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}   -----Location Co-ordinatesa
@@ -10,15 +11,16 @@ import { Icon } from "@iconify/react";
 
 export let weatherCardStyle = {
   fontSize: "30px",
-  marginBottom: "20px",
-  boxShadow: "2px 2px 2px rgb(52, 51, 51)",
+  marginBottom: "2px",
+  // boxShadow: "2px 2px 2px rgb(52, 51, 51)",
   width: "300px",
   padding: "5px 5px",
   borderRadius: "10px",
-  marginTop: "10px",
+  marginTop: "2px",
   textAlign: "center",
-  height: "180px",
+  height: "120px",
   display: "grid",
+  position:"relative"
 };
 export default function Weather() {
   const contextData = useContext(themeContext);
@@ -41,8 +43,22 @@ export default function Weather() {
   useEffect(() => {
     getLoc();
   }, []);
+
+
+  const WeatherDetails = ({weatherData}) => {
+      return(
+        <div style={{height:"500px",width:"500px"}}>
+             Weather Details
+             <button onClick={()=>setOpen(false)}>close</button>
+        </div>
+      )
+  }
+
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => setOpen(true)
+
   return (
-    <div style={{ ...weatherCardStyle, backgroundColor: newShade(theme, -30) }}>
+    <div className="weather-card" >
       {weatherData ? (
         <>
           <span>
@@ -51,11 +67,14 @@ export default function Weather() {
                 fontSize: "20px",
                 textAlign: "left",
                 margin: "5px",
-                backgroundColor: newShade(theme, -50),
+                backgroundColor: newShade(theme, -30),
                 width: "fit-content",
+                maxWidth:"100px",
                 padding: "3px",
                 paddingRight:"10px",
                 borderRadius: "20px",
+                position:"absolute",
+                left:0
               }}
             >
               <Icon
@@ -79,6 +98,9 @@ export default function Weather() {
       ) : (
         <span>loading...</span>
       )}
+      {/* <Dialog open={open} onClose={()=>setOpen(false)}>
+          <WeatherDetails weatherData={weatherData}/>
+      </Dialog> */}
     </div>
   );
 }

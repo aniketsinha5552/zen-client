@@ -5,10 +5,7 @@ import { Icon } from "@iconify/react";
 import { themeContext } from "../../homepage/home";
 import { useContext } from "react";
 import { newShade } from "../../App";
-import click from "../../../src/assets/sounds/click.mp3"
-
-// const buttonSound = new Audio(click);
-// buttonSound.volume = 0.1;
+import { buttonClick } from "../../assets/functions/clickSound";
 
 const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
   const contextData = useContext(themeContext);
@@ -17,7 +14,7 @@ const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
   const [volume, setVolume] = useState(0.5);
 
   const toggleAudioPlay = () => {
-    // buttonSound.play();
+    buttonClick.play();
     setPlaying(!playing);
   };
 
@@ -26,12 +23,8 @@ const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
   };
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        marginRight: "5px",
-      }}
+      id="soundPlayer"
+   
     >
       <button onClick={toggleAudioPlay} className="ambientButton">
         <Icon icon={icon} style={{ color: playing ? color : newShade(theme,-50) ,fontSize:"30px"}} />
