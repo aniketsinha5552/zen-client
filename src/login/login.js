@@ -4,6 +4,10 @@ import axios from 'axios'
 import {auth} from '../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useForm } from 'react-hook-form'
+import click from "../assets/sounds/click.mp3";
+
+const butonClick = new Audio(click);
+butonClick.volume = 0.1;
 
 export default function Login({setUser}) {
     const {
@@ -14,6 +18,7 @@ export default function Login({setUser}) {
       } = useForm();
 
       const loginUser = (data) => {
+        butonClick.play();
         signInWithEmailAndPassword(auth,data.email, data.pass).then((userCredential) => {
           // Signed in 
           const user = userCredential.user;

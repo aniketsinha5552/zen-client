@@ -14,7 +14,11 @@ import { IconButton, List, ListItem } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { themeContext } from "../homepage/home";
 import { newShade } from "../App";
-import { all } from "axios";
+import click from "../assets/sounds/click.mp3";
+
+const butonClick = new Audio(click);
+butonClick.volume = 0.1;
+
 
 function Todos() {
   const contextData = useContext(themeContext);
@@ -141,6 +145,7 @@ function Todos() {
   });
 
   const changeTab = (e) => {
+    butonClick.play();
     setTabSelected(e.target.id);
     if (e.target.id == 1) {
       setTodo(allTodo);

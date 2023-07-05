@@ -4,14 +4,13 @@ import { IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { newShade } from "../App";
-import sort from "../sort.wav";
 
 export default function ({ theme }) {
   const navigate = useNavigate();
   const [array, setArray] = useState([]);
   const [arraySize, setArraySize] = useState(30);
   const [speed, setSpeed] = useState(1);
-  let sortSound = new Audio(sort);
+
   const randomizeArray = (size=arraySize) => {
     let arr = [];
     for (let i = 0; i < size; i++) {

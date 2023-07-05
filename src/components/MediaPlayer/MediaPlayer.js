@@ -80,33 +80,74 @@ export default function MediaPlayer() {
   };
 
   const goForward = () => {
-    musicRef.current.currentTime += 120;
+    musicRef.current.currentTime += 180;
   };
   const goAlotForward = () => {
     musicRef.current.currentTime += 300;
   }
   const goBackward = () => {
-    musicRef.current.currentTime -= 120;
+    musicRef.current.currentTime -= 180;
   };
   const goAlotBackward = () => {
     musicRef.current.currentTime -= 300;
   }
 
+  const [musicVolume, setMusicVolume] = useState(0.2);
+  const volumeUp = () => {
+    if (musicVolume < 1) {
+      setMusicVolume(musicVolume + 0.1);
+      musicRef.current.volume = musicVolume;
+    }
+  }
+  const volumeDown = () => {
+    if (musicVolume > 0) {
+      setMusicVolume(musicVolume - 0.1);
+      musicRef.current.volume = musicVolume;
+    }
+  }
+
   return (
     <div className="music">
-      <span style={{fontSize:"20px",color:newShade(theme,-80)}}>Lo-Fi Music</span>
+    
+      {/* Gif */}
+      <div style={{display:"flex" ,justifyContent:"center",justifyContent:"center",alignItems:"center"}}>
+      <IconButton onClick={navPrevGif}  style={{ marginTop: "10px" ,width:"40px",height:"40px"}}>
+        <Icon icon="ic:baseline-navigate-before"  style={{ fontSize: "30px" }}/>
+      </IconButton>
+      <LazyLoadImage
+        id="gif"
+        alt="gif"
+        style={{ boxShadow: `0px 0px 10px 0px #5A5A5A`,minWidth:"400px"}}
+        src={gif}
+        effect="blur"
+      ></LazyLoadImage>
+         <IconButton
+        title="Next Image"
+        onClick={navNextGif}
+        style={{ marginTop: "10px" ,width:"40px",height:"40px"}}
+      >
+        <Icon
+          style={{ fontSize: "30px" }}
+          icon="ic:baseline-navigate-next"
+        />
+      </IconButton>
+      </div>
+     
+
+      <span style={{fontSize:"20px",color:newShade(theme,-80),marginTop:"10px"}}>Lo-Fi Music</span>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           marginBottom: "20px",
+          position: "relative",
         }}
       >
         {/* Music Player */}
-        <IconButton onClick={goAlotBackward}>
+        {/* <IconButton onClick={goAlotBackward}>
         <Icon icon="ic:round-fast-rewind" />
-        </IconButton>
+        </IconButton> */}
         <IconButton onClick={goBackward}>
           <Icon icon="material-symbols:skip-previous-rounded" />
         </IconButton>
@@ -122,32 +163,18 @@ export default function MediaPlayer() {
         <IconButton onClick={goForward}>
           <Icon icon="material-symbols:skip-next-rounded" />
         </IconButton>
-        <IconButton onClick={goAlotForward}>
+        {/* <IconButton onClick={goAlotForward}>
         <Icon icon="ic:round-fast-forward" />
+        </IconButton> */}
+        <div style={{position:"absolute",right:50}}>
+        <IconButton>
+        <Icon icon="formkit:volumedown" onClick={volumeDown} style={{fontSize:"20px"}} />
         </IconButton>
-      </div>
-      {/* Gif */}
-      <LazyLoadImage
-        id="gif"
-        style={{ boxShadow: `0px 0px 10px 0px #5A5A5A` }}
-        src={gif}
-        effect="blur"
-      ></LazyLoadImage>
-      <div style={{display:"flex" ,justifyContent:"center"}}>
-      <IconButton onClick={navPrevGif}  style={{ marginTop: "10px" ,width:"40px",height:"40px"}}>
-        <Icon icon="ic:baseline-navigate-before"  style={{ fontSize: "30px" }}/>
-      </IconButton>
-      <IconButton
-        // id="refreshGif"
-        title="Next Image"
-        onClick={navNextGif}
-        style={{ marginTop: "10px" ,width:"40px",height:"40px"}}
-      >
-        <Icon
-          style={{ fontSize: "30px" }}
-          icon="ic:baseline-navigate-next"
-        />
-      </IconButton>
+        <IconButton>
+        <Icon icon="formkit:volumeup" onClick={volumeUp} style={{fontSize:"20px"}} />
+        </IconButton>
+        </div>
+        
       </div>
 
       <audio ref={musicRef} src={zen_music} loop></audio>
