@@ -16,7 +16,7 @@ export default function Clock() {
        },1000)
     },[])
   return (
-    <div className='clock' style={{backgroundColor:newShade(theme,-30)}}>
+    <div className='clock' >
         {time}
         <br/>
         {day}

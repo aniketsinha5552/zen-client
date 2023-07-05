@@ -56,7 +56,7 @@
     width: 5px;
 }
 .todo-list::-webkit-scrollbar-thumb{
-    background-color: #858383;
+    background-color: #545151;
     width: 5px;
     border-radius: 10px;
 }
@@ -66,7 +66,7 @@
 }
 
 #quotes{
-    max-height: 100px;
+    max-height: 150px;
     width: 300px; 
     border-radius: 10px;
     padding: 5px;
@@ -109,6 +109,24 @@ html::-webkit-scrollbar{
 }
 #addTodo:hover{
     cursor: pointer;
+}
+
+.weather-card{
+    font-size: 30px;
+    margin-bottom: 2px;
+    width: 300px;
+    padding: 5px 5px;
+    border-radius: 10px;
+    margin-top: 2px;
+    text-align: center;
+    height: 120px;
+    display: grid;
+    position:relative;
+    box-shadow: 2px 2px 2px rgb(52, 51, 51);
+}
+.weather-card:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .body{
