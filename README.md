@@ -41,10 +41,6 @@ REACT_APP_WEATHER_API_KEY = [open weather api key]
 ```
 
 
-Version 1
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/1c30ee51-6a3d-47f2-9e8b-7e587c8f00ba)
-
-
 
 
 
