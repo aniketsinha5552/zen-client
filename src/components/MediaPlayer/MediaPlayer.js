@@ -58,12 +58,13 @@ export default function MediaPlayer() {
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      navNextGif();
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [gif]);
+  // Navigate to next gif every 10 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     navNextGif();
+  //   }, 10000);
+  //   return () => clearInterval(interval);
+  // }, [gif]);
 
   const [play, setPlay] = useState(false);
   const musicRef = useRef(null);
@@ -107,61 +108,50 @@ export default function MediaPlayer() {
 
   return (
     <div className="music">
-      <span
-        style={{
-          fontSize: "20px",
-          color: newShade(theme, -80),
-          marginTop: "10px",
-        }}
-      >
-        Lo-Fi Music
-      </span>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          marginBottom: "20px",
-          position: "relative",
-        }}
-      >
-        {/* Music Player */}
-        {/* <IconButton onClick={goAlotBackward}>
-        <Icon icon="ic:round-fast-rewind" />
-        </IconButton> */}
-        <IconButton onClick={goBackward}>
-          <Icon icon="material-symbols:skip-previous-rounded" />
-        </IconButton>
-        {!play ? (
-          <IconButton onClick={togglePlay}>
-            <Icon icon="material-symbols:play-arrow-rounded" />
+      
+      <div className="music-player" >
+        <p style={{fontSize: "20px",textAlign: "center",marginTop:"5px",marginBottom:"5px"}}>Lo-Fi Music</p>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            marginBottom: "5px",
+            position: "relative",
+          }}
+        >
+          <IconButton onClick={goBackward}>
+            <Icon icon="material-symbols:skip-previous-rounded" />
           </IconButton>
-        ) : (
-          <IconButton onClick={togglePlay}>
-            <Icon icon="material-symbols:pause-rounded" />
+          {!play ? (
+            <IconButton onClick={togglePlay}>
+              <Icon icon="material-symbols:play-arrow-rounded" />
+            </IconButton>
+          ) : (
+            <IconButton onClick={togglePlay}>
+              <Icon icon="material-symbols:pause-rounded" />
+            </IconButton>
+          )}
+          <IconButton onClick={goForward}>
+            <Icon icon="material-symbols:skip-next-rounded" />
           </IconButton>
-        )}
-        <IconButton onClick={goForward}>
-          <Icon icon="material-symbols:skip-next-rounded" />
-        </IconButton>
-        {/* <IconButton onClick={goAlotForward}>
-        <Icon icon="ic:round-fast-forward" />
-        </IconButton> */}
-        <div style={{ position: "absolute", right: 50 }}>
-          <IconButton>
-            <Icon
-              icon="formkit:volumedown"
-              onClick={volumeDown}
-              style={{ fontSize: "20px" }}
-            />
-          </IconButton>
-          <IconButton>
-            <Icon
-              icon="formkit:volumeup"
-              onClick={volumeUp}
-              style={{ fontSize: "20px" }}
-            />
-          </IconButton>
+
+          <div style={{ position: "absolute", right: 50 }}>
+            <IconButton>
+              <Icon
+                icon="formkit:volumedown"
+                onClick={volumeDown}
+                style={{ fontSize: "20px" }}
+              />
+            </IconButton>
+            <IconButton>
+              <Icon
+                icon="formkit:volumeup"
+                onClick={volumeUp}
+                style={{ fontSize: "20px" }}
+              />
+            </IconButton>
+          </div>
         </div>
       </div>
 
@@ -169,7 +159,7 @@ export default function MediaPlayer() {
       <LazyLoadImage
         id="gif"
         alt="gif"
-        style={{ boxShadow: `0px 0px 10px 0px #5A5A5A`, }}
+        style={{ boxShadow: `0px 0px 10px 0px #5A5A5A` }}
         src={gif}
         effect="blur"
       ></LazyLoadImage>
@@ -190,6 +180,7 @@ export default function MediaPlayer() {
       </div>
 
       <audio ref={musicRef} src={zen_music} loop></audio>
+
     </div>
   );
 }

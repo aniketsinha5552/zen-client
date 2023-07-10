@@ -5,7 +5,7 @@ import {auth} from '../firebase'
 import { createUserWithEmailAndPassword,updateProfile } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { buttonClick } from '../assets/functions/clickSound'
-
+import { Icon } from '@iconify/react'
 
 
 export default function SignUp({setUser}) {
@@ -51,7 +51,7 @@ export default function SignUp({setUser}) {
    
   return (
     <div className='register'>
-         <h1 style={{textAlign:"center"}} >Zen ☯️ <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
+         <h1 style={{textAlign:"center"}} >Zen <Icon className="yinyang" icon="openmoji:yin-yang" /> <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
             your virtual study environment
           </small></h1>
     <form onSubmit={handleSubmit(registerUser)} >
