@@ -1,6 +1,18 @@
 .home{
     padding: 10px 10px;
 }
+.yinyang{
+    vertical-align: middle;
+    animation: rotation 2s infinite linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
 .heading>span>button{
     background-color: transparent;
     margin-left: 10px;
@@ -14,6 +26,7 @@
    flex-direction: row;
    justify-content: space-between;
    margin-bottom: 20px;
+   margin-top: 10px;
 }
 
 .heading>span>button:hover{

@@ -69,7 +69,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
         <h1
           style={{ textAlign: "left", marginTop: "-6px", marginLeft: "30px" }}
         >
-          Zen ☯️{" "}
+          Zen <Icon className="yinyang" icon="openmoji:yin-yang" />{" "}
           <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
             your virtual study environment
           </small>

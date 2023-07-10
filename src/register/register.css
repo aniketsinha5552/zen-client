@@ -1,7 +1,7 @@
 .register{
     display: grid;
     place-content: center;
-    margin-top: 20px;
+    margin-top: 0px;
     padding: 10px 10px;
 }
 

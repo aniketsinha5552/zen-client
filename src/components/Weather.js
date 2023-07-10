@@ -58,7 +58,7 @@ export default function Weather() {
   const handleClickOpen = () => setOpen(true)
 
   return (
-    <div className="weather-card" >
+    <div className="weather-card" style={{backgroundColor: newShade(theme,-10)}} >
       {weatherData ? (
         <>
           <span>

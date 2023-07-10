@@ -56,17 +56,23 @@ audio::-webkit-media-controls-panel {
   }
 
   .music{
-    /* width: fit-content; */
     border-radius: 5px;
-    /* box-shadow: 3px 3px 2px rgb(108, 104, 104);
-    border: 1px solid rgb(132, 121, 121); */
-    margin-top: -40px;
+    margin-top: -20px;
     margin-left: 20px;
     margin-right: 20px;
     padding: 5px 5px;
     flex: 0.4;
     display: grid;
     align-self: start;
+    place-items: center;
+  }
+
+  .music-player{
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 500px;
+    color:rgb(79, 79, 79);
+    margin-bottom: 10px;
   }
 
   #gif{
