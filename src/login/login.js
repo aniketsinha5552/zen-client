@@ -34,7 +34,7 @@ export default function Login({setUser}) {
 
   return (
     <div className='login'>
-       <h1  >Zen <Icon className="yinyang" icon="openmoji:yin-yang" /> <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
+       <h1>Zen <Icon className="yinyang" icon="openmoji:yin-yang" /> <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
             your virtual study environment
           </small></h1>
         <form onSubmit={handleSubmit(loginUser)} >

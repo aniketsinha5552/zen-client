@@ -17,6 +17,7 @@ import context from "react-bootstrap/esm/AccordionContext";
 import { Quote } from "../components/Quote";
 import SoundPlayers from "../components/ambientSounds/ambientSounds";
 import { buttonClick } from "../assets/functions/clickSound";
+import { motion } from "framer-motion";
 
 const triviaStyle = {
   fontSize: "30px",
@@ -64,7 +65,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
 
   return (
     <themeContext.Provider value={{user,themes,setThemes}}>
-    <div className="home">
+    <div className="home" >
       <div className="heading">
         <h1
           style={{ textAlign: "left", marginTop: "-6px", marginLeft: "30px" }}

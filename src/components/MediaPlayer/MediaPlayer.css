@@ -57,7 +57,7 @@ audio::-webkit-media-controls-panel {
 
   .music{
     border-radius: 5px;
-    margin-top: -20px;
+    margin-top: -30px;
     margin-left: 20px;
     margin-right: 20px;
     padding: 5px 5px;
@@ -78,7 +78,7 @@ audio::-webkit-media-controls-panel {
   #gif{
     place-self: center;
     border: 0px solid gray;
-    height: 450px;
+    height: 500px;
     border-radius: 5px;
   }
 
