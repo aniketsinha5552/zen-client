@@ -114,20 +114,20 @@ function Todos() {
           width: "100%",
           marginLeft: "5px",
           padding: 0,
-          paddingLeft: "15px",
-          paddingRight: "15px",
+          paddingLeft: "10px",
+          paddingRight: "10px",
           // alignItems: "center",
-          height: "50px",
+          // height: "50px",
           "&:hover": {
             backgroundColor: newShade(theme, -30),
           }
         }}
         key={item.id}
       >
-        <p >
-          &#x2022; {item.task}{" "}
+        <p style={{flex:0.9,fontSize:"19px"}}>
+          {item.task}{" "}
         </p>
-        <div >
+        <div>
           {!item.completed && (
             <IconButton
               title="Task Completed"
@@ -208,7 +208,6 @@ function Todos() {
         placeholder="Add an item"
         id="todoInput"
         onChange={(e) => setTodoItem(e.target.value)}
-        style={{ width: "15rem", height: "20px" }}
         value={todoItem}
       ></input>
       <IconButton title="Add Item" onClick={addItem}>

@@ -2,7 +2,6 @@
     display: grid;
     place-items: center; 
     margin-top: 0px;
-    padding: 10px 10px;
 }
 #loginForm{
     display: grid;
@@ -14,6 +13,13 @@
     margin-top: 50px;
     height: fit-content;
     border-radius: 20px;
+    padding: 20px 20px;
+    /* background-image: url("https://images2.alphacoders.com/131/1318225.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
 }
 #username,#password{
     font-family: 'VT323', monospace;
@@ -24,6 +30,9 @@
     padding:5px 5px;
     width: 250px;
     padding: 10px 10px;
+}
+#username,#password:focus{
+    outline: none;
 }
 #loginForm>input{
     margin-bottom: 10px;
@@ -40,6 +49,7 @@
     border: 3px solid black;
     font-size: 20px;
     margin-bottom: 10px;
+    padding: 5px;
 }
 #loginBtn:hover{
     cursor: pointer;

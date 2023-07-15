@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import Footer from "./Footer";
 import Dino from "./components/Dino";
+import { AnimatePresence,motion } from "framer-motion";
 
 export const themeColors =[
   "#afd275",

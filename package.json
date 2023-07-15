@@ -14,6 +14,7 @@
     "bootstrap": "^5.2.3",
     "dotenv": "^16.1.4",
     "firebase": "^9.22.0",
+    "framer-motion": "^10.12.21",
     "openai": "^3.3.0",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
