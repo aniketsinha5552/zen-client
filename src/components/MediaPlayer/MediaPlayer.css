@@ -70,7 +70,7 @@ audio::-webkit-media-controls-panel {
   .music-player{
     border-radius: 10px;
     margin-top: 10px;
-    width: 500px;
+    width: 100%;
     color:rgb(79, 79, 79);
     margin-bottom: 10px;
   }
@@ -78,7 +78,8 @@ audio::-webkit-media-controls-panel {
   #gif{
     place-self: center;
     border: 0px solid gray;
-    height: 500px;
+    /* height: 32rem; */
+    width: 100%;
     border-radius: 5px;
   }
 
@@ -98,4 +99,13 @@ audio::-webkit-media-controls-panel {
   #refreshGif:hover{
     cursor: pointer;
     border: 1px solid transparent;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .music-player{
+      display: none;
+    }
+    #gif{
+      margin-top: 40px;
+    }
   }

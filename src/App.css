@@ -4,6 +4,7 @@
     padding-top: 0px;
     padding-left: 0px;
     padding-right: 0px;
+    overflow: hidden;
     cursor: url('./cursor.svg'),auto;
 }
 
