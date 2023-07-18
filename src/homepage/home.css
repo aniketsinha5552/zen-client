@@ -134,11 +134,11 @@ html::-webkit-scrollbar{
     font-size: 30px;
     margin-bottom: 2px;
     width: 300px;
-    padding: 5px 5px;
+    padding: 10px 10px;
     border-radius: 10px;
     margin-top: 2px;
     text-align: center;
-    height: 120px;
+    min-height: 120px;
     display: grid;
     position:relative;
     box-shadow: 2px 2px 2px rgb(52, 51, 51);

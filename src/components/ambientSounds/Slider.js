@@ -38,9 +38,9 @@ export const StyledSlider = styled.input`
 
   /******** Firefox styles ********/
   &::-moz-range-track {
-    height: 2px;
-    border: none;
-    border-radius: 3px;
+    height: 13px;
+    border: 1px solid  ${({ theme }) => newShade(theme, -50)};
+    border-radius: 5px;
   }
 
   &::-moz-range-thumb {
@@ -48,9 +48,10 @@ export const StyledSlider = styled.input`
     border: none;
     height: 13px;
     width: 13px;
-    outline: 2px solid;
     border-radius: 50%;
     margin-top: -6px;
+    background-color:  ${({ theme }) => newShade(theme, -50)};
+    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -50)};
   }
 `;
 
