@@ -78,7 +78,7 @@ audio::-webkit-media-controls-panel {
   #gif{
     place-self: center;
     border: 0px solid gray;
-    height: 500px;
+    height: 480px;
     border-radius: 5px;
   }
 

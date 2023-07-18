@@ -35,6 +35,7 @@ function Todos() {
     border: "1px solid #000000",
     marginLeft: "px",
     marginRight: "3px",
+    padding: "5px 5px",
   };
 
   const [allTodo, setAllTodo] = useState([]);
