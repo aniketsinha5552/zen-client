@@ -14,11 +14,11 @@ export let weatherCardStyle = {
   marginBottom: "2px",
   // boxShadow: "2px 2px 2px rgb(52, 51, 51)",
   width: "300px",
-  padding: "5px 5px",
+  padding: "10px 10px",
   borderRadius: "10px",
   marginTop: "2px",
   textAlign: "center",
-  height: "120px",
+  // height: "120px",
   display: "grid",
   position:"relative"
 };
