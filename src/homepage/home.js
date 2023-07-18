@@ -18,14 +18,22 @@ import { Quote } from "../components/Quote";
 import SoundPlayers from "../components/ambientSounds/ambientSounds";
 import { buttonClick } from "../assets/functions/clickSound";
 import { motion } from "framer-motion";
+import chatBot from "../assets/images/chat.png";
+
+const iconStyle={
+  height:"30px",
+  width:"30px",
+  textAlign:"center",
+  verticalAlign:"middle",
+}
 
 const triviaStyle = {
   fontSize: "30px",
   marginBottom: "20px",
   boxShadow: "2px 2px 2px rgb(52, 51, 51)",
-  width: "300px",
-  padding: "5px 5px",
-  borderRadius: "50px",
+  width: "250px",
+  padding: "10px 10px",
+  borderRadius: "10px",
   marginTop: "10px",
   textAlign: "center",
   height:"40px",
@@ -102,7 +110,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
         {/* <Timer /> */}
        
         <div id="gamesButton" style={{...triviaStyle,backgroundColor:newShade(themes,-30),position:"relative"}} onClick={onOpen} >
-             💬ZenBot
+             <img src={chatBot} style={iconStyle}/> ZenBot
           </div>
           <Dialog open={chatDialogOpen}>
               <div style={{ width: "500px", height: "500px",backgroundColor:newShade(themes,-30) }}>

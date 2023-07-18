@@ -56,13 +56,13 @@ export default function SignUp({setUser}) {
           </small></h1>
     <form onSubmit={handleSubmit(registerUser)} >
     <div id='loginForm'>
-    <h1 id='loginHead'>Register</h1>
+    <h1 id='loginHead'>Sign Up</h1>
         <input id='username' placeholder='Email' {...register("email",{required:true})}></input>
         <input id='username' placeholder='Username' {...register("username",{required:true})}></input>
         <input id='username' type='password' placeholder='Password' {...register("pass",{required:true})}></input>
         <input id='username' type='password' placeholder='Confirm Password' {...register("cpass",{required:true})}></input>
         <button id="loginBtn" title="Register">Register</button>
-    <span id="registerRedirect">Already a user? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/">Login</a></span>
+    <span id="registerRedirect">Have an account? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/">Login now</a></span>
         </div>
     </form>
 </div>

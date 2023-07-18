@@ -27,7 +27,7 @@ export default function Login({setUser}) {
           })
           
         }).catch((error) => {
-          alert("Some error occured, please try again")
+          alert(error.message)
         })
       }
    
@@ -39,11 +39,11 @@ export default function Login({setUser}) {
           </small></h1>
         <form onSubmit={handleSubmit(loginUser)} >
         <div id='loginForm'>
-        <h1 id='loginHead'>Login</h1>
+        <h1 id='loginHead'>Sign In</h1>
             <input id='username' placeholder='Email' {...register("email",{required:true})}></input>
             <input id='password' type="password" placeholder='Password' {...register("pass",{required:true})} ></input>
             <button id="loginBtn" title="Login" >Login</button>
-            <span id="registerRedirect">Not a User? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/register">Register</a></span>
+            <span id="registerRedirect">Don't have an account? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/register">Sign Up</a></span>
         </div>
         </form>
       
