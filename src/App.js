@@ -24,15 +24,15 @@ export const themeColors =[
 ]
 
 export const themeNames = [
-  "gecko",
-  "chalk",
-  "cherry",
-  "peach",
-  "mint",
-  "hazelnut",
-  "ocean",
-  "forrest",
-  "grape"
+  "Gecko",
+  "Chalk",
+  "Cherry",
+  "Peach",
+  "Mint",
+  "Hazelnut",
+  "Ocean",
+  "Amethyst",
+  "Grape"
 ]
 
 export const newShade = (hexColor, magnitude) => {
