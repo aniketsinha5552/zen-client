@@ -70,7 +70,7 @@ function App() {
     });
   }, []);
 
-  const [themes, setThemes] = useState(themeColors[5]);
+  const [themes, setThemes] = useState(themeColors[3]);
   return (
     <div className="app" style={{ backgroundColor: `${themes}` }}>
       <Router>
