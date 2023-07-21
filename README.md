@@ -25,8 +25,8 @@ pass: `test@123`
 
 #### 💫 Do give it a star if you liked it!
 
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/7fe9460e-23ed-485d-aadb-ffdde428893f)
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/43dd5658-58e1-4e1f-b644-f6ef6a6a1204)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/f5114542-61b7-406f-9e99-7c0d009ff084)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/b0e3c62a-b024-44f1-8a6b-b3d292cb531b)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/b9d64e5a-ecb8-411f-8ee2-3f8cfaa132b8)
 
 
