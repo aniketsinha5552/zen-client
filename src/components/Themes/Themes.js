@@ -12,12 +12,12 @@ export default function Themes({ setThemes ,theme}) {
        {
           themeColors.map((color,index)=>{
             return(
-              <MenuItem  key={index} value={color}  onClick={() => setThemes(color)} style={{ backgroundColor: newShade(color,-50),width:"100%",height:"35px",}}>
+              <MenuItem  key={index} value={color}  onClick={() => setThemes(color)} style={{ backgroundColor: newShade(color,-10),width:"100%",height:"35px",}}>
               <div
                key={index}
               id={index+1}
               onClick={() => setThemes(color)}
-              style={{ backgroundColor: color,height:"100%",width:"100%",borderRadius:"50px",display:"grid",placeItems:"center"}}
+              style={{ height:"100%",width:"100%",borderRadius:"50px",display:"grid",placeItems:"center"}}
             >
               
               <span style={{fontSize:"12px",textAlign:"center"}}>{themeNames[index]}</span>
