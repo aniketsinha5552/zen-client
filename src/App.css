@@ -6,7 +6,7 @@
     padding-right: 0px;
     overflow: hidden;
     cursor: url('./cursor.svg'),auto;
-    background-image: linear-gradient(rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.8));
+    background-image: linear-gradient(135deg,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.8));
 
 }
 
