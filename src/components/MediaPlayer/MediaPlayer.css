@@ -100,6 +100,28 @@ audio::-webkit-media-controls-panel {
     border: 1px solid transparent;
   }
 
+  .input_song{
+    width: 80%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: rgb(90, 90, 90);
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .add_song{
+    margin-left: 10px;
+    background-color: #54676d;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
   @media only screen and (max-width: 600px) {
     .music-player{
       display: none;

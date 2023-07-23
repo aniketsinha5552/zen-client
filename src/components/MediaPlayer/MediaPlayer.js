@@ -14,12 +14,15 @@ import vending from "./gifs/vending.gif";
 import trippy from "./gifs/trippy.gif";
 import monke from "./gifs/monke.gif";
 import { Icon } from "@iconify/react";
-import { IconButton } from "@mui/material";
+import { Box, Dialog, IconButton, Typography } from "@mui/material";
 import { themeContext } from "../../homepage/home";
 import { newShade } from "../../App";
 import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { buttonClick } from "../../assets/functions/clickSound";
+import ReactPlayer from "react-player";
+import VolumeSlider from "../ambientSounds/Slider";
+import Playlist from "./Playlist";
 
 export default function MediaPlayer() {
   const gifs = [
@@ -58,101 +61,77 @@ export default function MediaPlayer() {
     }
   };
 
-  // Navigate to next gif every 10 seconds
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     navNextGif();
-  //   }, 10000);
-  //   return () => clearInterval(interval);
-  // }, [gif]);
-
   const [play, setPlay] = useState(false);
-  const musicRef = useRef(null);
+  const [musicVolume, setMusicVolume] = useState(0.2);
+  const [playlist, setPlaylist] = useState([
+    {url:"https://www.youtube.com/watch?v=jfKfPfyJRdk",title:"lofi hip hop radio - beats to relax/study to"},
+  ])
+
+  const [currentPlayist,setCurrentPlaylist] = useState(playlist[0]);
 
   const togglePlay = () => {
-    if (play) {
-      musicRef.current.pause();
-      setPlay(false);
+    buttonClick.play();
+    setPlay(!play);
+  };
+  const nextTrack = () => {
+    const currentSong = playlist.indexOf(currentPlayist);
+    if (currentSong === playlist.length - 1) {
+      setCurrentPlaylist(playlist[0]);
     } else {
-      musicRef.current.play();
-      setPlay(true);
+      setCurrentPlaylist(playlist[currentSong + 1]);
     }
-  };
+  }
 
-  const goForward = () => {
-    musicRef.current.currentTime += 180;
-  };
-  const goAlotForward = () => {
-    musicRef.current.currentTime += 300;
-  };
-  const goBackward = () => {
-    musicRef.current.currentTime -= 180;
-  };
-  const goAlotBackward = () => {
-    musicRef.current.currentTime -= 300;
-  };
+  const handleVolumeChange = (newValue) => {
+    setMusicVolume(newValue);
+  }
 
-  const [musicVolume, setMusicVolume] = useState(0.2);
-  const volumeUp = () => {
-    if (musicVolume < 1) {
-      setMusicVolume(musicVolume + 0.1);
-      musicRef.current.volume = musicVolume;
-    }
-  };
-  const volumeDown = () => {
-    if (musicVolume > 0) {
-      setMusicVolume(musicVolume - 0.1);
-      musicRef.current.volume = musicVolume;
-    }
-  };
+  const [openDialog, setOpenDialog] = useState(false);
+
 
   return (
     <div className="music">
       
       <div className="music-player" >
-        <p style={{fontSize: "20px",textAlign: "center",marginTop:"5px",marginBottom:"5px"}}>Lo-Fi Music</p>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            marginBottom: "5px",
-            position: "relative",
-          }}
-        >
-          <IconButton onClick={goBackward}>
-            <Icon icon="material-symbols:skip-previous-rounded" />
+        <p style={{fontSize: "20px",textAlign: "center",marginTop:"5px",marginBottom:"5px"}}>{currentPlayist.title} 🎵</p>
+        <Box sx={{display:"flex",justifyContent:"center",position:"relative",width:"80%",margin:"0 auto"}}>
+          {!play?(
+              <IconButton onClick={togglePlay}>
+                <Icon icon="akar-icons:play" style={{ fontSize: "25px" }} />
+              </IconButton>
+          ):(
+            <IconButton onClick={togglePlay}>
+            <Icon icon="akar-icons:pause" style={{ fontSize: "25px" }} />
           </IconButton>
-          {!play ? (
-            <IconButton onClick={togglePlay}>
-              <Icon icon="material-symbols:play-arrow-rounded" />
-            </IconButton>
-          ) : (
-            <IconButton onClick={togglePlay}>
-              <Icon icon="material-symbols:pause-rounded" />
-            </IconButton>
           )}
-          <IconButton onClick={goForward}>
-            <Icon icon="material-symbols:skip-next-rounded" />
+          <IconButton onClick={nextTrack}>
+          <Icon icon="fluent:next-32-regular" style={{ fontSize: "25px" }}/>
           </IconButton>
+          <IconButton onClick={()=>setOpenDialog(true)}>
+          <Icon icon="ph:list-bold" style={{ fontSize: "25px" }}/>
+          </IconButton>
+          <Box sx={{display:"grid",placeItems:"center",position:"absolute",right:10,height:"100%"}}>
+          <VolumeSlider
+            value={musicVolume}
+            min={0}
+            max={1}
+            step={0.1}
+            onChange={handleVolumeChange}
+            isVertical={false}
+          />
+          </Box>
 
-          <div style={{ position: "absolute", right: 50 }}>
-            <IconButton>
-              <Icon
-                icon="formkit:volumedown"
-                onClick={volumeDown}
-                style={{ fontSize: "20px" }}
-              />
-            </IconButton>
-            <IconButton>
-              <Icon
-                icon="formkit:volumeup"
-                onClick={volumeUp}
-                style={{ fontSize: "20px" }}
-              />
-            </IconButton>
-          </div>
-        </div>
+            <ReactPlayer 
+              url={currentPlayist.url}
+              playing={play}
+              volume={musicVolume}
+              width="0px"
+              height="0px"
+            />
+        </Box>
+        <Dialog open={openDialog} onClose={()=>setOpenDialog(false)}>
+           <Playlist theme={theme} playlist={playlist} setPlaylist={setPlaylist} setCurrentPlaylist={setCurrentPlaylist}/>
+        </Dialog>
       </div>
 
       {/* Gif */}
@@ -179,7 +158,8 @@ export default function MediaPlayer() {
       </IconButton>
       </div>
 
-      <audio ref={musicRef} src={zen_music} loop></audio>
+      {/* <audio ref={musicRef} src={zen_music} loop></audio> */}
+
 
     </div>
   );

@@ -25,6 +25,7 @@
     "react-hook-form": "^7.43.9",
     "react-howler": "^5.2.0",
     "react-lazy-load-image-component": "^1.6.0",
+    "react-player": "^2.12.0",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.2",
