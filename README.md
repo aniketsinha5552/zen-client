@@ -31,6 +31,11 @@ pass: `test@123`
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/b9d64e5a-ecb8-411f-8ee2-3f8cfaa132b8)
 
 
+
+
+https://github.com/aniketsinha5552/zen-client/assets/104712880/40bf73d6-acf5-44fd-b35b-fac2ceadbb14
+
+
 ### Local Setup
 * run `npm install` in the root folder of the project to install the node modules
 * create a .env file in root folder
