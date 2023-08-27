@@ -4,10 +4,10 @@
 ## About the app
 Lo-fi and pixel-art themed virtual study environment, equipped with useful features such as To-do list, ZenBot(AI chatbot), custom music player and ambient sounds player, beautiful looking themes and a lot more. This project was essentially born out of my desire for an all-in-one space for all my study needs throughout university ☯️
 
-### Tech 
+### 🚀Tech 
 * React, Firebase, Material UI, OpenAI API
 
-### Features
+### 🚀Features
 * ZenBot : An AI ChatBot to answer all your questions
 * Ambient sound effects for relaxing
 * Minimalistic todo list to keep track of all your tasks
@@ -36,7 +36,7 @@ pass: `test@123`
 https://github.com/aniketsinha5552/zen-client/assets/104712880/40bf73d6-acf5-44fd-b35b-fac2ceadbb14
 
 
-### Local Setup
+### 🚀Local Setup
 * run `npm install` in the root folder of the project to install the node modules
 * create a .env file in root folder
 * sample .env
