@@ -18,7 +18,8 @@ import room from "./gifs/room.gif";
 import room_sm from "./gifs/small/room.jpg";
 import table from "./gifs/table.gif";
 import table_sm from "./gifs/small/table.jpg";
-// import vending from "./gifs/vending.gif";
+import vending from "./gifs/vending.gif";
+import vending_sm from "./gifs/small/vending.gif";
 import trippy from "./gifs/trippy.gif";
 import trippy_sm from "./gifs/small/trippy.jpg";
 import monke from "./gifs/monke.gif";
@@ -33,8 +34,8 @@ import VolumeSlider from "../ambientSounds/Slider";
 import Playlist from "./Playlist";
 
 // image imports
-const gifs = [cat,rain,clouds,coffee,fish,leafCafe,lofi,room,table,trippy, monke];
-const smallGifs = [cat_sm,rain_sm,clouds_sm,coffee_sm,fish_sm,leafCafe_sm,lofi_sm,room_sm,table_sm,trippy_sm, monke_sm];
+const gifs = [cat,rain,clouds,coffee,fish,leafCafe,lofi,room,table,trippy, monke,vending];
+const smallGifs = [cat_sm,rain_sm,clouds_sm,coffee_sm,fish_sm,leafCafe_sm,lofi_sm,room_sm,table_sm,trippy_sm, monke_sm,vending_sm];
 
 export default function MediaPlayer() {
 
