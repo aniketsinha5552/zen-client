@@ -19,7 +19,7 @@ import room_sm from "./gifs/small/room.jpg";
 import table from "./gifs/table.gif";
 import table_sm from "./gifs/small/table.jpg";
 import vending from "./gifs/vending.gif";
-import vending_sm from "./gifs/small/vending.gif";
+import vending_sm from "./gifs/small/vending.jpg";
 import trippy from "./gifs/trippy.gif";
 import trippy_sm from "./gifs/small/trippy.jpg";
 import monke from "./gifs/monke.gif";
