@@ -78,8 +78,26 @@ audio::-webkit-media-controls-panel {
   #gif{
     place-self: center;
     border: 0px solid gray;
-    height: 480px;
+    min-height: 480px;
+    min-width: 480px;
+    max-height: 480px;
+    max-width: 480px;
     border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #5A5A5A;
+    object-position: center;
+    object-fit: cover;
+    visibility: hidden;
+  }
+  .gif-blur{
+    /* background-image: url("./gifs/small/cat.jpg"); */
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+    min-height: 480px;
+    min-width: 480px;
+    max-height: 480px;
+    max-width: 480px;
+    box-shadow: 0px 0px 10px 0px #5A5A5A;
   }
 
   .music>audio{
