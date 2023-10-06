@@ -149,16 +149,16 @@ audio::-webkit-media-controls-panel {
       visibility: hidden;
     }
     #gif{
-      max-height: 220px;
-      max-width: 220px;
-      min-height: 220px;
-      min-width: 220px;
+      max-height: 300px;
+      max-width: 300px;
+      min-height: 300px;
+      min-width: 300px;
     }
     .gif-blur{
         margin-top: 10px;
-        max-height: 220px;
-        max-width: 220px;
-        min-height: 220px;
-        min-width: 220px;
+        max-height: 300px;
+        max-width: 300px;
+        min-height: 300px;
+        min-width: 300px;
     }
   }
