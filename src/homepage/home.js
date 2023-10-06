@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { newShade } from "../App";
 import Todos from "../components/Todos";
 import { auth } from "../firebase";
-import Chatbot from "../components/Chatbot";
+import Chatbot from "../components/chatbot/Chatbot";
 import { Quote } from "../components/Quote";
 import SoundPlayers from "../components/ambientSounds/ambientSounds";
 import { buttonClick } from "../assets/functions/clickSound";
@@ -27,18 +27,6 @@ const iconStyle = {
   width: "30px",
   textAlign: "center",
   verticalAlign: "middle",
-};
-
-const triviaStyle = {
-  fontSize: "30px",
-  marginBottom: "20px",
-  boxShadow: "2px 2px 2px rgb(52, 51, 51)",
-  width: "250px",
-  padding: "10px 10px",
-  borderRadius: "10px",
-  marginTop: "10px",
-  textAlign: "center",
-  height: "40px",
 };
 
 export const themeContext = createContext();
@@ -99,7 +87,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
             style={{ textAlign: "left", marginTop: "-6px", marginLeft: "30px" }}
           >
             Zen <Icon className="yinyang" icon="openmoji:yin-yang" />{" "}
-            <small style={{ fontWeight: "lighter", fontSize: "20px" }}>
+            <small id="subhead" style={{ fontWeight: "lighter", fontSize: "20px" }}>
               your virtual study environment
             </small>
           </h1>
@@ -130,31 +118,24 @@ export default function Home({ user, setUser, setThemes, themes }) {
             {/* <Timer /> */}
 
             <div
-              id="gamesButton"
-              style={{
-                ...triviaStyle,
-                backgroundColor: newShade(themes, -30),
-                position: "relative",
-              }}
+              className="gamesButton"
+              style={{backgroundColor: newShade(themes, -30),position: "relative",}}
               onClick={onOpen}
             >
               <img src={chatBot} style={iconStyle} /> ZenBot
             </div>
-            <Dialog open={chatDialogOpen}>
-              <div
-                style={{
-                  width: "500px",
-                  height: "500px",
-                  backgroundColor: newShade(themes, -30),
-                }}
+            <Dialog open={chatDialogOpen} maxWidth="sm">
+              <div id= "chat_dialog"
+                style={{backgroundColor: newShade(themes, -30)}}
               >
                 <Chatbot close={onClose} chat={chat} setChat={setChat} />
               </div>
             </Dialog>
 
             <div
-              id="gamesButton"
-              style={{ ...triviaStyle, backgroundColor: newShade(themes, -30) }}
+              className="gamesButton"
+              id="trivia_container"
+              style={{ backgroundColor: newShade(themes, -30) }}
               onClick={() => {
                 navigate("/trivia");
                 buttonClick.play();

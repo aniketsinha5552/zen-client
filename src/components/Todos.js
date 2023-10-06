@@ -158,8 +158,8 @@ function Todos() {
   };
 
   return (
-    <div style={{ marginLeft: "5px", width: "300px" }}>
-      <h2 style={{ marginTop: "35px", fontWeight: "500", marginBottom: "5px" }}>
+    <div id="todo_container">
+      <h2 >
         My tasks
       </h2>
       {/* Complete and incomplete tabs */}

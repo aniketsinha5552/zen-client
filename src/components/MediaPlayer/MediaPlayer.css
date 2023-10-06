@@ -140,12 +140,21 @@ audio::-webkit-media-controls-panel {
     font-weight: bolder;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 640px) {
     .music-player{
       display: none;
     }
     #gif{
-      margin-top: 40px;
-      max-height: 300px;
+      max-height: 220px;
+      max-width: 220px;
+      min-height: 220px;
+      min-width: 220px;
+    }
+    .gif-blur{
+        margin-top: 30px;
+        max-height: 220px;
+        max-width: 220px;
+        min-height: 220px;
+        min-width: 220px;
     }
   }

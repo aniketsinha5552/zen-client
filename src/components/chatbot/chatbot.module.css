@@ -1,0 +1,63 @@
+.modalStyle{
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.modalStyle>h2{
+    text-align: center;
+}
+
+.inputStyle{
+    width: 430px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 2px;
+}
+
+.chatStyle{
+    border-radius: 10px;
+    height: 350px;
+    width: 470px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    padding: 5px;
+    padding-top: 10px;
+    border: 1px solid gray,
+  }
+
+.chatStyle::-webkit-scrollbar{
+    display: none;
+    width: 0px;
+}
+
+.messageStyle{
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 350px;
+}
+
+@media screen and (max-width: 640px){
+   .inputStyle{
+    width: 300px;
+   }
+   .chatStyle{
+    width: 300px;
+   }
+   .modalStyle{
+    max-width: 300px;
+   }
+   .modalStyle>h2{
+    text-align: left;
+    }
+   .messageStyle{
+    max-width: 250px;
+   }
+}

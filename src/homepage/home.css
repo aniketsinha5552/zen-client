@@ -80,9 +80,27 @@
     border-radius: 10px;
 }
 
-#gamesButton:hover{
+.gamesButton{
+    font-size: 30px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px rgb(52, 51, 51);
+    width: 250px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    height: 40px;
+}
+
+.gamesButton:hover{
     cursor: pointer;
     scale: 1.05;
+}
+
+
+#chat_dialog{
+    height: 500px;
+    width: 500px;
 }
 
 #quotes{
@@ -155,9 +173,48 @@ html::-webkit-scrollbar{
     width: 100%;
 }
 
-@media all and (max-width:500px){
+.footer{
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+}
+
+#todo_container{
+    margin-left: 5px;
+    width: 300px;
+}
+
+#todo_container>h2{
+    margin-top: 35px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+
+@media screen and (max-width:640px){
     .body{
         display: flex;
         flex-direction: column;
+    }
+    #subhead{
+        display: none;
+    }
+    .weather-card{
+        display: none;
+    }
+    .footer{
+        position: relative;
+        right: -80px;
+        padding: 10px;
+    }
+    #todo_container>h2{
+        margin-top: 20px;
+    }
+    #chat_dialog{
+       width: 350px;
+    }
+    #trivia_container{
+        display: none;
     }
 }

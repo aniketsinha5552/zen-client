@@ -47,7 +47,9 @@ export default function MediaPlayer() {
 
   const showImage=()=>{
     const img= document.getElementById("gif")
+    const blur= document.querySelector(".gif-blur")
     img.style.visibility = "visible"
+    blur.style.visibility= "hidden"
   }
   useEffect(()=>{
     const img= document.getElementById("gif")
