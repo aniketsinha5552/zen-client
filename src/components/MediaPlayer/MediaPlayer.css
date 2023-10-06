@@ -142,7 +142,11 @@ audio::-webkit-media-controls-panel {
 
   @media only screen and (max-width: 640px) {
     .music-player{
-      display: none;
+      max-width: 300px;
+      margin-top: 30px;
+    }
+    #playlist-toggle{
+      visibility: hidden;
     }
     #gif{
       max-height: 220px;
@@ -151,7 +155,7 @@ audio::-webkit-media-controls-panel {
       min-width: 220px;
     }
     .gif-blur{
-        margin-top: 30px;
+        margin-top: 10px;
         max-height: 220px;
         max-width: 220px;
         min-height: 220px;

@@ -127,7 +127,7 @@ export default function MediaPlayer() {
           <IconButton onClick={nextTrack}>
           <Icon icon="fluent:next-32-regular" style={{ fontSize: "25px" }}/>
           </IconButton>
-          <IconButton onClick={()=>setOpenDialog(true)}>
+          <IconButton onClick={()=>setOpenDialog(true)} id="playlist-toggle">
           <Icon icon="ph:list-bold" style={{ fontSize: "25px" }}/>
           </IconButton>
           <Box sx={{display:"grid",placeItems:"center",position:"absolute",right:10,height:"100%"}}>
