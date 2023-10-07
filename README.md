@@ -1,6 +1,5 @@
 # Zen☯️
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
-## https://zen-lofi.netlify.app/
 
 ## About the app
 Lo-fi and pixel-art themed virtual study environment, equipped with useful features such as To-do list, ZenBot(AI chatbot), custom music player and ambient sounds player, beautiful looking themes and a lot more. This project was essentially born out of my desire for an all-in-one space for all my study needs throughout university ☯️
