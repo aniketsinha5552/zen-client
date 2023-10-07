@@ -162,3 +162,84 @@ audio::-webkit-media-controls-panel {
         min-width: 300px;
     }
   }
+
+  @media only screen and (max-width: 1280px) {
+    .music-player{
+      max-width: 430px;
+    }
+    #gif{
+      max-height: 430px;
+      max-width: 430px;
+      min-height: 430px;
+      min-width: 430px;
+    }
+    .gif-blur{
+        margin-top: 10px;
+        max-height: 430px;
+        max-width: 430px;
+        min-height: 430px;
+        min-width: 430px;
+    }
+  }
+
+  @media only screen and (max-width: 1140px) {
+    .music-player{
+      max-width: 400px;
+    }
+    #gif{
+      max-height: 400px;
+      max-width: 400px;
+      min-height: 400px;
+      min-width: 400px;
+    }
+    .gif-blur{
+        margin-top: 10px;
+        max-height: 400px;
+        max-width: 400px;
+        min-height: 400px;
+        min-width: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .music-player{
+      max-width: 350px;
+      margin-top: 50px;
+    }
+    #gif{
+      max-height: 350px;
+      max-width: 350px;
+      min-height: 350px;
+      min-width: 350px;
+    }
+    .gif-blur{
+        margin-top: 10px;
+        max-height: 350px;
+        max-width: 350px;
+        min-height: 350px;
+        min-width: 350px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .music-player{
+      max-width: 300px;
+      margin-top: 50px;
+    }
+    .music-player>p{
+      font-size: 18px;
+    }
+    #gif{
+      max-height: 300px;
+      max-width: 300px;
+      min-height: 300px;
+      min-width: 300px;
+    }
+    .gif-blur{
+        margin-top: 10px;
+        max-height: 300px;
+        max-width: 300px;
+        min-height: 300px;
+        min-width: 300px;
+    }
+  }

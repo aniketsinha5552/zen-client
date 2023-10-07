@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import {
   getDocs,
   collection,
@@ -12,9 +12,10 @@ import {
 } from "firebase/firestore";
 import { IconButton, List, ListItem } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { themeContext } from "../homepage/home";
-import { newShade } from "../App";
-import soft_click from "../assets/sounds/soft_click.wav";
+import { themeContext } from "../../homepage/home";
+import { newShade } from "../../App";
+import soft_click from "../../assets/sounds/soft_click.wav";
+import styles from "./todos.module.css"
 
 const butonClick = new Audio(soft_click);
 butonClick.volume = 0.1;
@@ -158,7 +159,7 @@ function Todos() {
   };
 
   return (
-    <div id="todo_container">
+    <div className="todo_container">
       <h2 >
         My tasks
       </h2>

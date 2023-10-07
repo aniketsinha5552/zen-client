@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { themeContext } from "../homepage/home";
-import { newShade } from "../App";
+import { themeContext } from "../../homepage/home";
+import { newShade } from "../../App";
 import axios from "axios";
 import { Icon } from "@iconify/react";
 import { Dialog } from "@mui/material";
+import styles from "./weather.module.css"
 
 // ab2b6979519f319ec9fbf465af790cb0  --------api_key
 // http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}   -----Location Co-ordinatesa
@@ -58,7 +59,7 @@ export default function Weather() {
   const handleClickOpen = () => setOpen(true)
 
   return (
-    <div className="weather-card" style={{backgroundColor: newShade(theme,-10)}} >
+    <div className={styles.weatherCard} style={{backgroundColor: newShade(theme,-10)}} >
       {weatherData ? (
         <>
           <span>

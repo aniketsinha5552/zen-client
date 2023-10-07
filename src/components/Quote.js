@@ -60,7 +60,7 @@ const api_url = "https://zenquotes.io/api/today";
   return (
     <div id="quotes" style={{borderRadius:"2px",boxShadow: `2px 2px 2px 2px ${newShade(themes,-100)}`}} >
       {quote ?
-      <div id="quote" style={{color:newShade(themes,-60), fontSize:"22px",}}>
+      <div id="quote" style={{color:newShade(themes,-60)}}>
       <Icon icon="bi:quote" /> {quote.q}  <em style={{color:newShade(themes,-100)}}> {quote.a}</em>
       </div>
       : <></>

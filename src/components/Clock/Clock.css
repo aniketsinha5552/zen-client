@@ -12,3 +12,29 @@
     place-items: center;
     background-color: transparent;
 }
+
+@media screen and (max-width:1280px){
+    .clock{
+        width: 280px;
+    }
+}
+
+@media screen and (max-width:1140px){
+    .clock{
+        width: 250px;
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width:1024px){
+    .clock{
+        width: 220px;
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .clock{
+        width: 200px;
+    }
+}

@@ -1,0 +1,47 @@
+.weatherCard{
+    font-size: 30px;
+    margin-bottom: 2px;
+    width: 300px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 2px;
+    text-align: center;
+    min-height: 120px;
+    display: grid;
+    position:relative;
+    box-shadow: 2px 2px 2px rgb(52, 51, 51);
+}
+.weatherCard:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width:1280px){
+    .weatherCard{
+        width: 280px;
+    }
+}
+
+@media screen and (max-width:1140px){
+    .weatherCard{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width:1024px){
+    .weatherCard{
+        width: 220px;
+    }
+}
+@media screen and (max-width:768px){
+    .weatherCard{
+        width: 200px; 
+    }
+}
+
+
+@media screen and (max-width:640px){
+    .weatherCard{
+        display: none;
+    }
+}
