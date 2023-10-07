@@ -119,7 +119,7 @@ export default function Home({ user, setUser, setThemes, themes }) {
 
             <div
               className="gamesButton"
-              style={{backgroundColor: newShade(themes, -30),position: "relative",}}
+              style={{backgroundColor: newShade(themes, -30)}}
               onClick={onOpen}
             >
               <img src={chatBot} style={iconStyle} /> ZenBot

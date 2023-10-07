@@ -206,7 +206,13 @@ html::-webkit-scrollbar{
 
 @media screen and (max-width:1024px){
     .gamesButton{
-        max-width: 180px;
+        max-width: 150px;
+        font-size: 22px;
+        height: 24px;
+        margin-bottom: 5px;
+    }
+    .gamesButton>img{
+        display: none;
     }
     #quotes{
         max-width: 220px;
