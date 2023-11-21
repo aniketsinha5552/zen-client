@@ -37,9 +37,10 @@ https://github.com/aniketsinha5552/zen-client/assets/104712880/40bf73d6-acf5-44f
 
 
 ### 🚀Local Setup
-* run `npm install` in the root folder of the project to install the node modules
-* create a .env file in root folder
-* sample .env
+1. `git clone https://github.com/aniketsinha5552/zen-client.git`
+2. `npm install`
+3. create a `.env` file in root folder
+4. sample .env
 ```
 REACT_APP_CHAT_API_KEY = [OpenAI api key]
 REACT_APP_FIREBASE_API_KEY = [firebase app config api key]
