@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useForm } from 'react-hook-form'
 import { buttonClick } from '../assets/functions/clickSound'
 import { Icon } from '@iconify/react'
+import {provider} from '../firebase'
+import { signInWithPopup,updateProfile } from 'firebase/auth'
 
 export default function Login({setUser}) {
     const {
@@ -30,6 +32,32 @@ export default function Login({setUser}) {
           alert(error.message)
         })
       }
+
+      const googleSignIn=()=>{
+        signInWithPopup(auth,provider).then(async(userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user)
+          await updateProfile(user,{
+            displayName:user.displayName
+          })
+          setUser({
+            email:user.email,
+            username:user.displayName,
+            id:user.uid
+          })
+          reset()
+          // navigate('/')
+          
+          // ...
+        }).catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage)
+          console.log(errorCode,errorMessage)
+          // ..
+        })
+        }
    
 
   return (
@@ -43,6 +71,9 @@ export default function Login({setUser}) {
             <input id='username' placeholder='Email' {...register("email",{required:true})}></input>
             <input id='password' type="password" placeholder='Password' {...register("pass",{required:true})} ></input>
             <button id="loginBtn" title="Login" >Login</button>
+            <button id='googleBtn' onClick={googleSignIn}>
+            <Icon icon="flat-color-icons:google" style={{marginRight:"5px"}}/> Google
+            </button>
             <span id="registerRedirect">Don't have an account? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/register">Sign Up</a></span>
         </div>
         </form>

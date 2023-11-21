@@ -68,6 +68,30 @@
   color: rgb(41, 40, 40);
 }
 
+#googleBtn{  
+    width: 270px;
+    place-self: center;
+    font-family: 'VT323', monospace;
+    background-color: transparent;
+    border: 2px solid black;
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 7px;
+    /* text-shadow: 1px 1px 1px rgb(49, 49, 49); */
+    /* background-color: transparent; */
+    background-color: rgb(214, 221, 228);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#googleBtn:hover{
+    cursor: pointer;
+    background-color: rgb(157, 180, 201);
+}
+
 #registerRedirect{
     font-size: 20px;
     background-color: aliceblue;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './register.css'
 import { useForm } from 'react-hook-form'
-import {auth} from '../firebase'
-import { createUserWithEmailAndPassword,updateProfile } from 'firebase/auth'
+import {auth, provider} from '../firebase'
+import { createUserWithEmailAndPassword,signInWithPopup,updateProfile } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { buttonClick } from '../assets/functions/clickSound'
 import { Icon } from '@iconify/react'
@@ -48,6 +48,32 @@ export default function SignUp({setUser}) {
           // ..
         })
     }
+
+    const googleSignIn=()=>{
+      signInWithPopup(auth,provider).then(async(userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user)
+        await updateProfile(user,{
+          displayName:user.displayName
+        })
+        setUser({
+          email:user.email,
+          username:user.displayName,
+          id:user.uid
+        })
+        reset()
+        navigate('/')
+        
+        // ...
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage)
+        console.log(errorCode,errorMessage)
+        // ..
+      })
+      }
    
   return (
     <div className='register'>
@@ -62,7 +88,10 @@ export default function SignUp({setUser}) {
         <input id='username' type='password' placeholder='Password' {...register("pass",{required:true})}></input>
         <input id='username' type='password' placeholder='Confirm Password' {...register("cpass",{required:true})}></input>
         <button id="loginBtn" title="Register">Register</button>
-    <span id="registerRedirect">Have an account? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/">Login now</a></span>
+        <button id='googleBtn' onClick={googleSignIn}>
+        <Icon icon="flat-color-icons:google" style={{marginRight:"5px"}}/> Google
+        </button>
+    <span id="registerRedirect">Already have an account? <a style={{textDecoration:"none", color:"#5d5c61"}} href="/">Login now</a></span>
         </div>
     </form>
 </div>
