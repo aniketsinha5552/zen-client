@@ -75,8 +75,8 @@ function Todos() {
   }, []);
 
   useEffect(() => {
-    if (tabSelected === 1) setTodo(allTodo);
-    else if (tabSelected === 2) setTodo(getCompleted());
+    if (tabSelected == 1) setTodo(allTodo);
+    else if (tabSelected == 2) setTodo(getCompleted());
     else setTodo(getIncomplete());
   }, [allTodo]);
 
@@ -130,6 +130,9 @@ function Todos() {
           {item.task}{" "}
         </p>
         <div>
+          <IconButton title="Delete Task" onClick={() => deleteItem(item.id)} >
+            <Icon icon="iconoir:cancel" />
+          </IconButton>
           {!item.completed && (
             <IconButton
               title="Task Completed"
@@ -138,9 +141,6 @@ function Todos() {
               <Icon icon="material-symbols:check" />
             </IconButton>
           )}
-          <IconButton title="Delete Task" onClick={() => deleteItem(item.id)} >
-            <Icon icon="iconoir:cancel" />
-          </IconButton>
         </div>
       </ListItem>
     );
@@ -159,7 +159,7 @@ function Todos() {
   };
 
   return (
-    <div className="todo_container">
+    <div className={styles.todo_container}>
       <h2 >
         My tasks
       </h2>

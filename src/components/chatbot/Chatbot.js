@@ -24,26 +24,32 @@ function Chatbot({ close, chat, setChat }) {
     reset();
     setChat([...chat, { message: message, sender: "user" }]);
     setIsLoading(true);
+    try{
+      let res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.REACT_APP_CHAT_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: message }],
+          max_tokens: 100,
+        }),
+      });
+      const data = await res.json();
+      setChat([
+        ...chat,
+        { message: message, sender: "user" },
+        { message: data.choices[0].message.content, sender: "bot" },
+      ]);
+    }catch(err){
+      console.log(err)
+    }finally{
+      setIsLoading(false);
+    }
 
-    let res = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.REACT_APP_CHAT_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: message }],
-        max_tokens: 100,
-      }),
-    });
-    const data = await res.json();
-    setChat([
-      ...chat,
-      { message: message, sender: "user" },
-      { message: data.choices[0].message.content, sender: "bot" },
-    ]);
-    setIsLoading(false);
+    
   };
 
   const onSubmit = (data) => {
