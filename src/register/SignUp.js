@@ -49,7 +49,7 @@ export default function SignUp({setUser}) {
         })
     }
 
-    const googleSignIn=()=>{
+    const googleSignIn=(e)=>{
       signInWithPopup(auth,provider).then(async(userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -73,6 +73,7 @@ export default function SignUp({setUser}) {
         console.log(errorCode,errorMessage)
         // ..
       })
+      e.preventDefault()
       }
    
   return (
