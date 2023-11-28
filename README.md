@@ -1,5 +1,5 @@
 # Zen☯️
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 
 ## About the app
 Lo-fi and pixel-art themed virtual study environment, equipped with useful features such as To-do list, ZenBot(AI chatbot), custom music player and ambient sounds player, beautiful looking themes and a lot more. This project was essentially born out of my desire for an all-in-one space for all my study needs throughout university ☯️
@@ -37,9 +37,10 @@ https://github.com/aniketsinha5552/zen-client/assets/104712880/40bf73d6-acf5-44f
 
 
 ### 🚀Local Setup
-* run `npm install` in the root folder of the project to install the node modules
-* create a .env file in root folder
-* sample .env
+1. `git clone https://github.com/aniketsinha5552/zen-client.git`
+2. `npm install`
+3. create a `.env` file in root folder
+4. sample .env
 ```
 REACT_APP_CHAT_API_KEY = [OpenAI api key]
 REACT_APP_FIREBASE_API_KEY = [firebase app config api key]
