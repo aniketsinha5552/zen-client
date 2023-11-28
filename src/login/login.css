@@ -104,11 +104,12 @@
     #loginForm{
         width: 300px;
         height: 400px;
+        margin-bottom: 20px;
     }
     #username,#password{
         width: 200px;
     }
-    #loginBtn{
+    #loginBtn, #googleBtn{
         width: 220px;
     }
     #registerRedirect{

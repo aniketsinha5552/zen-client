@@ -32,9 +32,3 @@
         font-size: 26px;
     }
 }
-
-@media screen and (max-width:768px){
-    .clock{
-        width: 200px;
-    }
-}
