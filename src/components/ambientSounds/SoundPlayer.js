@@ -2,14 +2,13 @@ import { useState } from "react";
 import ReactHowler from "react-howler";
 import VolumeSlider from "./Slider";
 import { Icon } from "@iconify/react";
-import { themeContext } from "../../homepage/home";
-import { useContext } from "react";
-import { newShade } from "../../App";
+import { newShade } from "../../utils/newShade";
 import { buttonClick } from "../../assets/functions/clickSound";
+import { useSelector } from "react-redux";
 
 const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
-  const contextData = useContext(themeContext);
-  const theme = contextData.themes;
+  const reduxtheme= useSelector((state)=>state.theme.theme)
+  const theme = reduxtheme.color
   const [playing, setPlaying] = useState(false);
   const [volume, setVolume] = useState(0.5);
 

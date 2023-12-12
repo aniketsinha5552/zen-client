@@ -12,19 +12,18 @@ import {
 } from "firebase/firestore";
 import { IconButton, List, ListItem } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { themeContext } from "../../homepage/home";
-import { newShade } from "../../App";
+import { newShade } from "../../utils/newShade";
 import soft_click from "../../assets/sounds/soft_click.wav";
-import styles from "./todos.module.css"
+import styles from "./todos.module.css";
+import { useSelector } from "react-redux";
 
 const butonClick = new Audio(soft_click);
 butonClick.volume = 0.1;
 
-
 function Todos() {
-  const contextData = useContext(themeContext);
-  const theme = contextData.themes;
-  const user = contextData.user;
+  const reduxtheme = useSelector((state) => state.theme.theme);
+  const theme = reduxtheme.color;
+  const user = useSelector((state)=>state.user.user)
 
   const tabButtonStyle = {
     backgroundColor: "transparent",
@@ -61,7 +60,7 @@ function Todos() {
       const filteredData = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
       });
-      console.log(filteredData);
+      // console.log(filteredData);
       if (allTodo.length === 0)
         setTodo(filteredData.filter((item) => item.completed === false));
       setAllTodo(filteredData);
@@ -122,15 +121,13 @@ function Todos() {
           // height: "50px",
           "&:hover": {
             backgroundColor: newShade(theme, -30),
-          }
+          },
         }}
         key={item.id}
       >
-        <p style={{flex:0.9,fontSize:"19px"}}>
-          {item.task}{" "}
-        </p>
+        <p style={{ flex: 0.9, fontSize: "19px" }}>{item.task} </p>
         <div>
-          <IconButton title="Delete Task" onClick={() => deleteItem(item.id)} >
+          <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
             <Icon icon="iconoir:cancel" />
           </IconButton>
           {!item.completed && (
@@ -160,9 +157,7 @@ function Todos() {
 
   return (
     <div className={styles.todo_container}>
-      <h2 >
-        My tasks
-      </h2>
+      <h2>My tasks</h2>
       {/* Complete and incomplete tabs */}
       <div
         style={{

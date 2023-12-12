@@ -1,8 +1,8 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { newShade } from "../App";
-import { themeContext } from "../homepage/home";
+import { newShade } from "../utils/newShade";
 import { Icon } from "@iconify/react";
+import { useSelector } from "react-redux";
 
 // temporary quotes
 const quotes = [
@@ -46,8 +46,8 @@ const quotes = [
 ]
 
 export const Quote = () => {
-const contextData = useContext(themeContext);
-const themes = contextData.themes;
+const reduxtheme= useSelector((state)=>state.theme.theme)
+const theme = reduxtheme.color
 const [quote, setQuote] = useState(quotes[Math.floor(Math.random() * quotes.length)]);
 // const api_url = "https://api.quotable.io/random";
 const api_url = "https://zenquotes.io/api/today";
@@ -58,10 +58,10 @@ const api_url = "https://zenquotes.io/api/today";
 //   getQuote(api_url);
 // }, []);
   return (
-    <div id="quotes" style={{borderRadius:"2px",boxShadow: `2px 2px 2px 2px ${newShade(themes,-100)}`}} >
+    <div id="quotes" style={{borderRadius:"2px",boxShadow: `2px 2px 2px 2px ${newShade(theme,-100)}`}} >
       {quote ?
-      <div id="quote" style={{color:newShade(themes,-60)}}>
-      <Icon icon="bi:quote" /> {quote.q}  <em style={{color:newShade(themes,-100)}}> {quote.a}</em>
+      <div id="quote" style={{color:newShade(theme,-60)}}>
+      <Icon icon="bi:quote" /> {quote.q}  <em style={{color:newShade(theme,-100)}}> {quote.a}</em>
       </div>
       : <></>
 }

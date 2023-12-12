@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { Box, Typography,IconButton,TextField, Button } from '@mui/material'
 import { Icon } from '@iconify/react'
 import { useForm } from 'react-hook-form'
-import { newShade } from '../../App'
+import { newShade } from "../../utils/newShade"
 
 const Playlist = ({theme,playlist,setPlaylist,setCurrentPlaylist}) => {
     const {

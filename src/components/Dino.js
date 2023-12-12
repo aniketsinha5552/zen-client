@@ -3,15 +3,18 @@ import ChromeDinoGame from "react-chrome-dino";
 import { IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
-import { newShade } from "../App";
+import { newShade } from "../utils/newShade";
+import { useSelector } from "react-redux";
 
-export default function ({ theme }) {
+export default function () {
   const navigate = useNavigate();
+  const reduxtheme = useSelector((state) => state.theme.theme);
+  const theme = reduxtheme.color;
   const [array, setArray] = useState([]);
   const [arraySize, setArraySize] = useState(30);
   const [speed, setSpeed] = useState(1);
 
-  const randomizeArray = (size=arraySize) => {
+  const randomizeArray = (size = arraySize) => {
     let arr = [];
     for (let i = 0; i < size; i++) {
       arr.push(Math.floor(Math.random() * 100) + 1);
@@ -60,7 +63,6 @@ export default function ({ theme }) {
       }
     }
     for (let i = 0; i < animations.length; i++) {
-
       const arrayBars =
         document.getElementsByClassName("array-container")[0].childNodes;
       const isColorChange = i % 3 !== 2;
@@ -73,7 +75,7 @@ export default function ({ theme }) {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
-        }, (i * 10)/speed);
+        }, (i * 10) / speed);
       } else {
         setTimeout(() => {
           const [barOneIdx, barTwoIdx, barOneHeight, barTwoHeight] =
@@ -82,7 +84,7 @@ export default function ({ theme }) {
           const barTwoStyle = arrayBars[barTwoIdx].style;
           barOneStyle.height = `${barOneHeight * 3}px`;
           barTwoStyle.height = `${barTwoHeight * 3}px`;
-        }, (i * 10)/speed);
+        }, (i * 10) / speed);
       }
     }
   };
@@ -90,7 +92,7 @@ export default function ({ theme }) {
   const onArraySizeChange = (e) => {
     setArraySize(e.target.value);
     randomizeArray(e.target.value);
-  }
+  };
 
   return (
     <div>
@@ -116,7 +118,7 @@ export default function ({ theme }) {
             <div
               key={index}
               style={{
-                width: `${(100 / array.length)*10}px`,
+                width: `${(100 / array.length) * 10}px`,
                 height: `${item * 3}px`,
                 backgroundColor: newShade(theme, 50),
                 border: "1px solid black",
@@ -136,27 +138,24 @@ export default function ({ theme }) {
           marginTop: "30px",
         }}
       >
-        <select onChange={(e)=>onArraySizeChange(e)} style={dropdownStyle} >
+        <select onChange={(e) => onArraySizeChange(e)} style={dropdownStyle}>
           <option value={30}>30</option>
           <option value={50}>50</option>
           <option value={100}>100</option>
         </select>
-        <select onChange={(e)=>setSpeed(e.target.value)}  style={dropdownStyle}>
+        <select
+          onChange={(e) => setSpeed(e.target.value)}
+          style={dropdownStyle}
+        >
           <option value="1">Slow</option>
           <option value="2">Medium</option>
           <option value="3">Fast</option>
         </select>
-        <button
-          style={buttonStyle}
-          onClick={()=>randomizeArray(arraySize)}
-        >
+        <button style={buttonStyle} onClick={() => randomizeArray(arraySize)}>
           New Array
         </button>
         {/* <button onClick={selectionSort}>Selection Sort</button> */}
-        <button
-          style={buttonStyle}
-          onClick={bubbleSort}
-        >
+        <button style={buttonStyle} onClick={bubbleSort}>
           Bubble Sort
         </button>
       </div>

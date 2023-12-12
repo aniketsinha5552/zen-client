@@ -26,12 +26,12 @@ import monke from "./gifs/monke.gif";
 import monke_sm from "./gifs/small/monke.jpg";
 
 import { Icon } from "@iconify/react";
-import { Box, Dialog, IconButton, Typography } from "@mui/material";
-import { themeContext } from "../../homepage/home";
+import { Box, Dialog, IconButton} from "@mui/material";
 import { buttonClick } from "../../assets/functions/clickSound";
 import ReactPlayer from "react-player";
 import VolumeSlider from "../ambientSounds/Slider";
 import Playlist from "./Playlist";
+import { useSelector } from "react-redux";
 
 // image imports
 const gifs = [cat,rain,clouds,coffee,fish,leafCafe,lofi,room,table,trippy, monke,vending];
@@ -42,8 +42,9 @@ export default function MediaPlayer() {
   // const [currentGif, setCurrentGif] = useState(0);
   const [gif, setGif] = useState(cat);
   const [smallGif, setSmallGif] = useState(cat_sm);
-  const contextData = useContext(themeContext);
-  const theme = contextData.themes;
+
+  const reduxtheme= useSelector((state)=>state.theme.theme)
+  const theme = reduxtheme.color
 
   const showImage=()=>{
     const img= document.getElementById("gif")

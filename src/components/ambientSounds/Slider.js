@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { themeContext } from "../../homepage/home";
-import { useContext } from "react";
-import { newShade } from "../../App";
+import { newShade } from "../../utils/newShade";
+import { useSelector } from "react-redux";
 
 
 export const StyledSlider = styled.input`
@@ -14,8 +13,8 @@ export const StyledSlider = styled.input`
   max-width: 50px;
 
   /* If isVertical is true, adjust to vertical orientation */
-  transform: ${({ isVertical }) =>
-    isVertical === true ? "rotate(270deg)" : ""};
+   /* transform: ${({ isVertical }) =>
+    isVertical === true ? "rotate(270deg)" : ""}; */
 
   /******** Chrome, Safari, Opera and Edge Chromium styles ********/
   &::-webkit-slider-runnable-track {
@@ -56,15 +55,16 @@ export const StyledSlider = styled.input`
 `;
 
 
-const VolumeSlider = ({ value, min, max, step, onChange, isVertical }=false) => {
-  const contextData = useContext(themeContext);
-  const theme = contextData.themes;
+const VolumeSlider = ({ value, min, max, step, onChange, isVertical=false }) => {
+
+  const reduxtheme= useSelector((state)=>state.theme.theme)
+  const theme = reduxtheme.color
   const handleEvent = (event) => {
     onChange(Number(event.target.value));
   };
   return (
     <StyledSlider
-    isVertical={isVertical}
+    // isVertical={isVertical}
     type="range"
     value={value}
     min={min}

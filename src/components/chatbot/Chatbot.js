@@ -1,21 +1,19 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
-import { themeContext } from "../../homepage/home";
-import { newShade } from "../../App";
+import { newShade } from "../../utils/newShade";
 import { IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useForm } from "react-hook-form";
 import styles from "./chatbot.module.css";
-
+import { useSelector } from "react-redux";
 
 function Chatbot({ close, chat, setChat }) {
-  const contextData = useContext(themeContext);
-  const theme = contextData.themes;
+  const reduxtheme = useSelector((state) => state.theme.theme);
+  const theme = reduxtheme.color;
 
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
     reset,
   } = useForm();
@@ -24,7 +22,7 @@ function Chatbot({ close, chat, setChat }) {
     reset();
     setChat([...chat, { message: message, sender: "user" }]);
     setIsLoading(true);
-    try{
+    try {
       let res = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "post",
         headers: {
@@ -43,13 +41,11 @@ function Chatbot({ close, chat, setChat }) {
         { message: message, sender: "user" },
         { message: data.choices[0].message.content, sender: "bot" },
       ]);
-    }catch(err){
-      console.log(err)
-    }finally{
+    } catch (err) {
+      console.log(err);
+    } finally {
       setIsLoading(false);
     }
-
-    
   };
 
   const onSubmit = (data) => {
@@ -81,7 +77,11 @@ function Chatbot({ close, chat, setChat }) {
         <Icon icon="ant-design:clear-outlined" />
       </IconButton>
 
-      <div id="messageBody" className={styles.chatStyle} style={{ backgroundColor: newShade(theme, -50)}}>
+      <div
+        id="messageBody"
+        className={styles.chatStyle}
+        style={{ backgroundColor: newShade(theme, -50) }}
+      >
         <div
           style={{
             display: "flex",

@@ -14,10 +14,13 @@ import React, { useEffect, useState, useContext } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { newShade } from "../App";
+import { newShade } from "../utils/newShade";
+import { useSelector } from "react-redux";
 
-function Trivia({theme}) {
+function Trivia() {
   const navigate = useNavigate();
+  const reduxtheme = useSelector((state) => state.theme.theme);
+  const theme = reduxtheme.color;
   const [curQues, setCurQues] = useState(0);
   const [triviaData, setTriviaData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -50,7 +53,7 @@ function Trivia({theme}) {
   }, []);
 
   const nextQuestion = () => {
-    if (curQues < questions-1) {
+    if (curQues < questions - 1) {
       setCurQues(curQues + 1);
     } else {
       setGameOver(true);
@@ -75,9 +78,7 @@ function Trivia({theme}) {
     };
 
     const renderSymbol = (str) => {
-      return (
-        `<span>${str}</span>`
-      );
+      return `<span>${str}</span>`;
     };
     return (
       <>
@@ -85,7 +86,11 @@ function Trivia({theme}) {
           {triviaData && (
             <>
               Q {curQues + 1}.{" "}
-               <span dangerouslySetInnerHTML={{__html: renderSymbol(triviaData[curQues]?.question)}} />  
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: renderSymbol(triviaData[curQues]?.question),
+                }}
+              />
             </>
           )}
         </div>
@@ -194,9 +199,12 @@ function Trivia({theme}) {
               onChange={(e) => setCategory(e.target.value)}
             >
               <MenuItem value={0}>Any</MenuItem>
-              {categories && categories.map((cat) => (
-                <MenuItem key={cat.id} value={cat.id}>{cat.name}</MenuItem>
-              ))}
+              {categories &&
+                categories.map((cat) => (
+                  <MenuItem key={cat.id} value={cat.id}>
+                    {cat.name}
+                  </MenuItem>
+                ))}
             </TextField>
             <TextField
               label="Difficulty"
@@ -205,15 +213,24 @@ function Trivia({theme}) {
               value={difficulty}
               onChange={(e) => setDifficulty(e.target.value)}
             >
-               <MenuItem value="any">Any</MenuItem>
-               <MenuItem value="easy">Easy</MenuItem>
-               <MenuItem value="medium">Medium</MenuItem>
-               <MenuItem value="hard">Hard</MenuItem>
+              <MenuItem value="any">Any</MenuItem>
+              <MenuItem value="easy">Easy</MenuItem>
+              <MenuItem value="medium">Medium</MenuItem>
+              <MenuItem value="hard">Hard</MenuItem>
             </TextField>
           </Stack>
         </div>
         <button
-          style={{ marginTop: "20px",backgroundColor:newShade(theme,-50),height:"40px",borderRadius:"10px",fontSize:"15px",fontWeight:"lighter",border:"none",color:"white" }}
+          style={{
+            marginTop: "20px",
+            backgroundColor: newShade(theme, -50),
+            height: "40px",
+            borderRadius: "10px",
+            fontSize: "15px",
+            fontWeight: "lighter",
+            border: "none",
+            color: "white",
+          }}
           onClick={startGame}
           id="startGame"
         >
@@ -223,41 +240,46 @@ function Trivia({theme}) {
     );
   };
 
-  const startGame=()=>{
-    const url = `https://opentdb.com/api.php?amount=${questions}&category=${category==0 ? "": category}&difficulty=${difficulty=="any" ? "" : difficulty}`
-    getTriviaData(url)
-    setGameStarted(true)
-  }
+  const startGame = () => {
+    const url = `https://opentdb.com/api.php?amount=${questions}&category=${
+      category == 0 ? "" : category
+    }&difficulty=${difficulty == "any" ? "" : difficulty}`;
+    getTriviaData(url);
+    setGameStarted(true);
+  };
 
   const RenderGame = () => {
     return (
-      <div style={{ padding: "10px" ,position:'relative',height: "400px"}}>
+      <div style={{ padding: "10px", position: "relative", height: "400px" }}>
         {isLoading ? (
-          <p style={{height:"200px"}}>........Loading</p>
+          <p style={{ height: "200px" }}>........Loading</p>
         ) : gameOver ? (
           <RenderScore />
         ) : (
           <RenderQuestion />
         )}
         {!gameOver && (
-          <div style={{position:"absolute",right:10,bottom:10}}>
-          <div style={{textAlign:"right"}}>
-            <div
-              style={{
-                fontSize: "20px",
-              }}
-            >
-              <p> Score : {score} </p>
-              <p>No of questions : {questions} </p>
-            </div>
-            <div>
-              <IconButton onClick={restartGame} title="restart game">
-                <Icon icon="codicon:debug-restart" />
-              </IconButton>
-              <IconButton onClick={changeSettings} title="change game settings">
-                <Icon icon="material-symbols:settings" />
-              </IconButton>
-            </div>
+          <div style={{ position: "absolute", right: 10, bottom: 10 }}>
+            <div style={{ textAlign: "right" }}>
+              <div
+                style={{
+                  fontSize: "20px",
+                }}
+              >
+                <p> Score : {score} </p>
+                <p>No of questions : {questions} </p>
+              </div>
+              <div>
+                <IconButton onClick={restartGame} title="restart game">
+                  <Icon icon="codicon:debug-restart" />
+                </IconButton>
+                <IconButton
+                  onClick={changeSettings}
+                  title="change game settings"
+                >
+                  <Icon icon="material-symbols:settings" />
+                </IconButton>
+              </div>
             </div>
           </div>
         )}
@@ -289,7 +311,7 @@ function Trivia({theme}) {
         style={{
           padding: 10,
           margin: "20px",
-          backgroundColor: newShade(theme,-30),
+          backgroundColor: newShade(theme, -30),
           borderRadius: "20px",
           height: "400px",
         }}

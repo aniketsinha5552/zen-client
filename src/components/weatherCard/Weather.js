@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { themeContext } from "../../homepage/home";
-import { newShade } from "../../App";
+import React, { useEffect, useState } from "react";
+import { newShade } from "../../utils/newShade";
 import axios from "axios";
 import { Icon } from "@iconify/react";
 import { Dialog } from "@mui/material";
 import styles from "./weather.module.css"
+import { useSelector, useDispatch } from 'react-redux'
 
 // ab2b6979519f319ec9fbf465af790cb0  --------api_key
 // http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}   -----Location Co-ordinatesa
@@ -24,8 +24,8 @@ export let weatherCardStyle = {
   position:"relative"
 };
 export default function Weather() {
-  const contextData = useContext(themeContext);
-  const theme = contextData.themes;
+  const reduxtheme= useSelector((state)=>state.theme.theme)
+  const theme = reduxtheme.color
   const [currLoc, setCurrLoc] = useState();
   const [weatherData, setWeatherData] = useState();
   const getWeather = async (lon, lan) => {
@@ -33,12 +33,12 @@ export default function Weather() {
       `https://api.openweathermap.org/data/2.5/weather?lat=${lan}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
     );
     setWeatherData(res.data);
-    console.log(res.data);
+    // console.log(res.data);
   };
   const getLoc = async () => {
     const res = await axios.get("https://ipapi.co/json");
     setCurrLoc(res.data);
-    console.log(res.data);
+    // console.log(res.data);
     getWeather(res.data.longitude, res.data.latitude);
   };
   useEffect(() => {
