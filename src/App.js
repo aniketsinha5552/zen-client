@@ -1,7 +1,7 @@
 import React, { useState, createContext, useEffect } from "react";
-import Home from "./pages/homepage/home";
-import Login from "./login/login";
-import SignUp from "./register/SignUp";
+import Home from "./pages/homepage/home"
+import Login from "./pages/login/login"
+import SignUp from "./pages/register/SignUp";
 import Trivia from "./components/Trivia";
 import "./App.css";
 import {
