@@ -1,0 +1,79 @@
+.trivia{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -10px;
+}
+.container{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    /* height: 400px; */
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.desc{
+    flex: 1;
+    text-align: center;
+    font-weight: 400;
+}
+.back{
+    flex: 1;
+    text-align: left;
+    height: fit-content;
+    margin-left: 20px;
+}
+.name{
+    flex: 1;
+    text-align: center;
+    font-weight: 500;
+}
+
+.gameContainer{
+    padding: 10px;
+    position: relative;
+    height: 400px
+}
+
+.gameDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+.questionContainer{
+   font-size: 22px;
+}
+.option{
+   font-size: 19px;
+   border-radius: 5px;
+}
+
+@media only screen and (max-width:780px){
+    .heading{
+        font-size: 10px;
+    }
+    .trivia{
+       min-height: 80vh;
+    }
+    .questionContainer{
+        font-size: 20px;
+    }
+    .option{
+        font-size: 18px;
+    }
+    .container{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+    }
+}

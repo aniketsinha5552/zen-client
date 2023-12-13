@@ -27,7 +27,6 @@ const iconStyle = {
   verticalAlign: "middle",
 };
 
-export const themeContext = createContext();
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ export default function Home() {
   const user = useSelector((state) => state.user.user);
   const theme = reduxtheme.color;
   // Load Animation
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -52,13 +51,6 @@ export default function Home() {
     }, 2000);
   }, []);
   // End Load Animation
-
-  const logout = () => {
-    buttonClick.play();
-    dispatch(updateUser(null));
-    auth.signOut();
-    navigate("/");
-  };
 
   const [chatDialogOpen, setChatDialogOpen] = useState(false);
   const onClose = () => {
@@ -88,35 +80,6 @@ export default function Home() {
         />
       ) : (
         <div className="home">
-          <div className="heading">
-            <h1
-              style={{
-                textAlign: "left",
-                marginTop: "-6px",
-                marginLeft: "30px",
-              }}
-            >
-              Zen <Icon className="yinyang" icon="openmoji:yin-yang" />{" "}
-              <small
-                id="subhead"
-                style={{ fontWeight: "lighter", fontSize: "20px" }}
-              >
-                your virtual study environment
-              </small>
-            </h1>
-            <div style={{ fontSize: "20px" }}>
-              <span>welcome back, {user.username}</span>
-              <span>
-                <IconButton
-                  title="logout"
-                  style={{ backgroundColor: { theme } }}
-                  onClick={logout}
-                >
-                  <ExitToAppIcon />
-                </IconButton>
-              </span>
-            </div>
-          </div>
 
           <div className="body">
             <div className="side-column">
@@ -132,7 +95,7 @@ export default function Home() {
 
               <div
                 className="gamesButton"
-                style={{ backgroundColor: newShade(theme, -30) }}
+                style={{ backgroundColor: newShade(theme, 5) }}
                 onClick={onOpen}
               >
                 <img src={chatBot} style={iconStyle} /> ZenBot
@@ -140,7 +103,7 @@ export default function Home() {
               <Dialog open={chatDialogOpen} maxWidth="sm">
                 <div
                   id="chat_dialog"
-                  style={{ backgroundColor: newShade(theme, -30) }}
+                  style={{ backgroundColor: newShade(theme, 5) }}
                 >
                   <Chatbot close={onClose} chat={chat} setChat={setChat} />
                 </div>
@@ -149,7 +112,7 @@ export default function Home() {
               <div
                 className="gamesButton"
                 id="trivia_container"
-                style={{ backgroundColor: newShade(theme, -30) }}
+                style={{ backgroundColor: newShade(theme, 5) }}
                 onClick={() => {
                   navigate("/trivia");
                   buttonClick.play();

@@ -22,7 +22,7 @@ export const StyledSlider = styled.input`
     background-color: transparent;
     border-radius: 5px;
     filter: brightness(85%);
-    border: 1px solid  ${({ theme }) => newShade(theme, -50)};
+    border: 1px solid  ${({ theme }) => newShade(theme, -20)};
   }
 
   &::-webkit-slider-thumb {
@@ -32,13 +32,13 @@ export const StyledSlider = styled.input`
     outline: none;
     background-color: ${({ value }) =>
       value === 0 ? "transparent" : "gray"};
-    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -50)};
+    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -20)};
   }
 
   /******** Firefox styles ********/
   &::-moz-range-track {
     height: 13px;
-    border: 1px solid  ${({ theme }) => newShade(theme, -50)};
+    border: 1px solid  ${({ theme }) => newShade(theme, -20)};
     border-radius: 5px;
   }
 
@@ -49,8 +49,8 @@ export const StyledSlider = styled.input`
     width: 13px;
     border-radius: 50%;
     margin-top: -6px;
-    background-color:  ${({ theme }) => newShade(theme, -50)};
-    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -50)};
+    background-color:  ${({ theme }) => newShade(theme, -20)};
+    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -20)};
   }
 `;
 

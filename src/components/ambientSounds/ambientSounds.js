@@ -10,7 +10,7 @@ import "./ambientSounds.css"
 const SoundPlayers = () => {
   return (
     <div className="ambientSounds">
-      <SoundPlayer soundName={"rain"} audioFile={rain} icon={'fluent-emoji-high-contrast:umbrella-with-rain-drops'} color={"#72A0C1"} />
+      <SoundPlayer soundName={"rain"} audioFile={rain} icon={'fluent-emoji-high-contrast:umbrella-with-rain-drops'} color={"#051550"} />
       <SoundPlayer soundName={"fire"} audioFile={fire} icon={'bi:fire'} color={"#d60000"}/>
       <SoundPlayer soundName={"ocean"} audioFile={ocean} icon={'streamline:travel-transportation-sail-ship-travel-boat-transportation-transport-ocean-ship-sea-water'} color={"#00308F"}/>
       <SoundPlayer soundName={"birds"} audioFile={birds} icon={'mdi:bird'} color={"#8d4004"}/>

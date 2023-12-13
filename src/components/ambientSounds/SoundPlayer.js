@@ -26,7 +26,7 @@ const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
    
     >
       <button onClick={toggleAudioPlay} className="ambientButton">
-        <Icon icon={icon} style={{ color: playing ? color : newShade(theme,-50) ,fontSize:"30px"}} />
+        <Icon icon={icon} style={{ color: playing ? color : newShade(theme,-20) ,fontSize:"30px"}} />
       </button>
       <VolumeSlider
         value={volume}

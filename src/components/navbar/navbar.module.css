@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  /* background-color: red; */
+}
+
+.navbar > span > button {
+  background-color: transparent;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-family: "VT323", monospace;
+  background-color: transparent;
+  border: none;
+}
+
+.navbar > span > button:hover {
+  cursor: pointer;
+}
+
+.logo {
+  text-align: left;
+  margin-top: 0px;
+  margin-left: 30px;
+  flex: 1;
+}
+
+.subhead {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.logout{
+    font-size: 20px;
+    flex:1;
+    width: fit-content;
+    text-align: right;
+}
+
+@media only screen and (max-width:780px){
+  .navbar{
+    margin-top: 10px;
+  }
+}

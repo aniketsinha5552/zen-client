@@ -14,8 +14,9 @@ import React, { useEffect, useState, useContext } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { newShade } from "../utils/newShade";
+import { newShade } from "../../utils/newShade";
 import { useSelector } from "react-redux";
+import styles from "./trivia.module.css";
 
 function Trivia() {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ function Trivia() {
     };
     return (
       <>
-        <div style={{ fontSize: "25px" }}>
+        <div className={styles.questionContainer}>
           {triviaData && (
             <>
               Q {curQues + 1}.{" "}
@@ -96,19 +97,12 @@ function Trivia() {
         </div>
         <List sx={{ mt: 2 }}>
           {options?.map((option) => (
-            <ListItem
-              key={option}
-              onClick={() => onOptionSelect(option)}
-              sx={{ fontSize: "22px", ml: 3 }}
-            >
+            <ListItem key={option} onClick={() => onOptionSelect(option)}>
               <ListItemButton
                 sx={{
-                  fontWeight: "lighter",
                   background: newShade(theme, 30),
-                  borderRadius: "10px",
-                  maxWidth: "1000px",
-                  height: "45px",
                 }}
+                className={styles.option}
               >
                 {option}
               </ListItemButton>
@@ -250,7 +244,7 @@ function Trivia() {
 
   const RenderGame = () => {
     return (
-      <div style={{ padding: "10px", position: "relative", height: "400px" }}>
+      <div className={styles.gameContainer}>
         {isLoading ? (
           <p style={{ height: "200px" }}>........Loading</p>
         ) : gameOver ? (
@@ -259,27 +253,16 @@ function Trivia() {
           <RenderQuestion />
         )}
         {!gameOver && (
-          <div style={{ position: "absolute", right: 10, bottom: 10 }}>
-            <div style={{ textAlign: "right" }}>
-              <div
-                style={{
-                  fontSize: "20px",
-                }}
-              >
-                <p> Score : {score} </p>
-                <p>No of questions : {questions} </p>
-              </div>
-              <div>
-                <IconButton onClick={restartGame} title="restart game">
-                  <Icon icon="codicon:debug-restart" />
-                </IconButton>
-                <IconButton
-                  onClick={changeSettings}
-                  title="change game settings"
-                >
-                  <Icon icon="material-symbols:settings" />
-                </IconButton>
-              </div>
+          <div className={styles.gameDetails}>
+            <p> Score : {score} </p>
+            <p>No of questions : {questions} </p>
+            <div>
+              <IconButton onClick={restartGame} title="restart game">
+                <Icon icon="codicon:debug-restart" />
+              </IconButton>
+              <IconButton onClick={changeSettings} title="change game settings">
+                <Icon icon="material-symbols:settings" />
+              </IconButton>
             </div>
           </div>
         )}
@@ -287,34 +270,22 @@ function Trivia() {
     );
   };
   return (
-    <div className="trivia" style={{ padding: 10 }}>
-      <div className="heading">
-        <IconButton sx={{ ml: 2 }} onClick={() => navigate("/")}>
-          <Icon icon="material-symbols:arrow-back" />
-        </IconButton>
-        <h1 style={{ marginRight: "50px", fontWeight: "normal" }}>
-          💡Trivia Game
-        </h1>
+    <div className={styles.trivia}>
+      <div className={styles.heading}>
+        <div className={styles.back}>
+          <IconButton onClick={() => navigate("/")}>
+            <Icon icon="material-symbols:arrow-back" />
+          </IconButton>
+        </div>
+        <h2 className={styles.desc}>Test out your knowledge!</h2>
+        <h1 className={styles.name}>💡Trivia Game</h1>
       </div>
-      <h2
-        style={{
-          textAlign: "center",
-          fontWeight: "lighter",
-          marginBottom: "10px",
-          marginTop: "-50px",
-          padding: "5px",
-        }}
-      >
-        Test out your knowledge!
-      </h2>
+
       <div
         style={{
-          padding: 10,
-          margin: "20px",
           backgroundColor: newShade(theme, -30),
-          borderRadius: "20px",
-          height: "400px",
         }}
+        className={styles.container}
       >
         {!gameStarted ? <StartPage /> : <RenderGame />}
       </div>

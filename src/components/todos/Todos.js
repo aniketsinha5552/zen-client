@@ -120,7 +120,7 @@ function Todos() {
           // alignItems: "center",
           // height: "50px",
           "&:hover": {
-            backgroundColor: newShade(theme, -30),
+            backgroundColor: newShade(theme, -10),
           },
         }}
         key={item.id}
@@ -173,7 +173,7 @@ function Todos() {
           style={{
             ...tabButtonStyle,
             backgroundColor:
-              tabSelected == 3 ? newShade(theme, -30) : "transparent",
+              tabSelected == 3 ? newShade(theme, -10) : "transparent",
           }}
         >
           Active
@@ -184,7 +184,7 @@ function Todos() {
           style={{
             ...tabButtonStyle,
             backgroundColor:
-              tabSelected == 2 ? newShade(theme, -30) : "transparent",
+              tabSelected == 2 ? newShade(theme, -10) : "transparent",
           }}
         >
           Completed
@@ -195,7 +195,7 @@ function Todos() {
           style={{
             ...tabButtonStyle,
             backgroundColor:
-              tabSelected == 1 ? newShade(theme, -30) : "transparent",
+              tabSelected == 1 ? newShade(theme, -10) : "transparent",
           }}
         >
           All Tasks

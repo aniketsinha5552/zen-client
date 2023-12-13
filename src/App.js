@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from "react";
 import Home from "./pages/homepage/home"
 import Login from "./pages/login/login"
 import SignUp from "./pages/register/SignUp";
-import Trivia from "./components/Trivia";
+import Trivia from "./components/trivia/Trivia";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -12,10 +12,11 @@ import {
 } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
-import Footer from "./Footer";
+import Footer from "./components/Footer";
 import Dino from "./components/Dino";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "./redux/reducers/userSlice";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   const reduxtheme = useSelector((state) => state.theme.theme);
@@ -41,6 +42,7 @@ function App() {
   return (
     <div className="app" style={{ backgroundColor: `${theme}` }}>
       <Router>
+        {user && <Navbar/>}
         <Routes>
           <Route exact path="/" element={user ? <Home /> : <Login />}></Route>
           <Route exact path="/register" element={<SignUp />}></Route>

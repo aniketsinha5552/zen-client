@@ -1,7 +1,7 @@
 import React from 'react'
-import Themes from './components/Themes/Themes'
+import Themes from './Themes/Themes'
 import { TextField } from '@mui/material'
-import { newShade } from './App'
+import { newShade } from '../App'
 
 export default function Footer() {
   return (

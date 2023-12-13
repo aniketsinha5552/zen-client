@@ -1,5 +1,5 @@
 .home{
-    padding: 10px 10px;
+    padding: 5px 5px;
 }
 .yinyang{
     vertical-align: middle;
@@ -13,29 +13,10 @@
       transform: rotate(359deg);
     }
   }
-.heading>span>button{
-    background-color: transparent;
-    margin-left: 10px;
-    border-radius: 5px;
-    font-family: 'VT323', monospace;
-    background-color: transparent;
-    border: none;
-}
-.heading{
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   margin-bottom: 20px;
-   margin-top: 10px;
-}
-
-.heading>span>button:hover{
-    
-    cursor: pointer;
-}
 
 .center-column{
    flex: 0.4;
+   margin-top: 30px;
 }
 .side-column{
     flex: 0.3;
@@ -43,6 +24,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-top: -5px;
 }
 
 #todoInput{
@@ -156,10 +138,13 @@ html::-webkit-scrollbar{
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: start;
+    margin-top: 10px;
+    /* background-color: red; */
 }
 
 .footer{
-    position: fixed;
+    /* position: fixed; */
     bottom: 10px;
     right: 0;
 }
@@ -225,5 +210,8 @@ html::-webkit-scrollbar{
 @media screen and (max-width:768px){
     .gamesButton{
         max-width: 160px;
+    }
+    .body{
+       align-items: center;
     }
 }
