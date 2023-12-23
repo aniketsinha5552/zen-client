@@ -3,6 +3,7 @@ import { Box, Typography,IconButton,TextField, Button } from '@mui/material'
 import { Icon } from '@iconify/react'
 import { useForm } from 'react-hook-form'
 import { newShade } from "../../utils/newShade"
+import { toastify } from '../../utils/toastify'
 
 const Playlist = ({theme,playlist,setPlaylist,setCurrentPlaylist}) => {
     const {
@@ -14,7 +15,7 @@ const Playlist = ({theme,playlist,setPlaylist,setCurrentPlaylist}) => {
 
   const removeSong = (song) => {
     if(playlist.length === 1){
-        alert("You can't remove the last song from the playlist")
+        toastify(null,"You can't remove the last song from the playlist")
     }
     else{
         setPlaylist(playlist.filter((item)=>item.title !== song.title))
@@ -28,7 +29,7 @@ const Playlist = ({theme,playlist,setPlaylist,setCurrentPlaylist}) => {
   const addToPlaylist = async(data) => {
     const url = data.url
     if(!url){
-        alert("Please add a valid youtube URL");
+        toastify("error","Please add a valid youtube URL");
         return;
     }
      // Fetch title of youtube video
@@ -43,8 +44,9 @@ const Playlist = ({theme,playlist,setPlaylist,setCurrentPlaylist}) => {
             title:title
         }
         setPlaylist([...playlist,song])
+        toastify("success","Playlist updated!")
       } catch (error) {
-        alert("Please add a valid youtube URL");
+        toastify("error","Please add a valid youtube URL");
         return;
       }
      reset() 

@@ -17,6 +17,7 @@ import Dino from "./components/Dino";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "./redux/reducers/userSlice";
 import Navbar from "./components/navbar/Navbar";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const reduxtheme = useSelector((state) => state.theme.theme);
@@ -60,6 +61,7 @@ function App() {
         </Routes>
       </Router>
       <Footer />
+      <ToastContainer/>
     </div>
   );
 }

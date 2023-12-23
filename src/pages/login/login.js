@@ -8,6 +8,9 @@ import { Icon } from "@iconify/react";
 import { signInWithPopup, updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../redux/reducers/userSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toastify } from "../../utils/toastify";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -24,6 +27,7 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        toastify("success",`Greetings, ${user.displayName}!`)
         dispatch(
           updateUser({
             email: user.email,
@@ -33,7 +37,8 @@ export default function Login() {
         );
       })
       .catch((error) => {
-        alert(error.message);
+        console.log(error)
+        toastify('error',"Invalid Credentials")
       });
   };
 
@@ -46,6 +51,7 @@ export default function Login() {
         await updateProfile(user, {
           displayName: user.displayName,
         });
+        toastify("success",`Greetings, ${user.displayName}!`)
         dispatch(
           updateUser({
             email: user.email,
@@ -61,7 +67,7 @@ export default function Login() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        toastify("error","Some Error Occurred, Please Try Again");
         console.log(errorCode, errorMessage);
         // ..
       });

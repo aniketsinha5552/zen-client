@@ -12,6 +12,7 @@ import { buttonClick } from "../../assets/functions/clickSound";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../redux/reducers/userSlice";
+import { toastify } from "../../utils/toastify";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function SignUp() {
     buttonClick.play();
     const { email, username, pass, cpass } = data;
     if (pass !== cpass) {
-      alert("Invalid Credentials!");
+      toastify("error","Invalid Credentials!");
       return;
     }
     createUserWithEmailAndPassword(auth, email, pass)
@@ -38,6 +39,7 @@ export default function SignUp() {
         await updateProfile(user, {
           displayName: username,
         });
+        toastify("success",`Greetings, ${user.displayName}!`)
         dispatch(
           updateUser({
             email: user.email,
@@ -68,6 +70,7 @@ export default function SignUp() {
         await updateProfile(user, {
           displayName: user.displayName,
         });
+        toastify("success",`Greetings, ${user.displayName}!`)
         dispatch(
           updateUser({
             email: user.email,

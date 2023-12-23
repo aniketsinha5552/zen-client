@@ -19,6 +19,7 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/animations/loadAnimation.json";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../redux/reducers/userSlice";
+import { ToastContainer } from "react-toastify";
 
 const iconStyle = {
   height: "30px",

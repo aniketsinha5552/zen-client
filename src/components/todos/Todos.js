@@ -16,6 +16,7 @@ import { newShade } from "../../utils/newShade";
 import soft_click from "../../assets/sounds/soft_click.wav";
 import styles from "./todos.module.css";
 import { useSelector } from "react-redux";
+import { toastify } from "../../utils/toastify";
 
 const butonClick = new Audio(soft_click);
 butonClick.volume = 0.1;
@@ -81,6 +82,7 @@ function Todos() {
 
   const [todoItem, setTodoItem] = useState("");
   const addItem = async (e) => {
+    if(todoItem=="") return
     await addDoc(todoRef, {
       task: todoItem,
       user: user?.username,
@@ -88,6 +90,7 @@ function Todos() {
     });
     getAllTodos();
     setTodoItem("");
+    toastify("success","Item added!")
   };
 
   const deleteItem = async (id) => {
