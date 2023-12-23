@@ -31,7 +31,7 @@ function Chatbot({ close, chat, setChat }) {
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: `${message}. Limit the answer within 75 words` }],
+          messages: [{ role: "user", content: `${message}. (Limit the answer within 75 words but don't mention it in your answer)` }],
           max_tokens: 100,
         }),
       });
