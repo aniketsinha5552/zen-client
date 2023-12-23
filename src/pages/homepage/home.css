@@ -147,6 +147,7 @@ html::-webkit-scrollbar{
     /* position: fixed; */
     bottom: 10px;
     right: 0;
+    margin-top: -50px;
 }
 
 
@@ -213,5 +214,8 @@ html::-webkit-scrollbar{
     }
     .body{
        align-items: center;
+    }
+    .footer{
+      margin-top: 0px;
     }
 }

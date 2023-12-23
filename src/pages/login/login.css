@@ -1,8 +1,12 @@
 .login{
-    display: grid;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
     place-items: center; 
     margin-top: 0px;
-    /* min-height: 90vh; */
+    min-height: 90vh;
+    
 }
 #loginForm{
     /* display: grid;
