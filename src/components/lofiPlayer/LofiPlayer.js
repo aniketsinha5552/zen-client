@@ -9,7 +9,7 @@ import Playlist from './Playlist';
 import { useSelector } from 'react-redux';
 
 const LofiPlayer = () => {
-    const theme= useSelector((state)=>state.theme.theme.color) 
+    const theme= useSelector((state)=>state?.theme?.theme?.color) 
     const [play, setPlay] = useState(false);
     const [musicVolume, setMusicVolume] = useState(0.2);
     const [playlist, setPlaylist] = useState([
