@@ -45,6 +45,23 @@ REACT_APP_WEATHER_API_KEY = [open weather api key]
 ```
 
 
+### Commit lint
+
+- build
+- chore
+- ci
+- docs
+- feat
+- fix
+- perf
+- refactor
+- revert
+- style
+- test
+
+eg: `feat: [module name] new feature...`
+
+
 
 
 
