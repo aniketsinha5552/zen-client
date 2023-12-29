@@ -110,25 +110,15 @@ function Todos() {
   const todoList = todo.map((item) => {
     return (
       <ListItem
+        className={styles.listItem}
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          width: "100%",
-          marginLeft: "5px",
-          padding: 0,
-          paddingLeft: "10px",
-          paddingRight: "10px",
-          // alignItems: "center",
-          // height: "50px",
           "&:hover": {
             backgroundColor: newShade(theme, -10),
           },
         }}
         key={item.id}
       >
-        <p style={{ flex: 0.9, fontSize: "19px" }}>{item.task} </p>
+        <p className={styles.task}>{item.task} </p>
         <div>
           <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
             <Icon icon="iconoir:cancel" />
@@ -213,7 +203,7 @@ function Todos() {
       <IconButton title="Add Item" onClick={addItem}>
         <Icon icon="material-symbols:add" />
       </IconButton>
-      <div className="todo-list">
+      <div className={styles.todo_list}>
         <List>{todoList}</List>
       </div>
     </div>

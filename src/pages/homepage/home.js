@@ -118,7 +118,7 @@ export default function Home() {
                   buttonClick.play();
                 }}
               >
-                💡Trivia Game
+                💡Trivia
               </div>
               <SoundPlayers />
               <Quote />

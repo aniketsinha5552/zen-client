@@ -6,39 +6,76 @@
     margin-bottom: 10px;
     flex: 1;
 }
+.musicLogo{
+  display: none;
+}
 
+.title{
+  font-size: 20px;
+  text-align: center;
+  margin-top:5px;
+  margin-bottom:5px;
+}
 
 @media only screen and (max-width: 640px) {
     .music_player{
-      max-width: 300px;
-      margin-top: 30px;
+      /* max-width: 300px; */
+      /* margin-top: 30px; */
     }
   }
 
   @media only screen and (max-width: 1280px) {
     .music_player{
-      max-width: 430px;
+       font-size: large;
     }
   }
 
   @media only screen and (max-width: 1140px) {
     .music_player{
-      max-width: 400px;
+      /* max-width: 400px; */
+      flex: 1.2;
+      font-size: large;
     }
   }
 
   @media only screen and (max-width: 1024px) {
     .music_player{
       max-width: 350px;
-      margin-top: 50px;
+      flex: 1.5;
+      /* margin-top: 50px; */
     }
   }
 
   @media only screen and (max-width: 768px) {
     .music_player{
-      display: none;
+      max-width: fit-content;
     }
     .music_player>p{
       font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width:640px){
+    .title{
+      display: none;
+    }
+    .playlistBtn{
+      display: none;
+    }
+    .slider{
+      display: none;
+    }
+    .musicLogo{
+      display: block;
+    }
+    .music_player{
+      max-width: fit-content;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      /* background-color: red; */
+      margin-top: -10px;
+      margin-left: 20px;
     }
   }

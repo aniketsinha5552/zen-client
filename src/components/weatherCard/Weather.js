@@ -64,19 +64,8 @@ export default function Weather() {
         <>
           <span>
             <div
-              style={{
-                fontSize: "20px",
-                textAlign: "left",
-                margin: "5px",
-                backgroundColor: newShade(theme, -30),
-                width: "fit-content",
-                maxWidth:"100px",
-                padding: "3px",
-                paddingRight:"10px",
-                borderRadius: "20px",
-                position:"absolute",
-                left:0
-              }}
+              className={styles.location}
+              style={{backgroundColor: newShade(theme, -30),}}
             >
               <Icon
                 style={{ verticalAlign: "middle", fontSize: "20px" }}

@@ -38,7 +38,7 @@ const Navbar = () => {
       </h1>
       <LofiPlayer/>
       <div className={styles.logout}>
-        <span>welcome back, {user.username}</span>
+        <span className={styles.welcome}>welcome back, {user.username}</span>
         <span>
           <IconButton
             title="logout"

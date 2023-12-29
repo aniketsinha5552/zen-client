@@ -130,22 +130,6 @@
 
   @media only screen and (max-width: 1024px) {
     #gif{
-      max-height: 350px;
-      max-width: 350px;
-      min-height: 350px;
-      min-width: 350px;
-    }
-    .gif-blur{
-        margin-top: 10px;
-        max-height: 350px;
-        max-width: 350px;
-        min-height: 350px;
-        min-width: 350px;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    #gif{
       max-height: 300px;
       max-width: 300px;
       min-height: 300px;
@@ -157,5 +141,27 @@
         max-width: 300px;
         min-height: 300px;
         min-width: 300px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    #gif{
+      max-height: 250px;
+      max-width: 250px;
+      min-height: 250px;
+      min-width: 250px;
+    }
+    .gif-blur{
+        margin-top: 10px;
+        max-height: 250px;
+        max-width: 250px;
+        min-height: 250px;
+        min-width: 250px;
+    }
+  }
+
+  @media screen and (max-width:640px){
+    .music{
+      display: none;
     }
   }

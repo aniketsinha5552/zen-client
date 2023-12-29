@@ -38,7 +38,8 @@ const LofiPlayer = () => {
     const [openDialog, setOpenDialog] = useState(false);
   return (
     <div className={styles.music_player} >
-        <p style={{fontSize: "20px",textAlign: "center",marginTop:"5px",marginBottom:"5px"}}>{currentPlayist.title} 🎵</p>
+        <p className={styles.title}>{currentPlayist.title} 🎵</p>
+        <p className={styles.musicLogo}>🎵</p>
         <Box sx={{display:"flex",justifyContent:"center",position:"relative",width:"80%",margin:"0 auto"}}>
           {!play?(
               <IconButton onClick={togglePlay}>
@@ -49,13 +50,13 @@ const LofiPlayer = () => {
             <Icon icon="akar-icons:pause" style={{ fontSize: "25px" }} />
           </IconButton>
           )}
-          <IconButton onClick={nextTrack}>
+          <IconButton onClick={nextTrack} className={styles.playlistBtn}>
           <Icon icon="fluent:next-32-regular" style={{ fontSize: "25px" }}/>
           </IconButton>
           <IconButton onClick={()=>setOpenDialog(true)} id="playlist-toggle">
           <Icon icon="ph:list-bold" style={{ fontSize: "25px" }}/>
           </IconButton>
-          <Box sx={{display:"grid",placeItems:"center",position:"absolute",right:10,height:"100%"}}>
+          <Box sx={{display:"grid",placeItems:"center",position:"absolute",right:10,height:"100%"}} className={styles.slider}>
           <VolumeSlider
             value={musicVolume}
             min={0}

@@ -88,3 +88,23 @@
     margin-top: 10px;
   }
 }
+
+@media only screen and (max-width:1080px){
+  .subhead{
+    display: none;
+  }
+  .navbar{
+    align-items: start;
+    margin-top: 10px;
+  }
+  .welcome{
+    display: none;
+  }
+}
+
+@media screen and (max-width:640px){
+  .navbar{
+    /* flex-direction: column-reverse; */
+
+  }
+}
