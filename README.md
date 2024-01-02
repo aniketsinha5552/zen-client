@@ -24,6 +24,7 @@ pass: `test@123`
 
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/f54a7322-fea0-42e6-9567-16b56794974f)
 ![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/edb82972-e513-490e-82a8-af97a0ff0483)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/e8c86bfd-2359-4aee-a737-a0e53a5aa461)
 
 
 ### 🚀Local Setup
