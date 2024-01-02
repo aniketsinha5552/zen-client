@@ -22,15 +22,8 @@ pass: `test@123`
 
 #### 💫 Do give it a star if you liked it!
 
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/e36857d4-0c69-4330-bbf5-9ab5bb03df21)
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/b0e3c62a-b024-44f1-8a6b-b3d292cb531b)
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/2048aee9-966d-47be-b89f-5bd6544354c3)
-![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/b9d64e5a-ecb8-411f-8ee2-3f8cfaa132b8)
-
-
-
-
-https://github.com/aniketsinha5552/zen-client/assets/104712880/40bf73d6-acf5-44fd-b35b-fac2ceadbb14
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/f54a7322-fea0-42e6-9567-16b56794974f)
+![image](https://github.com/aniketsinha5552/zen-client/assets/104712880/edb82972-e513-490e-82a8-af97a0ff0483)
 
 
 ### 🚀Local Setup
