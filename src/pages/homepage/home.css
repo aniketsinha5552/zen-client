@@ -44,6 +44,9 @@
 #todoInput:focus{
     outline: none;
 }
+#todoInput::placeholder{
+    color: black;
+}
 
 .gamesButton{
     font-size: 30px;

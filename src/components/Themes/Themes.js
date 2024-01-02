@@ -6,6 +6,7 @@ import { TextField, MenuItem } from "@mui/material";
 import { themes as allThemes } from "../../constants/themes";
 import { useDispatch, useSelector } from "react-redux";
 import { changeThemeById } from "../../redux/reducers/themeSlice";
+import { saveTheme } from "../../redux/reducers/userSlice";
 
 export default function Themes() {
   const theme= useSelector((state)=>state.theme.theme)
@@ -13,7 +14,8 @@ export default function Themes() {
   const dispatch = useDispatch()
 
   const changeTheme=(id)=>{
-      dispatch(changeThemeById(id))
+      dispatch(changeThemeById(id));
+      dispatch(saveTheme(id));
   }
   return (
     <div className="themeOut">

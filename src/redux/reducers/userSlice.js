@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { themes } from "../../constants/themes";
 
 const userSlice= createSlice({
     name: "user",
@@ -13,7 +14,9 @@ const userSlice= createSlice({
             // Todo: Move firebase auth logic here
         },
         saveTheme:(state,action)=>{
-
+            const themeId = action.payload;
+            const theme = themes.find((item)=>item.id==themeId);
+            state.user.currTheme = theme;
         },
         savePlaylist:(state,action)=>{
 
@@ -21,5 +24,5 @@ const userSlice= createSlice({
     }
 })
 
-export const {updateUser}= userSlice.actions
+export const {updateUser,saveTheme}= userSlice.actions
 export default userSlice.reducer;

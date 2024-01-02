@@ -33,6 +33,79 @@
   margin-left: 5px;
 }
 
+.input_song{
+  width: 80%;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+}
+
+.input_song::placeholder{
+  color: black;
+}
+.add_song{
+  margin-left: 10px;
+  background-color: #54676d;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.add_song:hover{
+  cursor: pointer;
+}
+
+.playlist{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.songsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.songContainer{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   border-radius: 5px;
+   padding: 5px;
+}
+.songContainer:hover{
+  cursor: pointer;
+}
+
+.songImg{
+   height: 150px;
+   width: 200px;
+   border-radius: 5px;
+}
+
+.songTitle{
+   max-width: 200px;
+   font-size: 14px;
+}
+
+.songAdd{
+    
+}
+
+
 @media only screen and (max-width: 640px) {
   .music_player {
     /* max-width: 300px; */

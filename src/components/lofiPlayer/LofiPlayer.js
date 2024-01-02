@@ -7,17 +7,13 @@ import VolumeSlider from "../ambientSounds/Slider";
 import ReactPlayer from "react-player";
 import Playlist from "./Playlist";
 import { useSelector } from "react-redux";
+import { playlistSongs } from "../../constants/playlistSongs";
 
 const LofiPlayer = () => {
   const theme = useSelector((state) => state?.theme?.theme);
   const [play, setPlay] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.2);
-  const [playlist, setPlaylist] = useState([
-    {
-      url: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
-      title: "lofi hip hop radio - beats to relax/study to",
-    },
-  ]);
+  const [playlist, setPlaylist] = useState(playlistSongs);
 
   const [currentPlayist, setCurrentPlaylist] = useState(playlist[0]);
 
@@ -80,7 +76,7 @@ const LofiPlayer = () => {
       </Box>
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
         <Playlist
-          theme={theme.color}
+          theme={theme}
           playlist={playlist}
           setPlaylist={setPlaylist}
           setCurrentPlaylist={setCurrentPlaylist}
