@@ -9,7 +9,7 @@ import Playlist from "./Playlist";
 import { useSelector } from "react-redux";
 
 const LofiPlayer = () => {
-  const theme = useSelector((state) => state?.theme?.theme?.color);
+  const theme = useSelector((state) => state?.theme?.theme);
   const [play, setPlay] = useState(false);
   const [musicVolume, setMusicVolume] = useState(0.2);
   const [playlist, setPlaylist] = useState([
@@ -46,18 +46,18 @@ const LofiPlayer = () => {
       <Box className={styles.btnContainer}>
         {!play ? (
           <IconButton onClick={togglePlay}>
-            <Icon icon="akar-icons:play" style={{ fontSize: "25px" }} />
+            <Icon icon="akar-icons:play" style={{ fontSize: "25px", color: theme.text  }} />
           </IconButton>
         ) : (
           <IconButton onClick={togglePlay}>
-            <Icon icon="akar-icons:pause" style={{ fontSize: "25px" }} />
+            <Icon icon="akar-icons:pause" style={{ fontSize: "25px", color: theme.text }} />
           </IconButton>
         )}
         <IconButton onClick={nextTrack} className={styles.playlistBtn}>
-          <Icon icon="fluent:next-32-regular" style={{ fontSize: "25px" }} />
+          <Icon icon="fluent:next-32-regular" style={{ fontSize: "25px",color: theme.text }} />
         </IconButton>
         <IconButton onClick={() => setOpenDialog(true)} id="playlist-toggle">
-          <Icon icon="ph:list-bold" style={{ fontSize: "25px" }} />
+          <Icon icon="ph:list-bold" style={{ fontSize: "25px",color: theme.text }} />
         </IconButton>
         <Box className={styles.slider}>
           <VolumeSlider
@@ -80,7 +80,7 @@ const LofiPlayer = () => {
       </Box>
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
         <Playlist
-          theme={theme}
+          theme={theme.color}
           playlist={playlist}
           setPlaylist={setPlaylist}
           setCurrentPlaylist={setCurrentPlaylist}

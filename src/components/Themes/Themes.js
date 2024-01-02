@@ -18,11 +18,11 @@ export default function Themes() {
   return (
     <div className="themeOut">
       <div className="themes">
-       <TextField defaultValue={theme.id} select placeholder="themes" size="small" label={<Icon style={{fontSize:"20px"}} icon="fa-solid:brush" />} sx={{width:"100px",mb:1,backgroundColor:"transparent"}}>
+       <TextField defaultValue={theme.id} select placeholder="themes" size="small" label={<Icon style={{fontSize:"20px"}} icon="fa-solid:brush" />} sx={{width:"100px",mb:1,backgroundColor:"transparent", color:theme.text}}>
        {
           allThemes.map((item)=>{
             return(
-              <MenuItem  key={item.id} value={item.id}  onClick={() => changeTheme(item.id)} style={{ backgroundColor: newShade(item.color,-10),width:"100%",height:"35px",}}>
+              <MenuItem  key={item.id} value={item.id}  onClick={() => changeTheme(item.id)} style={{ backgroundColor: newShade(item.color,-10),width:"100%",height:"35px",color:item.text}}>
               <div
                id={item.id}
               style={{ height:"100%",width:"100%",borderRadius:"50px",display:"grid",placeItems:"center"}}

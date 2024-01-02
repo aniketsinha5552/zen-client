@@ -80,7 +80,7 @@ function Chatbot({ close, chat, setChat }) {
       <div
         id="messageBody"
         className={styles.chatStyle}
-        style={{ backgroundColor: newShade(theme, -50) }}
+        style={{ backgroundColor: newShade(theme, -50), color:reduxtheme.text }}
       >
         <div
           style={{

@@ -15,6 +15,7 @@ import { toastify } from "../../utils/toastify";
 const Navbar = () => {
   const user = useSelector((state) => state.user.user);
   const theme = useSelector((state) => state.theme.theme.color);
+  const textColor = useSelector((state) => state.theme.theme.text);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -42,7 +43,7 @@ const Navbar = () => {
         <span>
           <IconButton
             title="logout"
-            style={{ backgroundColor: { theme } }}
+            style={{ color: textColor }}
             onClick={()=>setOpen(true)}
           >
             <ExitToAppIcon />

@@ -23,6 +23,7 @@ function App() {
   const reduxtheme = useSelector((state) => state.theme.theme);
   const user = useSelector((state) => state.user.user);
   const theme = reduxtheme.color;
+  const textColor = reduxtheme.text??'black'
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app" style={{ backgroundColor: `${theme}` }}>
+    <div className="app" style={{ backgroundColor: `${theme}`, color: `${textColor}`, backgroundImage: `url(${reduxtheme.bg})` }}>
       <Router>
         {user && <Navbar/>}
         <Routes>

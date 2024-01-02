@@ -121,14 +121,15 @@ function Todos() {
         <p className={styles.task}>{item.task} </p>
         <div>
           <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
-            <Icon icon="iconoir:cancel" />
+            <Icon icon="iconoir:cancel" style={{color: reduxtheme.text}}/>
           </IconButton>
           {!item.completed && (
             <IconButton
+              style={{color: reduxtheme.text}}
               title="Task Completed"
               onClick={() => changeStatus(item.id)}
             >
-              <Icon icon="material-symbols:check" />
+              <Icon icon="material-symbols:check"  style={{color: reduxtheme.text}} />
             </IconButton>
           )}
         </div>
@@ -165,6 +166,7 @@ function Todos() {
           onClick={changeTab}
           style={{
             ...tabButtonStyle,
+            color: reduxtheme.text,
             backgroundColor:
               tabSelected == 3 ? newShade(theme, -10) : "transparent",
           }}
@@ -176,6 +178,7 @@ function Todos() {
           onClick={changeTab}
           style={{
             ...tabButtonStyle,
+            color: reduxtheme.text,
             backgroundColor:
               tabSelected == 2 ? newShade(theme, -10) : "transparent",
           }}
@@ -187,6 +190,7 @@ function Todos() {
           onClick={changeTab}
           style={{
             ...tabButtonStyle,
+            color: reduxtheme.text,
             backgroundColor:
               tabSelected == 1 ? newShade(theme, -10) : "transparent",
           }}
@@ -201,7 +205,7 @@ function Todos() {
         value={todoItem}
       ></input>
       <IconButton title="Add Item" onClick={addItem}>
-        <Icon icon="material-symbols:add" />
+        <Icon icon="material-symbols:add" style={{color: reduxtheme.text}} />
       </IconButton>
       <div className={styles.todo_list}>
         <List>{todoList}</List>

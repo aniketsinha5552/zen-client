@@ -48,6 +48,7 @@ const quotes = [
 export const Quote = () => {
 const reduxtheme= useSelector((state)=>state.theme.theme)
 const theme = reduxtheme.color
+const textColor = reduxtheme.text?? 'black'
 const [quote, setQuote] = useState(quotes[Math.floor(Math.random() * quotes.length)]);
 // const api_url = "https://api.quotable.io/random";
 const api_url = "https://zenquotes.io/api/today";
@@ -58,10 +59,10 @@ const api_url = "https://zenquotes.io/api/today";
 //   getQuote(api_url);
 // }, []);
   return (
-    <div id="quotes" style={{borderRadius:"2px",boxShadow: `2px 2px 2px 2px ${newShade(theme,-100)}`}} >
+    <div id="quotes" style={{borderRadius:"2px",boxShadow: `2px 2px 2px 2px ${newShade(theme,-30)}`}} >
       {quote ?
-      <div id="quote" style={{color:newShade(theme,-60)}}>
-      <Icon icon="bi:quote" /> {quote.q}  <em style={{color:newShade(theme,-100)}}> {quote.a}</em>
+      <div id="quote">
+      <Icon icon="bi:quote" /> {quote.q}  <em> {quote.a}</em>
       </div>
       : <></>
 }

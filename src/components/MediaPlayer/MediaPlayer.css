@@ -24,7 +24,6 @@
     max-height: 480px;
     max-width: 480px;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px #5A5A5A;
     object-position: center;
     object-fit: cover;
     visibility: hidden;
@@ -38,7 +37,6 @@
     min-width: 480px;
     max-height: 480px;
     max-width: 480px;
-    box-shadow: 0px 0px 10px 0px #5A5A5A;
   }
 
   #refreshGif{

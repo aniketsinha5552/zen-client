@@ -11,6 +11,12 @@ const userSlice= createSlice({
         },
         loginUser:(state,action)=>{
             // Todo: Move firebase auth logic here
+        },
+        saveTheme:(state,action)=>{
+
+        },
+        savePlaylist:(state,action)=>{
+
         }
     }
 })

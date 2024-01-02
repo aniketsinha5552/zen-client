@@ -22,7 +22,7 @@ export const StyledSlider = styled.input`
     background-color: transparent;
     border-radius: 5px;
     filter: brightness(85%);
-    border: 1px solid  ${({ theme }) => newShade(theme, -20)};
+    border: 1px solid  ${({ theme }) => theme};
   }
 
   &::-webkit-slider-thumb {
@@ -32,13 +32,13 @@ export const StyledSlider = styled.input`
     outline: none;
     background-color: ${({ value }) =>
       value === 0 ? "transparent" : "gray"};
-    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -20)};
+    box-shadow: -80px 0 0 80px ${({ theme }) => theme};
   }
 
   /******** Firefox styles ********/
   &::-moz-range-track {
     height: 13px;
-    border: 1px solid  ${({ theme }) => newShade(theme, -20)};
+    border: 1px solid  ${({ theme }) => theme};
     border-radius: 5px;
   }
 
@@ -49,8 +49,8 @@ export const StyledSlider = styled.input`
     width: 13px;
     border-radius: 50%;
     margin-top: -6px;
-    background-color:  ${({ theme }) => newShade(theme, -20)};
-    box-shadow: -80px 0 0 80px ${({ theme }) => newShade(theme, -20)};
+    background-color:  ${({ theme }) => theme};
+    box-shadow: -80px 0 0 80px ${({ theme }) => theme};
   }
 `;
 
@@ -59,6 +59,7 @@ const VolumeSlider = ({ value, min, max, step, onChange, isVertical=false }) => 
 
   const reduxtheme= useSelector((state)=>state.theme.theme)
   const theme = reduxtheme.color
+  const textColor = reduxtheme.text??'black'
   const handleEvent = (event) => {
     onChange(Number(event.target.value));
   };
@@ -71,7 +72,7 @@ const VolumeSlider = ({ value, min, max, step, onChange, isVertical=false }) => 
     max={max}
     step={step}
     onChange={handleEvent}
-    theme={theme}
+    theme={textColor}
   />
 
   );

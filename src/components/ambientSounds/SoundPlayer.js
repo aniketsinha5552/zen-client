@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
   const reduxtheme= useSelector((state)=>state.theme.theme)
   const theme = reduxtheme.color
+  const textColor = reduxtheme.text?? 'black'
   const [playing, setPlaying] = useState(false);
   const [volume, setVolume] = useState(0.5);
 
@@ -26,7 +27,7 @@ const SoundPlayer = ({ soundName, audioFile, icon,color }) => {
    
     >
       <button onClick={toggleAudioPlay} className="ambientButton">
-        <Icon icon={icon} style={{ color: playing ? color : newShade(theme,-20) ,fontSize:"30px"}} />
+        <Icon icon={icon} style={{ color: playing ? color : textColor ,fontSize:"30px"}} />
       </button>
       <VolumeSlider
         value={volume}
