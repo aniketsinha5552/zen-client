@@ -24,9 +24,9 @@ export default function MediaPlayer() {
     <div className="music">
       <div
         className="gif-blur"
-        style={{ backgroundImage: `url(${reduxtheme.bg})`, boxShadow: `2px 2px 8px 2px ${reduxtheme.color}` }}
+        style={{ backgroundImage: `url(${reduxtheme.bg})` }}
       >
-        <img id="gif" alt="gif" src={reduxtheme.gif} onLoad={showImage} style={{ boxShadow: `2px 2px 8px 2px ${reduxtheme.color}`}} />
+        <img id="gif" alt="gif" src={reduxtheme.gif} onLoad={showImage}/>
       </div>
     </div>
   );
