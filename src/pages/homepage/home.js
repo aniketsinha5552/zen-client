@@ -19,6 +19,7 @@ import Lottie from "react-lottie";
 import animationData from "../../assets/animations/loadAnimation.json";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../redux/reducers/userSlice";
+import Themes from "../../components/Themes/Themes";
 
 const iconStyle = {
   height: "30px",

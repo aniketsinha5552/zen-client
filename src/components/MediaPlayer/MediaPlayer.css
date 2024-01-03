@@ -138,6 +138,6 @@
 
   @media screen and (max-width:640px){
     .music{
-      display: none;
+      /* display: none; */
     }
   }

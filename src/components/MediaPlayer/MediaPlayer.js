@@ -28,6 +28,9 @@ export default function MediaPlayer() {
       >
         <img id="gif" alt="gif" src={reduxtheme.gif} onLoad={showImage}/>
       </div>
+      <div style={{marginTop:"10px"}}>
+        <Themes/>
+      </div>
     </div>
   );
 }
