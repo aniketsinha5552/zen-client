@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { useForm } from "react-hook-form";
 import styles from "./chatbot.module.css";
 import { useSelector } from "react-redux";
+import axios from "axios"
 
 function Chatbot({ close, chat, setChat }) {
   const reduxtheme = useSelector((state) => state.theme.theme);
@@ -23,23 +24,13 @@ function Chatbot({ close, chat, setChat }) {
     setChat([...chat, { message: message, sender: "user" }]);
     setIsLoading(true);
     try {
-      let res = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.REACT_APP_CHAT_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: `${message}. (Limit the answer within 75 words but don't mention it in your answer)` }],
-          max_tokens: 100,
-        }),
-      });
-      const data = await res.json();
+      const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/ask`,{
+        question: message
+      })
       setChat([
         ...chat,
         { message: message, sender: "user" },
-        { message: data.choices[0].message.content, sender: "bot" },
+        { message: res.data, sender: "bot" },
       ]);
     } catch (err) {
       console.log(err);

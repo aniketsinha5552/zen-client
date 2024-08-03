@@ -82,10 +82,13 @@ function Todos() {
 
   const [todoItem, setTodoItem] = useState("");
   const addItem = async (e) => {
+    const date = new Date().toISOString()
     if(todoItem=="") return
     await addDoc(todoRef, {
       task: todoItem,
       user: user?.username,
+      email: user?.email,
+      createdAt : date,
       completed: false,
     });
     getAllTodos();
@@ -118,7 +121,7 @@ function Todos() {
         }}
         key={item.id}
       >
-        <p className={styles.task}>{item.task} </p>
+        <p className={styles.task} >{item.task} </p>
         <div>
           <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
             <Icon icon="iconoir:cancel" style={{color: reduxtheme.text}}/>

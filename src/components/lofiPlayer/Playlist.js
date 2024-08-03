@@ -14,12 +14,13 @@ const Playlist = ({ theme, playlist, setPlaylist, setCurrentPlaylist }) => {
     reset,
   } = useForm();
 
-  const removeSong = (song) => {
+  const removeSong = (e,song) => {
     if (playlist.length === 1) {
       toastify(null, "You can't remove the last song from the playlist");
     } else {
       setPlaylist(playlist.filter((item) => item.title !== song.title));
     }
+    e.stopPropagation(); 
   };
   const [link, setLink] = useState("");
   const handleLinkChange = (e, val) => {
@@ -102,7 +103,7 @@ const Playlist = ({ theme, playlist, setPlaylist, setCurrentPlaylist }) => {
               </Typography>
               <em style={{color: theme.text }}>~ {song.author.slice(0,20)}</em>
               <IconButton
-                onClick={() => removeSong(song)}
+                onClick={(e) => removeSong(e,song)}
                 className={styles.songAdd}
               >
                 <Icon
