@@ -4,12 +4,18 @@ import { IconButton } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { useForm } from "react-hook-form";
 import styles from "./chatbot.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios"
+import { addChat, deleteChat, setChat } from "../../redux/reducers/chatSlice";
+import { addChatFb, getChatFb } from "../../utils/firebaseActions";
 
-function Chatbot({ close, chat, setChat }) {
+function Chatbot({ close }) {
   const reduxtheme = useSelector((state) => state.theme.theme);
+  const user = useSelector((state)=>state.user.user)
   const theme = reduxtheme.color;
+
+  const reducerChat = useSelector((state)=>state.chat.chat)
+  const dispatch = useDispatch()
 
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -20,18 +26,19 @@ function Chatbot({ close, chat, setChat }) {
   } = useForm();
 
   const sendMessage = async (message) => {
+    const userMessage = {message:message, sender: "user",email: user.email}
+    await addChatFb(userMessage)
+    dispatch(addChat(userMessage))
     reset();
-    setChat([...chat, { message: message, sender: "user" }]);
     setIsLoading(true);
     try {
       const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/ask`,{
         question: message
       })
-      setChat([
-        ...chat,
-        { message: message, sender: "user" },
-        { message: res.data, sender: "bot" },
-      ]);
+      const botMessage = {message:res.data, sender: "bot",email: user.email}
+      await addChatFb(botMessage)
+      dispatch(addChat(botMessage))
+ 
     } catch (err) {
       console.log(err);
     } finally {
@@ -44,12 +51,7 @@ function Chatbot({ close, chat, setChat }) {
   };
 
   const clearChat = () => {
-    setChat([
-      {
-        message: "Hello, I am ZenBot. How can I help you?",
-        sender: "bot",
-      },
-    ]);
+     dispatch(deleteChat())
   };
 
   return (
@@ -80,7 +82,7 @@ function Chatbot({ close, chat, setChat }) {
             justifyContent: "flex-end",
           }}
         >
-          {chat.map((item, idx) => {
+          {reducerChat.map((item, idx) => {
             return (
               <div
                 key={idx}

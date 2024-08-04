@@ -20,6 +20,8 @@ import animationData from "../../assets/animations/loadAnimation.json";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../redux/reducers/userSlice";
 import Themes from "../../components/Themes/Themes";
+import { getChatFb } from "../../utils/firebaseActions";
+import { setChat } from "../../redux/reducers/chatSlice";
 
 const iconStyle = {
   height: "30px",
@@ -51,6 +53,14 @@ export default function Home() {
       setIsLoading(false);
     }, 2000);
   }, []);
+
+  useEffect(()=>{
+    async function getChat(){
+      let data = await getChatFb(user)
+      dispatch(setChat(data))
+    }
+    getChat()
+ },[])
   // End Load Animation
 
   const [chatDialogOpen, setChatDialogOpen] = useState(false);
@@ -63,12 +73,7 @@ export default function Home() {
     buttonClick.play();
     setChatDialogOpen(true);
   };
-  const [chat, setChat] = useState([
-    {
-      message: "Hello, I am ZenBot. How can I help you?",
-      sender: "bot",
-    },
-  ]);
+
 
   return (
     <>
@@ -106,7 +111,7 @@ export default function Home() {
                   id="chat_dialog"
                   style={{ backgroundColor: newShade(theme, 5) }}
                 >
-                  <Chatbot close={onClose} chat={chat} setChat={setChat} />
+                  <Chatbot close={onClose} />
                 </div>
               </Dialog>
 
