@@ -17,7 +17,6 @@ import soft_click from "../../assets/sounds/soft_click.wav";
 import styles from "./todos.module.css";
 import { useSelector } from "react-redux";
 import { toastify } from "../../utils/toastify";
-import paperBg from "../../assets/images/paper.png"
 
 const butonClick = new Audio(soft_click);
 butonClick.volume = 0.1;
