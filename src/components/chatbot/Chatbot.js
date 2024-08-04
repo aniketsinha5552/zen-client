@@ -17,6 +17,14 @@ function Chatbot({ close }) {
   const reducerChat = useSelector((state)=>state.chat.chat)
   const dispatch = useDispatch()
 
+
+  const chatContainerRef = useRef(null);
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
+  }, [reducerChat]);
+
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -73,6 +81,7 @@ function Chatbot({ close }) {
       <div
         id="messageBody"
         className={styles.chatStyle}
+        ref={chatContainerRef}
         style={{ backgroundColor: newShade(theme, -50), color:reduxtheme.text }}
       >
         <div
