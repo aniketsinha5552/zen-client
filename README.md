@@ -37,31 +37,3 @@ REACT_APP_CHAT_API_KEY = [OpenAI api key]
 REACT_APP_FIREBASE_API_KEY = [firebase app config api key]
 REACT_APP_WEATHER_API_KEY = [open weather api key]
 ```
-
-
-### Commit lint
-
-- build
-- chore
-- ci
-- docs
-- feat
-- fix
-- perf
-- refactor
-- revert
-- style
-- test
-
-eg: `feat: [module name] new feature...`
-
-
-
-
-
-
-
-
-
-
-
