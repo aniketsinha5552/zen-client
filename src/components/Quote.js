@@ -33,7 +33,7 @@ export const Quote = () => {
     >
       {quote ? (
         <div id="quote">
-          <Icon icon="bi:quote" /> {quote.q} <em> {quote.a}</em>
+          <Icon icon="bi:quote" /> {quote.q} <Icon icon="iconoir:quote-solid"/>  <em> {quote.a}</em>
         </div>
       ) : (
         <></>

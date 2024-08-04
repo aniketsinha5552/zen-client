@@ -17,6 +17,7 @@ import soft_click from "../../assets/sounds/soft_click.wav";
 import styles from "./todos.module.css";
 import { useSelector } from "react-redux";
 import { toastify } from "../../utils/toastify";
+import paperBg from "../../assets/images/paper.png"
 
 const butonClick = new Audio(soft_click);
 butonClick.volume = 0.1;
@@ -124,15 +125,14 @@ function Todos() {
         <p className={styles.task} >{item.task} </p>
         <div>
           <IconButton title="Delete Task" onClick={() => deleteItem(item.id)}>
-            <Icon icon="iconoir:cancel" style={{color: reduxtheme.text}}/>
+            <Icon icon="iconoir:cancel"/>
           </IconButton>
           {!item.completed && (
             <IconButton
-              style={{color: reduxtheme.text}}
               title="Task Completed"
               onClick={() => changeStatus(item.id)}
             >
-              <Icon icon="material-symbols:check"  style={{color: reduxtheme.text}} />
+              <Icon icon="material-symbols:check" />
             </IconButton>
           )}
         </div>
@@ -201,6 +201,7 @@ function Todos() {
           All Tasks
         </button>
       </div>
+      <div className={styles.todo_list_container}>
       <input
         placeholder="Add an item"
         id="todoInput"
@@ -208,10 +209,11 @@ function Todos() {
         value={todoItem}
       ></input>
       <IconButton title="Add Item" onClick={addItem}>
-        <Icon icon="material-symbols:add" style={{color: reduxtheme.text}} />
+        <Icon icon="material-symbols:add" />
       </IconButton>
       <div className={styles.todo_list}>
-        <List>{todoList}</List>
+        {todoList}
+      </div>
       </div>
     </div>
   );

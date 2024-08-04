@@ -6,10 +6,6 @@ import { Dialog } from "@mui/material";
 import styles from "./weather.module.css"
 import { useSelector, useDispatch } from 'react-redux'
 
-// ab2b6979519f319ec9fbf465af790cb0  --------api_key
-// http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}   -----Location Co-ordinatesa
-// https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}    ----weather api
-
 export let weatherCardStyle = {
   fontSize: "30px",
   marginBottom: "2px",
@@ -61,8 +57,7 @@ export default function Weather() {
   return (
     <div className={styles.weatherCard} style={{backgroundColor: newShade(theme,-10)}} >
       {weatherData ? (
-        <>
-          <span>
+        <div className={styles.weatherCard_inner}>   
             <div
               className={styles.location}
               style={{backgroundColor: newShade(theme, -30),}}
@@ -74,6 +69,7 @@ export default function Weather() {
               {weatherData.name}
             </div>
            
+            <div className={styles.weatherDetails}>
             <img
               src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
               style={{ height: "50px" }}
@@ -83,8 +79,8 @@ export default function Weather() {
             <div style={{ fontSize: "23px",marginTop:"10px" }}>
               {weatherData.weather[0].description}
             </div>
-          </span>
-        </>
+            </div>
+        </div>
       ) : (
         <span>loading...</span>
       )}
