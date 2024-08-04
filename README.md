@@ -33,7 +33,7 @@ pass: `test@123`
 3. create a `.env` file in root folder
 4. sample .env
 ```
-REACT_APP_CHAT_API_KEY = [OpenAI api key]
-REACT_APP_FIREBASE_API_KEY = [firebase app config api key]
-REACT_APP_WEATHER_API_KEY = [open weather api key]
+REACT_APP_CHAT_API_KEY =  
+REACT_APP_FIREBASE_API_KEY = 
+REACT_APP_SERVER_URL = https://zen-server.vercel.app
 ```
